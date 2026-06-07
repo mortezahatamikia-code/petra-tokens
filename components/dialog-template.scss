@@ -1,0 +1,68 @@
+// dialog-template.scss
+.p-dialog-template-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  min-width: 12rem;
+  min-height: 6rem;
+  width: 100%;
+  border-start-start-radius: var(--p-radius-xl);
+  border-start-end-radius: var(--p-radius-xl);
+  background-color: var(--p-neutral-0);
+}
+
+.p-dialog-template-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.p-dialog-template-title {
+  color: var(--p-neutral-1000);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 800;
+}
+
+.p-dialog-template-close-button {
+  position: absolute;
+  top: 0.75rem;
+  inset-inline-end: 0.75rem;
+  font-size: 1rem;
+  color: var(--p-neutral-1000);
+  cursor: pointer;
+  background-color: transparent;
+  border-style: none;
+  padding: 0;
+  outline: none;
+}
+
+.p-dialog-template-description {
+  margin-block-start: 1rem;
+  color: var(--p-neutral-1000);
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.p-dialog-template-icon-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.p-dialog-template-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &,
+  & * {
+    text-align: center;
+  }
+
+  .p-dialog-template-icon-title-wrapper {
+    flex-direction: column;
+  }
+}

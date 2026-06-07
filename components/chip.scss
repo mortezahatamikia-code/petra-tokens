@@ -1,0 +1,13 @@
+.p-chip-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline-start: var(--p-feedback-close-gap, 0.25rem);
+  cursor: pointer;
+  opacity: var(--p-feedback-close-opacity, 0.7);
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}

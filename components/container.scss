@@ -1,0 +1,32 @@
+.p-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+.p-container.p-size-xs {
+  max-width: var(--p-screen-sm, 640px);
+}
+
+.p-container.p-size-sm {
+  max-width: var(--p-screen-sm, 640px);
+}
+
+.p-container.p-size-md {
+  max-width: var(--p-screen-md, 768px);
+}
+
+.p-container.p-size-lg {
+  max-width: var(--p-screen-lg, 1024px);
+}
+
+.p-container.p-size-xl {
+  max-width: var(--p-screen-xl, 1280px);
+}
+
+.p-container.p-size-fluid {
+  max-width: 100%;
+}

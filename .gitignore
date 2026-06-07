@@ -1,0 +1,5 @@
+dist
+node_modules
+npm-debug.log*
+petra-react-*.tgz
+petra-base-*.tgz

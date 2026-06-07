@@ -1,0 +1,46 @@
+// button.scss
+.p-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--p-transition-duration, 0.3s) var(--p-transition-easing, ease);
+  text-align: center;
+  outline: none;
+  min-height: max-content;
+  position: relative;
+  overflow: hidden;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.p-btn-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+
+  &[data-part="icon-start"] {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  &[data-part="icon-end"] {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+.p-btn-max-content {
+  width: max-content !important;
+  min-width: max-content !important;
+  height: max-content !important;
+}
+
+.p-btn-block {
+  display: flex;
+  width: 100% !important;
+  justify-content: space-between;
+}

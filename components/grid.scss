@@ -1,0 +1,50 @@
+.p-grid {
+  display: grid;
+
+  // Grid Template Columns
+  &.p-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  &.p-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  &.p-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  &.p-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  &.p-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  &.p-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  &.p-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+  // Grid Template Rows
+  &.p-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
+  &.p-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+  &.p-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+  &.p-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+  &.p-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
+
+  // Grid Flow
+  &.p-flow-row { grid-auto-flow: row; }
+  &.p-flow-col { grid-auto-flow: column; }
+  &.p-flow-dense { grid-auto-flow: dense; }
+  &.p-flow-row-dense { grid-auto-flow: row dense; }
+  &.p-flow-col-dense { grid-auto-flow: column dense; }
+
+  // Justify Items
+  &.p-justify-start { justify-items: start; }
+  &.p-justify-end { justify-items: end; }
+  &.p-justify-center { justify-items: center; }
+  &.p-justify-stretch { justify-items: stretch; }
+
+  // Align Items
+  &.p-align-start { align-items: flex-start; }
+  &.p-align-end { align-items: flex-end; }
+  &.p-align-center { align-items: center; }
+  &.p-align-stretch { align-items: stretch; }
+
+  // Inline Grid
+  &.p-inline-grid { display: inline-grid; }
+
+  // Gap Variables
+  --grid-gap: 0;
+  --grid-gap-x: 0;
+  --grid-gap-y: 0;
+
+  &.p-has-gap { gap: var(--grid-gap); }
+  &.p-has-gap-x { column-gap: var(--grid-gap-x); }
+  &.p-has-gap-y { row-gap: var(--grid-gap-y); }
+}

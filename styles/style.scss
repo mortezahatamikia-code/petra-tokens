@@ -1,0 +1,23 @@
+// petra-ui/src/assets/css/style.scss
+@use "utilities" as *;
+
+@import "./theme/light.css";
+
+.border-p-style {
+  border-style: var(--p-outline-border-style);
+}
+
+.border-p-width {
+  border-width: var(--p-outline-border-width);
+}
+
+.scrollbar-hidden {
+  overflow: hidden;
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Edge */
+}

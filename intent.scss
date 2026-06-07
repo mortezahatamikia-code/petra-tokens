@@ -1,0 +1,108 @@
+// assets/css/tokens/intent.scss
+@use "sass:map";
+
+@mixin apply-intent-variables($base,
+  $hover,
+  $active,
+  $light,
+  $fg,
+  $border,
+  $text) {
+  --p-intent-base: #{$base};
+  --p-intent-hover: #{$hover};
+  --p-intent-active: #{$active};
+  --p-intent-light: #{$light};
+  --p-intent-fg: #{$fg};
+  --p-intent-border: #{$border};
+  --p-intent-text: #{$text};
+}
+
+/* Primary */
+*[data-color="primary"] {
+  @include apply-intent-variables(var(--p-primary-500),
+    var(--p-primary-600),
+    var(--p-primary-700),
+    var(--p-primary-100),
+    var(--p-neutral-0),
+    var(--p-primary-500),
+    var(--p-primary-500));
+}
+
+/* Secondary */
+*[data-color="secondary"] {
+  @include apply-intent-variables(var(--p-secondary-500),
+    var(--p-secondary-600),
+    var(--p-secondary-700),
+    var(--p-secondary-100),
+    var(--p-neutral-0),
+    var(--p-secondary-500),
+    var(--p-secondary-500));
+}
+
+/* Success */
+*[data-color="success"] {
+  @include apply-intent-variables(var(--p-success-500),
+    var(--p-success-dark),
+    var(--p-success-dark),
+    var(--p-success-light),
+    var(--p-neutral-0),
+    var(--p-success-500),
+    var(--p-success-500));
+}
+
+/* Danger */
+*[data-color="danger"] {
+  @include apply-intent-variables(var(--p-danger-500),
+    var(--p-danger-dark),
+    var(--p-danger-dark),
+    var(--p-danger-light),
+    var(--p-neutral-0),
+    var(--p-danger-500),
+    var(--p-danger-500));
+}
+
+/* Warning */
+*[data-color="warning"] {
+  @include apply-intent-variables(var(--p-warning-500),
+    var(--p-warning-dark),
+    var(--p-warning-dark),
+    var(--p-warning-light),
+    var(--p-neutral-0),
+    var(--p-warning-500),
+    var(--p-warning-500));
+}
+
+/* Info */
+*[data-color="info"] {
+  @include apply-intent-variables(var(--p-info-500),
+    var(--p-info-dark),
+    var(--p-info-dark),
+    var(--p-info-light),
+    var(--p-neutral-0),
+    var(--p-info-500),
+    var(--p-info-500));
+}
+
+/* Neutral */
+*[data-color="neutral"] {
+  @include apply-intent-variables(var(--p-neutral-500),
+    var(--p-neutral-600),
+    var(--p-neutral-700),
+    var(--p-neutral-200),
+    var(--p-neutral-0),
+    var(--p-neutral-500),
+    var(--p-neutral-500));
+}
+
+/* Transparent */
+*[data-color="transparent"] {
+  @include apply-intent-variables(transparent,
+    transparent,
+    transparent,
+    transparent,
+    var(--p-neutral-500),
+    transparent,
+    var(--p-neutral-500));
+  --p-intent-hover: transparent;
+  --p-intent-text-hover: var(--p-neutral-800);
+}

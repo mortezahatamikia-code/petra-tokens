@@ -1,0 +1,89 @@
+// ============================================
+// Petra Common Layout Utilities
+// ============================================
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.shadow-sm {
+  --base-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  box-shadow: var(--p-shadow, var(--base-shadow));
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled="true"]):not([data-active="true"]) {
+      box-shadow: var(--p-shadow-hover, var(--p-shadow, var(--base-shadow)));
+    }
+  }
+
+  &[data-active="true"] {
+    box-shadow: var(--p-shadow-active, var(--p-shadow, var(--base-shadow)));
+  }
+
+  &[data-disabled="true"] {
+    box-shadow: var(--p-shadow-disabled, none);
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

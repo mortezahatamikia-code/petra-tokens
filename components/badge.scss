@@ -1,0 +1,26 @@
+// badge.scss (Structural Styles)
+
+.p-badge {
+  white-space: nowrap;
+  width: max-content;
+  height: max-content;
+  gap: var(--p-gap-md);
+  padding-inline: var(--p-padding-x-md);
+  padding-block: var(--p-padding-y-md);
+
+  &,
+  & * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+  }
+
+  & * {
+    font-size: inherit;
+  }
+
+  &-no-padding {
+    padding: 0;
+  }
+}

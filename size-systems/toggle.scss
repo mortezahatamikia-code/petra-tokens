@@ -1,0 +1,37 @@
+// petra-ui/src/assets/css/tokens/size-systems/toggle.scss
+[data-size-system="toggle"] {
+  --psz-sub: calc((var(--psz-src-size) / 2) - 0.25rem);
+
+  --p-toggle-gap: 0.5rem;
+  --p-toggle-border-width: 1px;
+  --p-toggle-radio-border-width: 1.5px;
+  --p-toggle-disabled-opacity: 0.6;
+  --p-toggle-tic-stroke: 2.5;
+
+
+  [data-part="switch-indicator-wrapper"] {
+    transform: translateX(0);
+  }
+
+  [data-part="checkbox-box"],
+  [data-part="radio-box"] {
+    width: var(--psz-sub);
+    height: var(--psz-sub);
+    min-width: 0;
+  }
+
+  [data-part="switch-track"] {
+    min-width: var(--psz-src-size);
+    min-height: calc(var(--psz-sub) + var(--p-padding-y-lg));
+  }
+
+  [data-part="switch-indicator"] {
+    width: var(--psz-sub);
+    height: var(--psz-sub);
+  }
+
+  &[data-state="checked"] [data-part="switch-indicator-wrapper"],
+  [data-state="checked"] [data-part="switch-indicator-wrapper"] {
+    transform: translateX(calc(100% - var(--psz-sub)));
+  }
+}

@@ -1,0 +1,108 @@
+// ============================================
+// petra-tokens/psz-sizes.scss
+// Petra Size System — psz-{size} Bridge Variables
+// ============================================
+
+.psz-outline {
+  border-style: var(--p-outline-border-style);
+  border-width: var(--p-outline-border-width);
+  border-color: var(--p-outline-border-color, currentColor);
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled="true"]):not([data-active="true"]) {
+      border-color: var(--p-outline-border-color-hover, var(--p-outline-border-color, currentColor));
+    }
+  }
+
+  &[data-active="true"] {
+    border-color: var(--p-outline-border-color-active, var(--p-outline-border-color, currentColor));
+  }
+
+  &[data-disabled="true"] {
+    border-color: var(--p-outline-border-color-disabled, var(--p-outline-border-color, transparent));
+  }
+}
+
+.psz-p {
+  padding: var(--psz-py) var(--psz-px);
+}
+
+.psz-p-tight {
+  padding: calc(var(--psz-py) / 2) calc(var(--psz-px) / 2);
+}
+
+.psz-p-slim {
+  padding: calc(var(--psz-py) / 4) var(--psz-px);
+}
+
+.psz-gap-tight {
+  gap: calc(var(--psz-gap) / 2);
+}
+
+.psz-gap-slim {
+  gap: calc(var(--psz-gap) / 4);
+}
+
+.psz-sub-text {
+  font-size: var(--psz-sub-ts);
+  line-height: var(--psz-sub-tl);
+}
+
+// Breakpoints
+$p-screen-sm: 640px;
+$p-screen-md: 768px;
+$p-screen-lg: 1024px;
+$p-screen-xl: 1280px;
+
+// Mixin to generate size classes
+@mixin psz-size-class($size) {
+  --psz-src-size: var(--p-size-#{$size});
+  --psz-base-size: var(--p-base-size-#{$size});
+  --psz-px: var(--p-padding-x-#{$size});
+  --psz-py: var(--p-padding-y-#{$size});
+  --psz-gap: var(--p-gap-#{$size});
+  --psz-sub-ts: var(--p-sub-text-size-#{$size});
+  --psz-sub-tl: var(--p-sub-text-leading-#{$size});
+  --psz-radius: var(--p-radius-#{$size});
+
+  font-size: var(--p-text-size-#{$size});
+  line-height: var(--p-text-leading-#{$size});
+  gap: var(--psz-gap);
+
+  &:not(.psz-auto) {
+    height: var(--p-size-#{$size});
+    min-width: var(--p-size-#{$size});
+  }
+
+  .psz-we,
+  &.psz-we {
+    width: var(--p-size-#{$size});
+  }
+}
+
+// Generate base sizes
+$sizes: xs, sm, md, lg, xl;
+
+@each $size in $sizes {
+  .psz-#{$size} {
+    @include psz-size-class($size);
+  }
+}
+
+// Generate responsive sizes (e.g. sm:psz-md)
+$breakpoints: (
+  "sm": $p-screen-sm,
+  "md": $p-screen-md,
+  "lg": $p-screen-lg,
+  "xl": $p-screen-xl
+);
+
+@each $bp-name, $bp-width in $breakpoints {
+  @media (min-width: $bp-width) {
+    @each $size in $sizes {
+      .#{$bp-name}\:psz-#{$size} {
+        @include psz-size-class($size);
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.p-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--p-z-index-overlay, 1040);
+  box-sizing: border-box;
+}
+
+.p-overlay.p-fixed {
+  position: fixed;
+}
+
+/* Dialog backdrop variant — used by PetraPortal */
+.p-overlay-dialog-backdrop {
+  animation: p-dialog-fade-in var(--p-transition-duration, 0.3s) forwards;
+  transition: opacity var(--p-transition-duration, 0.3s) ease;
+}
+
+.p-overlay-dialog-backdrop.p-overlay-closing {
+  opacity: 0;
+  animation: p-dialog-fade-out var(--p-transition-duration, 0.3s) ease-in forwards;
+  transition: opacity var(--p-transition-duration, 0.3s) ease;
+}

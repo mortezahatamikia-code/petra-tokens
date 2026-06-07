@@ -1,0 +1,61 @@
+// divider.scss
+.p-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &.vertical {
+    flex-direction: column;
+    height: 100%;
+    width: auto;
+    min-height: 100%;
+    
+    .p-divider-line {
+      min-height: 1rem;
+    }
+  }
+
+  &-line {
+    background-color: var(--p-neutral-300);
+    
+    &:not(.vertical) {
+      flex: 1 1 0%;
+    }
+    
+    &.vertical {
+      width: 1px;
+      flex: none;
+      min-height: 1rem;
+    }
+
+    &.dashed {
+      background: none;
+      border-style: dashed;
+      border-color: currentColor;
+      
+      &:not(.vertical) {
+        border-top-width: 1px;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+      }
+      
+      &.vertical {
+        border-left-width: 1px;
+        border-top: none;
+        border-right: none;
+        border-bottom: none;
+      }
+    }
+  }
+
+  &-slot {
+    display: flex;
+    padding-inline: 0.5rem;
+    
+    .p-divider.vertical & {
+      padding-inline: 0;
+      padding-block: 0.5rem;
+    }
+  }
+}

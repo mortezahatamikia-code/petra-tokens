@@ -1,0 +1,32 @@
+// assets/css/tokens/base.scss
+:root,
+*[data-theme="light"] {
+  --p-text-default: var(--p-neutral-800);
+  --p-text-muted: var(--p-neutral-500);
+}
+
+*[data-disabled="true"] {
+  color: var(--p-text-color-disabled);
+  border-color: var(--p-border-color-disabled);
+
+  &:not([data-disabled-transparent="true"]) {
+    background-color: var(--p-bg-color-disabled);
+  }
+}
+
+*[data-rounded="true"] {
+  border-radius: var(--p-radius-full);
+}
+
+*[data-sharp="true"] {
+  border-radius: 0;
+}
+
+*[data-rounded="false"][data-sharp="false"] {
+  border-radius: var(--psz-radius, var(--p-radius));
+}
+
+*:focus-visible {
+  outline: 2px solid var(--p-border-color-focus, currentColor);
+  outline-offset: 2px;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@petra-base/tokens",
+  "version": "0.0.1-alpha",
+  "type": "module",
+  "exports": {
+    "./*": "./dist/*"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^6.0.3",
+    "glob": "^13.0.0",
+    "postcss": "^8.4.49",
+    "cssnano": "^7.0.6",
+    "sass": "^1.83.0"
+  }
+}
