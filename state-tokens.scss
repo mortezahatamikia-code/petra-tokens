@@ -20,6 +20,17 @@
   --p-text-color-disabled: var(--p-neutral-0);
   --p-border-color-disabled: var(--p-neutral-300);
 
+  /* Error state variables */
+  --p-bg-color-error: var(--p-bg-color);
+  --p-text-color-error: var(--p-text-color);
+  --p-border-color-error: var(--p-border-color);
+
+  /* Loading state variables */
+  --p-bg-color-loading: var(--p-bg-color);
+  --p-text-color-loading: var(--p-text-color);
+  --p-border-color-loading: var(--p-border-color);
+  --p-opacity-loading: 0.6;
+
   /* Placeholder colors — consumed by field.scss */
   --p-placeholder-color: var(--p-neutral-500);
   --p-placeholder-color-disabled: var(--p-neutral-300);

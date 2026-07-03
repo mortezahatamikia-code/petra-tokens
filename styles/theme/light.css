@@ -1,9 +1,11 @@
+/* petra-tokens/styles/theme/light.css */
 @layer petra-theme {
   :root {
-    /* Brand Seeds — oklch format */
-    --p-primary: oklch(0.6 0.15 240);  /* Blue — جایگزین rgba(37,161,203,1) */
-    --p-secondary: oklch(0.55 0.2 350); /* Pink */
-    --p-neutral: oklch(0.5 0.02 260);   /* Gray */
+    --p-primary: oklch(0.6 0.15 240);
+    --p-secondary: oklch(0.55 0.2 350);
+    /* Pink */
+    --p-neutral: oklch(0.5 0.02 260);
+    /* Gray */
 
     --p-danger-seed: oklch(0.6 0.18 20);
     --p-success-seed: oklch(0.7 0.19 140);
@@ -35,7 +37,8 @@
     --p-secondary-900: color-mix(in oklch, var(--p-secondary) 40%, black);
 
     /* Algorithmic Legacy Neutral Scale (0-1000) */
-    --p-neutral-0: #ffffff; /* Exact pure white */
+    --p-neutral-0: #ffffff;
+    /* Exact pure white */
     --p-neutral-50: color-mix(in oklch, var(--p-neutral) 5%, white);
     --p-neutral-100: color-mix(in oklch, var(--p-neutral) 10%, white);
     --p-neutral-200: color-mix(in oklch, var(--p-neutral) 25%, white);
@@ -47,7 +50,8 @@
     --p-neutral-800: color-mix(in oklch, var(--p-neutral) 55%, black);
     --p-neutral-900: color-mix(in oklch, var(--p-neutral) 40%, black);
     --p-neutral-950: color-mix(in oklch, var(--p-neutral) 25%, black);
-    --p-neutral-1000: #000000; /* Exact pure black */
+    --p-neutral-1000: #000000;
+    /* Exact pure black */
 
     /* Algorithmic Legacy Danger Scale */
     --p-danger-500: var(--p-danger-seed);

@@ -1,4 +1,4 @@
-/* Base Animations */
+/* petra-tokens/styles/animations.scss */
 
 .p-circle-loading {
   border-radius: 100%;
@@ -23,6 +23,7 @@
     max-height: 0;
     opacity: 0;
   }
+
   100% {
     max-height: 1e9px;
     opacity: 1;
@@ -37,6 +38,7 @@
     opacity: 0;
     transform: scale(0.96);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -49,6 +51,7 @@
     opacity: 1;
     transform: scale(1);
   }
+
   to {
     opacity: 0;
     transform: scale(0.96);
@@ -60,6 +63,7 @@
     opacity: 0;
     transform: translateY(-50px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -71,6 +75,7 @@
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+
   to {
     opacity: 0;
     transform: translateY(-50px) scale(0.95);
@@ -82,6 +87,7 @@
     opacity: 0;
     transform: translateY(50px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -93,6 +99,7 @@
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+
   to {
     opacity: 0;
     transform: translateY(50px) scale(0.95);
@@ -105,6 +112,7 @@
   from {
     transform: translateY(100%);
   }
+
   to {
     transform: translateY(0);
   }
@@ -114,6 +122,7 @@
   from {
     transform: translateY(0);
   }
+
   to {
     transform: translateY(100%);
   }
@@ -123,6 +132,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -132,6 +142,7 @@
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -140,7 +151,10 @@
 
 
 /* Disable CSS animations for elements controlled by Framer Motion */
-[data-motion="true"], [data-motion="true"]::before, [data-motion="true"]::after, [data-motion="true"] * {
+[data-motion="true"],
+[data-motion="true"]::before,
+[data-motion="true"]::after,
+[data-motion="true"] * {
   animation: none !important;
   transition: none !important;
 }

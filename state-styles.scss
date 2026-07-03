@@ -5,17 +5,32 @@
   border: 1px solid transparent;
 
   @media (hover: hover) {
-    &:hover:not([data-disabled="true"]):not([data-active="true"]) {
+    &:hover:not([data-disabled="true"]):not([data-loading="true"]):not([data-error="true"]):not([data-active="true"]) {
       background-color: var(--p-bg-color-hover, var(--p-bg-color));
       color: var(--p-text-color-hover, var(--p-text-color));
       border-color: var(--p-border-color-hover, var(--p-border-color));
     }
   }
 
-  &[data-active="true"] {
+  &[data-active="true"]:not([data-disabled="true"]):not([data-loading="true"]):not([data-error="true"]) {
     background-color: var(--p-bg-color-active, var(--p-bg-color));
     color: var(--p-text-color-active, var(--p-text-color));
     border-color: var(--p-border-color-active, var(--p-border-color));
+  }
+
+  &[data-error="true"]:not([data-disabled="true"]):not([data-loading="true"]) {
+    background-color: var(--p-bg-color-error, var(--p-bg-color));
+    color: var(--p-text-color-error, var(--p-text-color));
+    border-color: var(--p-border-color-error, var(--p-border-color));
+  }
+
+  &[data-loading="true"]:not([data-disabled="true"]) {
+    background-color: var(--p-bg-color-loading, var(--p-bg-color));
+    color: var(--p-text-color-loading, var(--p-text-color));
+    border-color: var(--p-border-color-loading, var(--p-border-color));
+    opacity: var(--p-opacity-loading, 0.6);
+    pointer-events: none;
+    cursor: default;
   }
 
   &[data-disabled="true"] {
@@ -31,17 +46,32 @@
   border: 1px solid var(--p-border-color);
 
   @media (hover: hover) {
-    &:hover:not([data-disabled="true"]):not([data-active="true"]) {
+    &:hover:not([data-disabled="true"]):not([data-loading="true"]):not([data-error="true"]):not([data-active="true"]) {
       background-color: var(--p-bg-color-hover, transparent);
       color: var(--p-text-color-hover, var(--p-text-color));
       border-color: var(--p-border-color-hover, var(--p-border-color));
     }
   }
 
-  &[data-active="true"] {
+  &[data-active="true"]:not([data-disabled="true"]):not([data-loading="true"]):not([data-error="true"]) {
     background-color: var(--p-bg-color-active, var(--p-bg-color));
     color: var(--p-text-color-active, var(--p-text-color));
     border-color: var(--p-border-color-active, var(--p-border-color));
+  }
+
+  &[data-error="true"]:not([data-disabled="true"]):not([data-loading="true"]) {
+    background-color: var(--p-bg-color-error, transparent);
+    color: var(--p-text-color-error, var(--p-text-color));
+    border-color: var(--p-border-color-error, var(--p-border-color));
+  }
+
+  &[data-loading="true"]:not([data-disabled="true"]) {
+    background-color: var(--p-bg-color-loading, transparent);
+    color: var(--p-text-color-loading, var(--p-text-color));
+    border-color: var(--p-border-color-loading, var(--p-border-color));
+    opacity: var(--p-opacity-loading, 0.6);
+    pointer-events: none;
+    cursor: default;
   }
 
   &[data-disabled="true"] {
@@ -57,14 +87,25 @@
   border: 1px solid transparent;
 
   @media (hover: hover) {
-    &:hover:not([data-disabled="true"]):not([data-active="true"]) {
+    &:hover:not([data-disabled="true"]):not([data-loading="true"]):not([data-error="true"]):not([data-active="true"]) {
       background-color: var(--p-bg-color-hover, transparent);
       color: var(--p-text-color-hover, var(--p-text-color));
     }
   }
 
-  &[data-active="true"] {
+  &[data-active="true"]:not([data-disabled="true"]):not([data-loading="true"]):not([data-error="true"]) {
     color: var(--p-text-color-active, var(--p-text-color));
+  }
+
+  &[data-error="true"]:not([data-disabled="true"]):not([data-loading="true"]) {
+    color: var(--p-text-color-error, var(--p-text-color));
+  }
+
+  &[data-loading="true"]:not([data-disabled="true"]) {
+    color: var(--p-text-color-loading, var(--p-text-color));
+    opacity: var(--p-opacity-loading, 0.6);
+    pointer-events: none;
+    cursor: default;
   }
 
   &[data-disabled="true"] {

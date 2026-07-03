@@ -35,19 +35,21 @@ This SCSS mixin is the engine. It takes a palette color and assigns it to generi
 
 ### Layer 3: Color Systems (The "Context")
 **Location**: `src/assets/css/tokens/color-systems/*.scss`  
-**Responsibility**: Resolving the Semantic Conflict. Each color system decides **what values** to assign to a small set of **generic state tokens** (`--p-bg-color`, `--p-text-color`, `--p-border-color` and their `-hover`, `-focus`, `-active`, `-disabled` variants). The actual application of these tokens to CSS properties is done by **`state-styles.scss`**, a global style layer that targets elements based on their `data-variant` attribute. This replaces the old approach where each variant had its own set of ad‑hoc tokens and a separate `variants.scss` file.
+**Responsibility**: Resolving the Semantic Conflict. Each color system decides **what values** to assign to a small set of **generic state tokens** (`--p-bg-color`, `--p-text-color`, `--p-border-color` and their hover, active, error, loading, and disabled variants). The actual application of these tokens to CSS properties is done by **`state-styles.scss`**, a global style layer that targets elements based on their `data-variant` attribute.
 
 **The State Tokens (defined in `state-tokens.scss` with sensible defaults):**
 - `--p-bg-color`, `--p-text-color`, `--p-border-color`
 - `--p-bg-color-hover`, `--p-text-color-hover`, `--p-border-color-hover`
 - `--p-bg-color-focus`, `--p-text-color-focus`, `--p-border-color-focus`
 - `--p-bg-color-active`, `--p-text-color-active`, `--p-border-color-active`
+- `--p-bg-color-error`, `--p-text-color-error`, `--p-border-color-error`
+- `--p-bg-color-loading`, `--p-text-color-loading`, `--p-border-color-loading`, `--p-opacity-loading`
 - `--p-bg-color-disabled`, `--p-text-color-disabled`, `--p-border-color-disabled`
 
 **How it works together:**  
-color systems define the token values for each context (action, field, …).  
-`state-styles.scss` consumes those tokens and writes the actual `background`, `color`, `border-color` rules for `[data-variant="solid"]`, `[data-variant="outline"]`, and `[data-variant="text"]`, including their `:hover`, `[data-active]`, and `[data-disabled]` states.  
-Additionally, each color system may directly style its child components via `data-part` selectors (e.g., `[data-part="checkbox-box"]`), keeping the component CSS completely free of colour logic.
+Color systems define the token values for each context (action, field, …).  
+`state-styles.scss` consumes those tokens and writes the actual `background`, `color`, `border-color` rules for `[data-variant="solid"]`, `[data-variant="outline"]`, and `[data-variant="text"]` using a strict CSS cascade priority (`disabled > loading > error > active > hover`).  
+Additionally, instead of hardcoding styles inside `[data-part]` selectors (e.g. `[data-part="checkbox-box"]`), color systems abstract styling into component-specific custom properties (e.g. `--p-checkbox-bg`), allowing flexible, point-specific overrides.
 
 #### System A: Action (`data-color-system="action"`)
 *   **For**: Buttons, IconButtons, Clickable Chips.
@@ -62,23 +64,54 @@ Additionally, each color system may directly style its child components via `dat
 *   **Logic**: Low friction.
     *   `--p-bg-color`: `neutral-100` (Subtle).
     *   `--p-border-color-focus`: `--p-intent-base`.
-    *   **Disabled**: Uses Light Gray tokens, keeping forms clean.
-    *   Sub‑elements like `label`, `helper`, `counter` are styled directly via `[data-part="…"]` selectors inside the color system.
+    *   Sub‑elements like `label`, `helper`, `counter` are styled via component-specific variables (e.g. `--p-field-label-color`) mapped to `[data-part="…"]` selectors inside the color system.
 
 #### System C: Feedback (`data-color-system="feedback"`)
 *   **For**: Badges, Alerts, Toasts.
 *   **Logic**: Information density.
-    *   `--p-bg-color`: `--p-intent-light` (Tinted).
-    *   `--p-text-color`: `--p-intent-text` (Dark text).
-    *   **Reasoning**: A solid primary badge handles text poorly; a tinted badge is readable and "soft".
+*   **Disabled**: Uses Dark Gray tokens.
+*   **Reasoning**: A solid primary badge handles text poorly; a tinted badge is readable and "soft".
 
 #### System D: Toggle (`data-color-system="toggle"`)
 *   **For**: Checkbox, Radio, Switch.
 *   **Logic**: Selection states.
-    *   Unchecked: transparent background, neutral border.
-    *   Checked / Indeterminate: intent‑coloured background, white indicator.
-    *   **Disabled**: neutral grays.
-    *   Directly controls `data-part` elements like `checkbox-box`, `radio-dot`, `switch-track`, etc.
+*   **Disabled**: neutral grays.
+*   **Reasoning**: unchecked is transparent, checked/indeterminate is intent-coloured.
+*   **Structure**: Styled using specific part variables (e.g. `--p-checkbox-bg`, `--p-switch-track-bg`, `--p-switch-track-width`) mapped to `[data-part="..."]` elements.
+
+---
+
+## 🏷️ Naming Conventions & Token Examples
+
+To keep the system predictable, strict naming conventions are enforced across all three layers.
+
+### 1. Base Tokens (Layer 1)
+**Format:** `--p-[color]-[shade]`
+**Examples:**
+* `--p-primary-500` (The core brand color)
+* `--p-neutral-100` (A light gray background)
+* `--p-danger-900` (A dark red for text)
+
+### 2. Intent Tokens (Layer 2)
+**Format:** `--p-intent-[slot]`
+**Examples:**
+* `--p-intent-base`: Maps to the 500-level color (e.g., `--p-primary-500`).
+* `--p-intent-light`: Maps to the 100-level color for soft backgrounds (e.g., `--p-primary-100`).
+* `--p-intent-text`: Maps to a high-contrast text color, often white or a 900-level color depending on the intent.
+
+### 3. Generic State Tokens (Layer 3 - Color Systems)
+**Format:** `--p-[css-property]-[state]`
+**Examples:**
+* `--p-bg-color`: The default background color.
+* `--p-bg-color-hover`: The background color on hover.
+* `--p-text-color-disabled`: The text color when the element is disabled.
+* `--p-border-color-focus`: The border color when focused.
+
+### Real-World Example: "Primary Button" vs "Primary Input"
+When a user sets `color="primary"` on a Button and an Input:
+1. **Intent Layer** sets: `--p-intent-base: var(--p-primary-500)`.
+2. **Button (`action` system)** maps: `--p-bg-color` to `--p-intent-base` (so the button is solid primary).
+3. **Input (`field` system)** maps: `--p-border-color-focus` to `--p-intent-base` (so the input border turns primary only on focus, keeping the background neutral).
 
 ---
 

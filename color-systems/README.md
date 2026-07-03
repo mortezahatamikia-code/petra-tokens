@@ -162,19 +162,19 @@ When a field has `data-color` (e.g., `danger`, `success`) the following override
 | `--p-border-color-hover` | `var(--p-intent-base)` | Hover border matches intent. |
 | (text colour) | `var(--p-intent-text)` | All text inherits the intent’s contrast colour, except the label stays neutral. |
 
-### Sub‑part Selectors
+### Sub‑part Variables
 
-The field system also directly styles child elements with specific `data-part` attributes:
+Instead of styling parts directly, the field system exposes specific variables mapped to the child elements:
 
-| Selector | Property | Description |
-| :--- | :--- | :--- |
-| `[data-part="label"]` | `color: var(--p-text-color)` | Label colour. |
-| `[data-part="label-helper"]` | `color: var(--p-text-color-muted)` | Small text beside the label. |
-| `[data-part="counter"]` | `color: var(--p-text-color-muted)` | Character counter colour. |
-| `[data-part="helper"]` | `color: var(--p-text-color-muted)` | Help text below the input. |
-| `[data-part="container"]` | `border-color: var(--p-border-color)` | Input wrapper border. |
+| Selector | Property | Variable | Default | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `[data-part="label"]` | `color` | `--p-field-label-color` | `var(--p-text-color)` | Label colour. |
+| `[data-part="label-helper"]` | `color` | `--p-field-label-helper-color` | `var(--p-text-color-muted)` | Small text beside the label. |
+| `[data-part="counter"]` | `color` | `--p-field-counter-color` | `var(--p-text-color-muted)` | Character counter colour. |
+| `[data-part="helper"]` | `color` | `--p-field-helper-color` | `var(--p-text-color-muted)` | Help text below the input. |
+| `[data-part="container"]` | `border-color` | `--p-field-container-border-color` | `var(--p-border-color)` | Input wrapper border. |
 
-Disabled overrides exist for each sub‑part using `--p-text-color-disabled` etc.
+These variables are overridden in states like `[data-disabled]` or when specific intents are used.
 
 ### Outline Variant
 
@@ -230,29 +230,31 @@ Switch uses `[data-part="switch-wrapper"]` to fine‑tune its track and knob col
 | Disabled | `--p-bg-color` | `var(--p-neutral-200)` |
 | Disabled & checked | `--p-bg-color` | `var(--p-primary-700)` |
 
-### Direct Part Mappings
+### Part Variables and Mappings
 
-These are directly applied to the child elements:
+These variables are mapped to the child elements to allow point-specific overrides:
 
-| Selector | Property | Description |
-| :--- | :--- | :--- |
-| `[data-part="checkbox-box"]` | `background-color`, `border-color` | Checkbox box. |
-| `[data-part="radio-box"]` | `background-color`, `border-color` | Radio box. |
-| `[data-part="checkbox-label"]`, `[data-part="radio-label"]` | `color` | Label colour. |
-| `[data-part="checkbox-tic"]` | `stroke` | Checkmark colour. |
-| `[data-part="checkbox-mixed-line"]` | `background-color` | Indeterminate line. |
-| `[data-part="radio-dot"]` | `background-color` | Radio dot. |
-| `[data-part="radio-box"][data-state="checked"][data-variant="thick"]` | `box-shadow` | Thick variant ring. |
-| `[data-part="switch-track"]` | `background-color` | Switch track. |
-| `[data-part="switch-bg-inner"]` | `background-color` | Switch sliding background. |
-| `[data-part="switch-indicator"]` | `background-color` | Switch knob. |
+| Selector | Property | Variable | Default | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `[data-part="checkbox-box"]` | `background-color` / `border-color` | `--p-checkbox-bg` / `--p-checkbox-border-color` | `var(--p-bg-color)` / `var(--p-border-color)` | Checkbox box. |
+| `[data-part="radio-box"]` | `background-color` / `border-color` | `--p-radio-bg` / `--p-radio-border-color` | `var(--p-bg-color)` / `var(--p-border-color)` | Radio box. |
+| `[data-part="checkbox-label"]` | `color` | `--p-checkbox-label-color` | `var(--p-text-color)` | Label colour. |
+| `[data-part="radio-label"]` | `color` | `--p-radio-label-color` | `var(--p-text-color)` | Label colour. |
+| `[data-part="checkbox-tic"]` | `stroke` | `--p-checkbox-tic-color` | `var(--p-toggle-indicator-color)` | Checkmark colour. |
+| `[data-part="checkbox-mixed-line"]` | `background-color` | `--p-checkbox-mixed-line-color` | `var(--p-toggle-indicator-color)` | Indeterminate line. |
+| `[data-part="radio-dot"]` | `background-color` | `--p-radio-dot-color` | `var(--p-toggle-indicator-color)` | Radio dot. |
+| `[data-part="radio-box"][data-state="checked"][data-variant="thick"]` | `box-shadow` | `--p-radio-thick-shadow-color` | `var(--p-toggle-indicator-color)` | Thick variant ring. |
+| `[data-part="switch-track"]` | `background-color` | `--p-switch-track-bg` | `var(--p-bg-color)` | Switch track. |
+| `[data-part="switch-bg-inner"]` | `background-color` | `--p-switch-bg-inner-bg` | `var(--p-bg-color)` | Switch sliding background. |
+| `[data-part="switch-indicator"]` | `background-color` | `--p-switch-indicator-bg` | `var(--p-toggle-indicator-color)` | Switch knob. |
 
 ### Focus Visible
 
-| Selector | Property | Default |
-| :--- | :--- | :--- |
-| `[data-part="checkbox-box"]`, etc. | `border-color` | `var(--p-border-color-hover)` |
-| | `box-shadow` | `0 0 0 2px var(--p-ring-color-focus)` |
+| Selector | Property | Variable | Default |
+| :--- | :--- | :--- | :--- |
+| `[data-part="checkbox-box"]` | `border-color` / `box-shadow` | `--p-checkbox-border-color-focus` / `--p-checkbox-shadow-focus` | `var(--p-border-color-hover)` / `0 0 0 2px var(--p-ring-color-focus)` |
+| `[data-part="radio-box"]` | `border-color` / `box-shadow` | `--p-radio-border-color-focus` / `--p-radio-shadow-focus` | `var(--p-border-color-hover)` / `0 0 0 2px var(--p-ring-color-focus)` |
+| `[data-part="switch-track"]` | `border-color` / `box-shadow` | `--p-switch-border-color-focus` / `--p-switch-shadow-focus` | `var(--p-border-color-hover)` / `0 0 0 2px var(--p-ring-color-focus)` |
 
 ---
 

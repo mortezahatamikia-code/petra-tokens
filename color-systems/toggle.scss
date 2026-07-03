@@ -1,4 +1,4 @@
-// interaction-system/toggle.scss
+// petra-tokens/color-systems/toggle.scss
 @use "../intent" as *;
 
 [data-color-system="toggle"] {
@@ -8,6 +8,30 @@
   --p-border-color: var(--p-neutral-500);
   --p-bg-color: transparent;
   --p-toggle-indicator-color: var(--p-intent-base);
+
+  /* Component specific variables for parts */
+  --p-checkbox-bg: var(--p-bg-color);
+  --p-checkbox-border-color: var(--p-border-color);
+  --p-checkbox-label-color: var(--p-text-color);
+  --p-checkbox-tic-color: var(--p-toggle-indicator-color);
+  --p-checkbox-mixed-line-color: var(--p-toggle-indicator-color);
+
+  --p-radio-bg: var(--p-bg-color);
+  --p-radio-border-color: var(--p-border-color);
+  --p-radio-label-color: var(--p-text-color);
+  --p-radio-dot-color: var(--p-toggle-indicator-color);
+  --p-radio-thick-shadow-color: var(--p-toggle-indicator-color);
+
+  --p-switch-track-bg: var(--p-bg-color);
+  --p-switch-bg-inner-bg: var(--p-bg-color);
+  --p-switch-indicator-bg: var(--p-toggle-indicator-color);
+  
+  --p-checkbox-border-color-focus: var(--p-border-color-hover);
+  --p-checkbox-shadow-focus: 0 0 0 2px var(--p-ring-color-focus);
+  --p-radio-border-color-focus: var(--p-border-color-hover);
+  --p-radio-shadow-focus: 0 0 0 2px var(--p-ring-color-focus);
+  --p-switch-border-color-focus: var(--p-border-color-hover);
+  --p-switch-shadow-focus: 0 0 0 2px var(--p-ring-color-focus);
 
   &[data-state="checked"] {
     --p-bg-color: var(--p-intent-base);
@@ -55,52 +79,66 @@
     }
   }
 
-  [data-part="checkbox-box"],
-  [data-part="radio-box"] {
-    background-color: var(--p-bg-color);
-    border-color: var(--p-border-color);
+  [data-part="checkbox-box"] {
+    background-color: var(--p-checkbox-bg);
+    border-color: var(--p-checkbox-border-color);
   }
 
-  [data-part="checkbox-label"],
+  [data-part="radio-box"] {
+    background-color: var(--p-radio-bg);
+    border-color: var(--p-radio-border-color);
+  }
+
+  [data-part="checkbox-label"] {
+    color: var(--p-checkbox-label-color);
+  }
+
   [data-part="radio-label"] {
-    color: var(--p-text-color);
+    color: var(--p-radio-label-color);
   }
 
   [data-part="checkbox-tic"] {
-    stroke: var(--p-toggle-indicator-color);
+    stroke: var(--p-checkbox-tic-color);
   }
 
   [data-part="checkbox-mixed-line"] {
-    background-color: var(--p-toggle-indicator-color);
+    background-color: var(--p-checkbox-mixed-line-color);
   }
 
   [data-part="radio-dot"] {
-    background-color: var(--p-toggle-indicator-color);
+    background-color: var(--p-radio-dot-color);
   }
 
   [data-part="radio-box"][data-state="checked"][data-variant="thick"] {
-    box-shadow: inset 0 0 0 0.15em var(--p-toggle-indicator-color);
+    box-shadow: inset 0 0 0 0.15em var(--p-radio-thick-shadow-color);
   }
 
   [data-part="switch-track"] {
-    background-color: var(--p-bg-color);
+    background-color: var(--p-switch-track-bg);
   }
 
   [data-part="switch-bg-inner"] {
-    background-color: var(--p-bg-color);
+    background-color: var(--p-switch-bg-inner-bg);
   }
 
   [data-part="switch-indicator"] {
-    background-color: var(--p-toggle-indicator-color);
+    background-color: var(--p-switch-indicator-bg);
   }
 
   &:focus-visible {
+    [data-part="checkbox-box"] {
+      border-color: var(--p-checkbox-border-color-focus);
+      box-shadow: var(--p-checkbox-shadow-focus);
+    }
 
-    [data-part="checkbox-box"],
-    [data-part="radio-box"],
+    [data-part="radio-box"] {
+      border-color: var(--p-radio-border-color-focus);
+      box-shadow: var(--p-radio-shadow-focus);
+    }
+
     [data-part="switch-track"] {
-      border-color: var(--p-border-color-hover);
-      box-shadow: 0 0 0 2px var(--p-ring-color-focus);
+      border-color: var(--p-switch-border-color-focus);
+      box-shadow: var(--p-switch-shadow-focus);
     }
   }
 }

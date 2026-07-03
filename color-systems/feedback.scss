@@ -1,4 +1,4 @@
-// petra-ui/src/assets/css/tokens/color-systems/feedback.scss
+// petra-tokens/color-systems/feedback.scss
 @use "../intent" as *;
 
 [data-color-system="feedback"] {
@@ -14,6 +14,10 @@
   --p-bg-color-soft: var(--p-intent-light);
   --p-text-color-soft: var(--p-intent-text);
 
+  /* Component specific variables for parts */
+  --p-feedback-message-border-color: var(--p-border-color);
+  --p-feedback-message-border-width-val: var(--p-feedback-message-border-width, 3px);
+
   &[data-color="neutral"] {
     --p-bg-color: var(--p-neutral-0);
     --p-bg-color-hover: var(--p-neutral-0);
@@ -28,6 +32,6 @@
 
   &[data-part="message"] {
     border: none;
-    border-inline-start: var(--p-feedback-message-border-width, 3px) solid var(--p-border-color);
+    border-inline-start: var(--p-feedback-message-border-width-val) solid var(--p-feedback-message-border-color);
   }
 }

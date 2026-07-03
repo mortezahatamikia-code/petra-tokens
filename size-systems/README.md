@@ -85,22 +85,23 @@ The most complex size system because it must:
 (e.g., `psz‑md` sets `--psz-src-size` to `var(--p-size-md)`, which is 40px).  
 So for MD: `(40px / 2) – 4px = 16px`.
 
-### Dimension Mappings
+### Dimension Variables & Mappings
 
-| Selector | Property | Value | Description |
-| :--- | :--- | :--- | :--- |
-| `[data-part="checkbox-box"]`, `[data-part="radio-box"]` | `width`, `height` | `var(--psz-sub)` | The clickable box/circle. |
-| `[data-part="checkbox-box"]`, `[data-part="radio-box"]` | `min-width` | `0` | Prevents Tailwind’s forced min‑width from overriding the sub‑size. |
-| `[data-part="switch-track"]` | `min-width` | `var(--psz-src-size)` | Track is as wide as the component is tall. |
-| `[data-part="switch-track"]` | `min-height` | `calc(var(--psz-sub) + var(--p-padding-y-lg))` | Track height = knob height + constant padding. |
-| `[data-part="switch-indicator"]` | `width`, `height` | `var(--psz-sub)` | The sliding knob. |
+Specific custom variables are defined and mapped to the child elements:
+
+| Selector | Property | Variable | Default | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `[data-part="checkbox-box"]`, `[data-part="radio-box"]` | `width` / `height` | `--p-checkbox-width` / `--p-checkbox-height` | `var(--psz-sub)` | The clickable box/circle. |
+| `[data-part="switch-track"]` | `min-width` | `--p-switch-track-width` | `var(--psz-src-size)` | Track is as wide as the component is tall. |
+| `[data-part="switch-track"]` | `min-height` | `--p-switch-track-height` | `calc(var(--psz-sub) + var(--p-padding-y-lg))` | Track height = knob height + constant padding. |
+| `[data-part="switch-indicator"]` | `width` / `height` | `--p-switch-indicator-width` / `--p-switch-indicator-height` | `var(--psz-sub)` | The sliding knob. |
 
 ### Switch Knob Animation
 
-| Selector | Property | Value |
-| :--- | :--- | :--- |
-| `[data-part="switch-indicator-wrapper"]` | `transform` | `translateX(0)` (default, off) |
-| `[data-state="checked"] [data-part="switch-indicator-wrapper"]` | `transform` | `translateX(calc(100% - var(--psz-sub)))` (on) |
+| Selector | Property | Variable | Default |
+| :--- | :--- | :--- | :--- |
+| `[data-part="switch-indicator-wrapper"]` | `transform` | `--p-switch-indicator-transform` | `translateX(0)` (default, off) |
+| `[data-state="checked"] [data-part="switch-indicator-wrapper"]` | `transform` | `--p-switch-indicator-transform-checked` | `translateX(calc(100% - var(--psz-sub)))` (on) |
 
 The indicator wrapper slides from `0` to `100% – knob width`, centering the knob inside the track.
 
@@ -114,11 +115,11 @@ The indicator wrapper slides from `0` to `100% – knob width`, centering the kn
      --psz-sub: calc((var(--psz-src-size) / 2) - 0.5rem); /* make boxes smaller */
    }
    ```
-2. You can also override the individual part dimensions:
+2. You can also override the individual part dimensions directly by changing the part variables:
    ```css
-   [data-size-system="toggle"] [data-part="switch-indicator"] {
-     width: 20px;
-     height: 20px;
+   [data-size-system="toggle"] {
+     --p-switch-indicator-width: 20px;
+     --p-switch-indicator-height: 20px;
    }
    ```
 3. For adding a completely new size system, create a new `[data-size-system="your-name"]`
