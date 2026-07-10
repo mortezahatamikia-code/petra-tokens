@@ -5,6 +5,18 @@
   --p-text-muted: var(--p-neutral-500);
 }
 
+:root {
+  --p-direction-sign: 1;
+}
+
+[dir="rtl"] {
+  --p-direction-sign: -1;
+}
+
+[dir="ltr"] {
+  --p-direction-sign: 1;
+}
+
 *[data-disabled="true"] {
   color: var(--p-text-color-disabled);
   border-color: var(--p-border-color-disabled);

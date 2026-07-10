@@ -21,7 +21,7 @@
   --p-switch-indicator-height: var(--psz-sub);
 
   --p-switch-indicator-transform: translateX(0);
-  --p-switch-indicator-transform-checked: translateX(calc(100% - var(--psz-sub)));
+  --p-switch-indicator-transform-checked: translateX(calc(var(--p-direction-sign, 1) * (100% - var(--psz-sub))));
 
 
   [data-part="switch-indicator-wrapper"] {

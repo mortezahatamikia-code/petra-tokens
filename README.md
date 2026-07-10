@@ -195,6 +195,46 @@ Because `state-styles.scss` uses these CSS variables, any change to them will im
 
 ---
 
+## 🧩 Component Customizations via Variant (`data-system-variant`)
+
+To prevent CSS duplication when components share the same base size or color system (e.g., `field` or `toggle`), Petra-UI uses the `data-system-variant` attribute.
+
+This attribute identifies the specific variant of the component within its parent styling system.
+
+### 1. Sizing Overrides
+In a size system (like `size-systems/field.scss`), dimensions can be targeted for a specific variant:
+```scss
+[data-size-system="field"] {
+  &[data-system-variant="otp"] {
+    // Force inputs to render as perfect squares
+    width: var(--psz-src-size) !important;
+    min-width: var(--psz-src-size) !important;
+  }
+}
+```
+
+### 2. Styling & State Consolidations
+Instead of creating separate SCSS files for components that share wrapper layouts and basic structures (such as `Checkbox`, `Radio`, and `Switch`), their common styles are defined in a single unified stylesheet (e.g., [components/toggle.scss](file:///mnt/0D910DCF0D910DCF/work/petra/petra-tokens/components/toggle.scss)).
+
+Component-specific customizations are scoped under `data-system-variant`:
+```scss
+.p-toggle-wrapper {
+  // Shared flex direction, disabled opacity, and focus visible outlines
+  
+  &[data-system-variant="checkbox"] {
+    // Checkbox-specific border radius and tick animations
+  }
+
+  &[data-system-variant="radio"] {
+    // Radio-specific circle shapes and inner dot transitions
+  }
+}
+```
+
+This reduces CSS volume, improves rendering performance, and ensures visual consistency across related control elements.
+
+---
+
 ## 🧱 Core File Reference
 
 | File | Purpose |

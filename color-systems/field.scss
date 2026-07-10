@@ -2,7 +2,6 @@
 @use "../intent" as *;
 
 [data-color-system="field"] {
-  --p-field-border-width: 1px;
   --p-bg-color: var(--p-neutral-100);
   --p-text-color: var(--p-neutral-800);
   --p-border-color: var(--p-neutral-300);
@@ -84,5 +83,25 @@
 
   & [data-part="container"] {
     border-color: var(--p-field-container-border-color);
+  }
+
+  &[data-system-variant="otp"] {
+    --p-bg-color-disabled: var(--p-neutral-200);
+    --p-border-color-disabled: var(--p-neutral-300);
+
+    &.p-otp-inner-empty {
+      --p-bg-color: var(--p-neutral-100);
+      --p-border-color: transparent;
+      --p-bg-color-hover: var(--p-neutral-100);
+      --p-border-color-hover: transparent;
+    }
+
+    &.p-otp-inner-full {
+      --p-bg-color: var(--p-primary-500);
+      --p-text-color: var(--p-neutral-0);
+      --p-border-color: var(--p-primary-500);
+      --p-bg-color-hover: var(--p-primary-500);
+      --p-border-color-hover: var(--p-primary-500);
+    }
   }
 }

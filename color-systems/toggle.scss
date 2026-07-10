@@ -63,15 +63,15 @@
     }
   }
 
-  &[data-part="switch-wrapper"]:not([data-state="checked"]):not([data-disabled="true"]) {
+  &[data-system-variant="switch"]:not([data-state="checked"]):not([data-disabled="true"]) {
     --p-bg-color: var(--p-neutral-100);
   }
 
-  &[data-part="switch-wrapper"]:not([data-disabled="true"]) {
+  &[data-system-variant="switch"]:not([data-disabled="true"]) {
     --p-toggle-indicator-color: var(--p-neutral-0);
   }
 
-  &[data-part="switch-wrapper"][data-disabled="true"] {
+  &[data-system-variant="switch"][data-disabled="true"] {
     --p-bg-color: var(--p-neutral-200);
 
     &[data-state="checked"] {
