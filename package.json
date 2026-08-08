@@ -10,7 +10,12 @@
     "README.md"
   ],
   "scripts": {
-    "build": "vite build"
+    "generate": "node scripts/generate-tokens.mjs",
+    "generate:watch": "node --watch scripts/generate-tokens.mjs",
+    "prebuild": "npm run generate",
+    "build": "npm run generate && vite build",
+    "test:snapshot": "node scripts/generate-tokens.mjs && git diff --exit-code generated/",
+    "test:update-snap": "node scripts/generate-tokens.mjs && git add generated/"
   },
   "devDependencies": {
     "vite": "^6.0.3",

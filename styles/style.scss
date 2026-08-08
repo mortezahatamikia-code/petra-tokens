@@ -1,4 +1,25 @@
-// petra-ui/src/assets/css/style.scss
+// petra-tokens/styles/style.scss — v2.0
+@use "../primitive" as *;
+@use "../semantic" as *;
+
+// Size Schemes
+@use "../schemes/size/basic" as *;
+@use "../schemes/size/field" as *;
+@use "../schemes/size/toggle" as *;
+
+// Color Schemes
+@use "../schemes/color/action" as *;
+@use "../schemes/color/field" as *;
+@use "../schemes/color/toggle" as *;
+@use "../schemes/color/content" as *;
+@use "../schemes/color/divider" as *;
+@use "../schemes/color/range" as *;
+
+// Style Schemes (Highest Priority — Overrides)
+@use "../schemes/style/global" as *;
+@use "../schemes/style/action" as *;
+@use "../schemes/style/field" as *;
+
 @use "utilities" as *;
 @use "sp-utilities" as *;
 

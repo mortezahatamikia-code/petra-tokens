@@ -1,115 +1,89 @@
-// petra-ui/src/assets/css/tokens/state-styles.scss
-*[data-variant="solid"] {
-  background-color: var(--p-bg-color);
-  color: var(--p-text-color);
-  border: 1px solid transparent;
+// petra-tokens/state-styles.scss — v2.0
+// ============================================================
+// Variant styles — fully data-state controlled (گزینه A)
+// CSS selectors use [data-state="hover"] / [data-state="active"] / [data-variant~="..."]
+// ============================================================
 
-  @media (hover: hover) {
-    &:hover:not([data-disabled="true"]):not([data-loading="true"]):not([data-error="true"]):not([data-active="true"]) {
-      background-color: var(--p-bg-color-hover, var(--p-bg-color));
-      color: var(--p-text-color-hover, var(--p-text-color));
-      border-color: var(--p-border-color-hover, var(--p-border-color));
-    }
-  }
-
-  &[data-active="true"]:not([data-disabled="true"]):not([data-loading="true"]):not([data-error="true"]) {
-    background-color: var(--p-bg-color-active, var(--p-bg-color));
-    color: var(--p-text-color-active, var(--p-text-color));
-    border-color: var(--p-border-color-active, var(--p-border-color));
-  }
-
-  &[data-error="true"]:not([data-disabled="true"]):not([data-loading="true"]) {
-    background-color: var(--p-bg-color-error, var(--p-bg-color));
-    color: var(--p-text-color-error, var(--p-text-color));
-    border-color: var(--p-border-color-error, var(--p-border-color));
-  }
-
-  &[data-loading="true"]:not([data-disabled="true"]) {
-    background-color: var(--p-bg-color-loading, var(--p-bg-color));
-    color: var(--p-text-color-loading, var(--p-text-color));
-    border-color: var(--p-border-color-loading, var(--p-border-color));
-    opacity: var(--p-opacity-loading, 0.6);
-    pointer-events: none;
-    cursor: default;
-  }
-
-  &[data-disabled="true"] {
-    background-color: var(--p-bg-color-disabled);
-    color: var(--p-text-color-disabled);
-    border-color: var(--p-border-color-disabled);
-  }
+// ── Shared layout for components with color schemes ─────────
+[data-color-scheme] {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--p-padding-y) var(--p-padding-x);
+  gap: var(--p-gap);
+  font-size: var(--p-text);
+  border-radius: var(--p-radius);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-*[data-variant="outline"] {
-  background-color: transparent;
-  color: var(--p-text-color);
-  border: 1px solid var(--p-border-color);
-
-  @media (hover: hover) {
-    &:hover:not([data-disabled="true"]):not([data-loading="true"]):not([data-error="true"]):not([data-active="true"]) {
-      background-color: var(--p-bg-color-hover, transparent);
-      color: var(--p-text-color-hover, var(--p-text-color));
-      border-color: var(--p-border-color-hover, var(--p-border-color));
-    }
-  }
-
-  &[data-active="true"]:not([data-disabled="true"]):not([data-loading="true"]):not([data-error="true"]) {
-    background-color: var(--p-bg-color-active, var(--p-bg-color));
-    color: var(--p-text-color-active, var(--p-text-color));
-    border-color: var(--p-border-color-active, var(--p-border-color));
-  }
-
-  &[data-error="true"]:not([data-disabled="true"]):not([data-loading="true"]) {
-    background-color: var(--p-bg-color-error, transparent);
-    color: var(--p-text-color-error, var(--p-text-color));
-    border-color: var(--p-border-color-error, var(--p-border-color));
-  }
-
-  &[data-loading="true"]:not([data-disabled="true"]) {
-    background-color: var(--p-bg-color-loading, transparent);
-    color: var(--p-text-color-loading, var(--p-text-color));
-    border-color: var(--p-border-color-loading, var(--p-border-color));
-    opacity: var(--p-opacity-loading, 0.6);
-    pointer-events: none;
-    cursor: default;
-  }
-
-  &[data-disabled="true"] {
-    background-color: transparent;
-    border-color: var(--p-border-color-disabled);
-    color: var(--p-text-color-disabled);
-  }
+// ── solid ──────────────────────────────────────────────────
+[data-variant~="solid"] {
+  background-color: var(--p-bg, var(--p-bg-color));
+  color: var(--p-text, var(--p-text-color));
+  border: 1px solid var(--p-border-color, transparent);
+}
+[data-variant~="solid"][data-state="hover"] {
+  background-color: var(--p-bg-hover, var(--p-bg-color-hover, var(--p-bg, var(--p-bg-color))));
+  color: var(--p-text-hover, var(--p-text-color-hover, var(--p-text, var(--p-text-color))));
+  border-color: var(--p-border-color-hover, var(--p-border-color, transparent));
+}
+[data-variant~="solid"][data-state="active"] {
+  background-color: var(--p-bg-active, var(--p-bg-color-active, var(--p-bg, var(--p-bg-color))));
+  color: var(--p-text-active, var(--p-text-color-active, var(--p-text, var(--p-text-color))));
+  border-color: var(--p-border-color-active, var(--p-border-color, transparent));
+}
+[data-variant~="solid"][data-state="disabled"] {
+  background-color: var(--p-bg-disabled, var(--p-bg-color-disabled, var(--p-bg, var(--p-bg-color))));
+  color: var(--p-text-disabled, var(--p-text-color-disabled, var(--p-text, var(--p-text-color))));
+  border-color: var(--p-border-color-disabled, transparent);
 }
 
-*[data-variant="text"] {
+// ── outline ────────────────────────────────────────────────
+[data-variant~="outline"] {
   background-color: transparent;
-  color: var(--p-text-color);
+  color: var(--p-text, var(--p-text-color));
+  border: 1px solid var(--p-border-color, currentColor);
+}
+[data-variant~="outline"][data-state="hover"] {
+  background-color: var(--p-bg-hover, transparent);
+  color: var(--p-text-hover, var(--p-text, var(--p-text-color)));
+  border-color: var(--p-border-color-hover, var(--p-border-color, currentColor));
+}
+[data-variant~="outline"][data-state="active"] {
+  background-color: var(--p-bg-active, transparent);
+  color: var(--p-text-active, var(--p-text, var(--p-text-color)));
+  border-color: var(--p-border-color-active, var(--p-border-color, currentColor));
+}
+[data-variant~="outline"][data-state="disabled"] {
+  background-color: transparent;
+  border-color: var(--p-border-color-disabled, var(--p-border-color, currentColor));
+  color: var(--p-text-disabled, var(--p-text-color-disabled, var(--p-text, var(--p-text-color))));
+}
+
+// ── text ───────────────────────────────────────────────────
+[data-variant~="text"] {
+  background-color: transparent;
+  color: var(--p-text, var(--p-text-color));
   border: 1px solid transparent;
+}
+[data-variant~="text"][data-state="hover"] {
+  background-color: var(--p-bg-hover, transparent);
+  color: var(--p-text-hover, var(--p-text, var(--p-text-color)));
+}
+[data-variant~="text"][data-state="active"] {
+  color: var(--p-text-active, var(--p-text, var(--p-text-color)));
+}
+[data-variant~="text"][data-state="disabled"] {
+  background-color: transparent;
+  color: var(--p-text-disabled, var(--p-text-color-disabled, var(--p-text, var(--p-text-color))));
+}
 
-  @media (hover: hover) {
-    &:hover:not([data-disabled="true"]):not([data-loading="true"]):not([data-error="true"]):not([data-active="true"]) {
-      background-color: var(--p-bg-color-hover, transparent);
-      color: var(--p-text-color-hover, var(--p-text-color));
-    }
-  }
-
-  &[data-active="true"]:not([data-disabled="true"]):not([data-loading="true"]):not([data-error="true"]) {
-    color: var(--p-text-color-active, var(--p-text-color));
-  }
-
-  &[data-error="true"]:not([data-disabled="true"]):not([data-loading="true"]) {
-    color: var(--p-text-color-error, var(--p-text-color));
-  }
-
-  &[data-loading="true"]:not([data-disabled="true"]) {
-    color: var(--p-text-color-loading, var(--p-text-color));
-    opacity: var(--p-opacity-loading, 0.6);
-    pointer-events: none;
-    cursor: default;
-  }
-
-  &[data-disabled="true"] {
-    background-color: transparent;
-    color: var(--p-text-color-disabled);
-  }
+// ── ghost ──────────────────────────────────────────────────
+[data-variant~="ghost"] {
+  background-color: transparent;
+  color: var(--p-text, var(--p-text-color));
+  border: 1px solid transparent;
+}
+[data-variant~="ghost"][data-state="hover"] {
+  background-color: var(--p-bg-hover, var(--p-neutral-100));
+  color: var(--p-text-hover, var(--p-text, var(--p-text-color)));
 }

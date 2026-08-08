@@ -1,248 +1,123 @@
-# Token Architecture & System (Technical Deep Dive)
+# 🎨 Petra Base Tokens (`@petra-base/tokens` v2.0)
 
-This document explains the internal mechanics of the `petra-ui` token system (`Base` → `Intent` → `Color System`). It is designed for engineers contributing to the core library or creating advanced custom components.
+پکیج سیستم توکن‌ها و دیزاین سیستم پترا. این پکیج بر اساس **۶ `data-*` Attribute اصلی** و **معماری ۳ لایه‌ای توکن‌ها (Primitive, Semantic, Schemes)** طراحی شده است.
 
 ---
 
-## 🏗 The 3-Layer Architecture
+## 🏛️ معماری سیستم توکن‌ها (3-Layer Architecture)
 
-The system is built to solve a specific problem: **"Semantic conflict."**  
-*Button Disabled* needs to be **Dark** (Gray-300).  
-*Input Disabled* needs to be **Light** (Gray-100).  
-*Both* are "Disabled". How do we share logic without styling quirks?
+تمامی توکن‌ها از یک منبع حقیقت واحد به نام `petra-tokens.json` مشتق می‌شوند:
 
-We solve this with a 3‑layer abstraction, now powered by a single set of **generic state tokens** and a **centralized state‑styles layer**.
-
-### Layer 1: Base Variables (The "Palette")
-**Location**: `src/assets/css/style.scss` & `tokens/base.scss`  
-**Responsibility**: Raw Values only. No meaning.  
-*   Defines: `--p-primary-500`, `--p-neutral-100`.  
-*   *Developer Action*: Rarely touch this unless changing the global brand colors.
-
-### Layer 2: Intent System (The "Meaning")
-**Location**: `src/assets/css/tokens/intent.scss`  
-**Responsibility**: Mapping a high-level *intent* (Primary, Success) to abstract *slots* (`base`, `light`, `text`).
-
-**The Mixin (`@mixin apply-intent-variables`)**:
-This SCSS mixin is the engine. It takes a palette color and assigns it to generic intent variables:
-```scss
---p-intent-base:  [Main Color]   (e.g., Primary-500)
---p-intent-light: [Tint Color]   (e.g., Primary-100)
---p-intent-text:  [Contrast Color] (e.g., White or Primary-Dark)
+```
+petra-tokens/
+├── primitive/                 ← [لایه ۱] auto-generated (git-ignored)
+│   └── index.scss             (--p-size-*, --p-color-*, --p-weight-*)
+│
+├── semantic/                  ← [لایه ۲] auto-generated (git-ignored)
+│   └── index.scss             (--p-colors-primary-default, --p-text-sm, --p-radius-8px, ...)
+│
+├── schemes/                   ← [لایه ۳] auto-generated (git-ignored)
+│   ├── size/                  (basic.scss, field.scss, toggle.scss, ...)
+│   ├── color/                 (action.scss, field.scss, feedback.scss, toggle.scss, ...)
+│   └── style/                 (global.scss, action.scss, field.scss, tab.scss, ...)
+│
+├── components/                ← استایل‌های چیدمان اختصاصی کامپوننت‌ها (button, input, badge, ...)
+├── styles/                    ← ورودی‌های اصلی استایل‌ها و ابزارها
+│   ├── style.scss             (فایل جامع لودکننده تمام لایه‌ها)
+│   ├── animations.scss        (انیمیشن‌های سراسری)
+│   ├── utilities.scss         (کلاس‌های کمکی)
+│   └── theme/light.css        (متغیرهای تم پایه)
+│
+├── base.scss                  ← قوانین پایه سراسری (RTL/LTR, rounded, sharp, focus, states)
+├── state-styles.scss          ← استایل واریانت‌های اصلی (solid, outline, text, ghost)
+│
+├── scripts/
+│   └── generate-tokens.mjs    ← اسکریپت تولید اتوماتیک فایل‌های SCSS از JSON
+│
+└── petra-tokens.json          ← 🌟 تنها منبع حقیقت (Single Source of Truth)
 ```
 
-**Why this matters**: Components never ask for "Primary". They ask for "Intent Base". This allows a component to switch from Primary to Danger just by changing the data attribute, without changing its internal CSS.
+---
 
-### Layer 3: Color Systems (The "Context")
-**Location**: `src/assets/css/tokens/color-systems/*.scss`  
-**Responsibility**: Resolving the Semantic Conflict. Each color system decides **what values** to assign to a small set of **generic state tokens** (`--p-bg-color`, `--p-text-color`, `--p-border-color` and their hover, active, error, loading, and disabled variants). The actual application of these tokens to CSS properties is done by **`state-styles.scss`**, a global style layer that targets elements based on their `data-variant` attribute.
+## 📋 لیست و دلیل وجود فایل‌ها و پوشه‌ها
 
-**The State Tokens (defined in `state-tokens.scss` with sensible defaults):**
-- `--p-bg-color`, `--p-text-color`, `--p-border-color`
-- `--p-bg-color-hover`, `--p-text-color-hover`, `--p-border-color-hover`
-- `--p-bg-color-focus`, `--p-text-color-focus`, `--p-border-color-focus`
-- `--p-bg-color-active`, `--p-text-color-active`, `--p-border-color-active`
-- `--p-bg-color-error`, `--p-text-color-error`, `--p-border-color-error`
-- `--p-bg-color-loading`, `--p-text-color-loading`, `--p-border-color-loading`, `--p-opacity-loading`
-- `--p-bg-color-disabled`, `--p-text-color-disabled`, `--p-border-color-disabled`
-
-**How it works together:**  
-Color systems define the token values for each context (action, field, …).  
-`state-styles.scss` consumes those tokens and writes the actual `background`, `color`, `border-color` rules for `[data-variant="solid"]`, `[data-variant="outline"]`, and `[data-variant="text"]` using a strict CSS cascade priority (`disabled > loading > error > active > hover`).  
-Additionally, instead of hardcoding styles inside `[data-part]` selectors (e.g. `[data-part="checkbox-box"]`), color systems abstract styling into component-specific custom properties (e.g. `--p-checkbox-bg`), allowing flexible, point-specific overrides.
-
-#### System A: Action (`data-color-system="action"`)
-*   **For**: Buttons, IconButtons, Clickable Chips.
-*   **Logic**: High contrast.
-    *   Solid (default): `--p-bg-color: var(--p-intent-base)`, `--p-text-color: var(--p-intent-fg)`.
-    *   Outline: overrides tokens to transparent background, intent‑coloured text/border.
-    *   Text: overrides tokens to transparent background, subtle text, light hover background.
-    *   **Disabled**: Uses Dark Gray tokens to clearly indicate “off” state.
-
-#### System B: Field (`data-color-system="field"`)
-*   **For**: Inputs, TextAreas, Selects.
-*   **Logic**: Low friction.
-    *   `--p-bg-color`: `neutral-100` (Subtle).
-    *   `--p-border-color-focus`: `--p-intent-base`.
-    *   Sub‑elements like `label`, `helper`, `counter` are styled via component-specific variables (e.g. `--p-field-label-color`) mapped to `[data-part="…"]` selectors inside the color system.
-
-#### System C: Feedback (`data-color-system="feedback"`)
-*   **For**: Badges, Alerts, Toasts.
-*   **Logic**: Information density.
-*   **Disabled**: Uses Dark Gray tokens.
-*   **Reasoning**: A solid primary badge handles text poorly; a tinted badge is readable and "soft".
-
-#### System D: Toggle (`data-color-system="toggle"`)
-*   **For**: Checkbox, Radio, Switch.
-*   **Logic**: Selection states.
-*   **Disabled**: neutral grays.
-*   **Reasoning**: unchecked is transparent, checked/indeterminate is intent-coloured.
-*   **Structure**: Styled using specific part variables (e.g. `--p-checkbox-bg`, `--p-switch-track-bg`, `--p-switch-track-width`) mapped to `[data-part="..."]` elements.
+### 📁 پوشه‌های اصلی
+| پوشه / فایل | دلیل وجود و نقش در سیستم | وضعیت Git |
+|---|---|---|
+| `petra-tokens.json` | منبع اصلی و خام تعریف تمام توکن‌ها در Figma / Design System | 🟢 Tracked |
+| `scripts/generate-tokens.mjs` | اسکریپت پارسر JSON که توکن‌ها را به فایل‌های SCSS سه لایه تبدیل می‌کند | 🟢 Tracked |
+| `primitive/` | **[لایه ۱]** متغیرهای اولیه خام بر روی `:root` (`--p-size-*`, `--p-color-*`) | 🔴 Ignored (Prebuild) |
+| `semantic/` | **[لایه ۲]** متغیرهای معنایی بر روی `:root` (`--p-colors-primary-default`, ...) | 🔴 Ignored (Prebuild) |
+| `schemes/` | **[لایه ۳]** قواعد CSS اسکیماها براساس `data-color-scheme`, `data-size-scheme`, `data-variant` | 🔴 Ignored (Prebuild) |
+| `components/` | استایل‌های چیدمان درونی کامپوننت‌ها (مانند `button.scss`, `badge.scss`, `input-wrapper.scss`) | 🟢 Tracked |
+| `styles/style.scss` | فایل جامعی که تمام لایه‌های ۱، ۲ و ۳ را به همراه ابزارها و تم یکجا import می‌کند | 🟢 Tracked |
+| `base.scss` | قوانین سراسری جهت جهت‌نمایی (`dir="rtl/ltr"`), گوشه‌ها (`rounded`/`sharp`), فوکوس و وضعیت `disabled`/`loading` | 🟢 Tracked |
+| `state-styles.scss` | استایل‌های بصری واریانت‌های اصلی (`solid`, `outline`, `text`, `ghost`) بر اساس `data-state` | 🟢 Tracked |
 
 ---
 
-## 🏷️ Naming Conventions & Token Examples
+## 📋 ۶ `data-*` Attribute اصلی کنترل‌کننده DOM
 
-To keep the system predictable, strict naming conventions are enforced across all three layers.
+دیزاین سیستم پترا از ۶ Attribute اصلی در DOM برای اعمال استایل‌ها استفاده می‌کند:
 
-### 1. Base Tokens (Layer 1)
-**Format:** `--p-[color]-[shade]`
-**Examples:**
-* `--p-primary-500` (The core brand color)
-* `--p-neutral-100` (A light gray background)
-* `--p-danger-900` (A dark red for text)
+| # | Attribute | نقش | مثال‌ها |
+|---|---|---|---|
+| ۱ | `data-size-scheme` | گروه اندازه‌گذاری پایه | `basic`, `badge`, `toggle`, `field`, `otp` |
+| ۲ | `data-color-scheme` | گروه رنگ‌بندی پایه | `action`, `field`, `feedback`, `content` |
+| ۳ | `data-variant` | واریانت ظاهری (با قابلیت ترکیب چند مقدار با `~=`) | `solid`, `outline`, `text`, `ghost`, `sharp`, `rounded` |
+| ۴ | `data-color` | رنگ اختصاصی | `primary`, `secondary`, `danger`, `success`, `neutral`, `info`, `warning` |
+| ۵ | `data-state` | حالت‌های تعاملی | `base`, `hover`, `active`, `disabled`, `loading`, `error`, `success`, `filled` |
+| ۶ | `data-scheme-variant` | زیر-اسکیماها | `dropdown`, `switch`, `checkbox`, `radio`, `count` |
 
-### 2. Intent Tokens (Layer 2)
-**Format:** `--p-intent-[slot]`
-**Examples:**
-* `--p-intent-base`: Maps to the 500-level color (e.g., `--p-primary-500`).
-* `--p-intent-light`: Maps to the 100-level color for soft backgrounds (e.g., `--p-primary-100`).
-* `--p-intent-text`: Maps to a high-contrast text color, often white or a 900-level color depending on the intent.
-
-### 3. Generic State Tokens (Layer 3 - Color Systems)
-**Format:** `--p-[css-property]-[state]`
-**Examples:**
-* `--p-bg-color`: The default background color.
-* `--p-bg-color-hover`: The background color on hover.
-* `--p-text-color-disabled`: The text color when the element is disabled.
-* `--p-border-color-focus`: The border color when focused.
-
-### Real-World Example: "Primary Button" vs "Primary Input"
-When a user sets `color="primary"` on a Button and an Input:
-1. **Intent Layer** sets: `--p-intent-base: var(--p-primary-500)`.
-2. **Button (`action` system)** maps: `--p-bg-color` to `--p-intent-base` (so the button is solid primary).
-3. **Input (`field` system)** maps: `--p-border-color-focus` to `--p-intent-base` (so the input border turns primary only on focus, keeping the background neutral).
+### 🔄 اولویت اولویت‌بندی (Cascade Priority Order)
+```
+data-variant (style/schemes) > data-state > data-color > data-color-scheme > data-size > data-size-scheme > :root
+```
 
 ---
 
-## 📐 Sizing Bridge & Responsive System (`psz-sizes.scss`)
+## 🚀 نحوه استفاده (Usage Guide)
 
-While color tokens manage visual aesthetics, layout sizing is managed by the responsive **bridge sizing system** in `tokens/psz-sizes.scss`.
+### ۱. استفاده در پروژه‌ها (Import)
 
-### 1. Sizing Bridge Variables (`--psz-*`)
-To decouple concrete component layouts from specific size scales, Petra-UI uses size-invariant CSS custom properties (bridge variables):
-- `--psz-px`: Padding X
-- `--psz-py`: Padding Y
-- `--psz-gap`: Element gap
-- `--psz-sub-ts`: Sub-text font-size
-- `--psz-sub-tl`: Sub-text line-height
-- `--psz-radius`: Border radius
-- `--psz-src-size`: Base height/dimension
+```scss
+// در SCSS اصلی پروژه یا فایل ورودی کامپوننت‌ها:
+@use "@petra-base/tokens/styles/style.scss" as *;
+```
 
-Components apply size-invariant classes like `.psz-p` (padding), `.psz-p-tight` (half padding), `.psz-p-slim` (quarter vertical padding), and `.psz-gap-tight` to style their layout, consuming these `--psz-*` custom properties.
+یا در React / Vue:
 
-### 2. Sizing Cascade Mixin
-The engine of the sizing system is the `@mixin psz-size-class($size)` in `psz-sizes.scss`. When a size class like `.psz-md` or `.psz-sm` is applied:
-1. It maps concrete design tokens (e.g., `--p-padding-x-md`, `--p-padding-y-md`) to the local bridge variables.
-2. It sets the element's font-size, line-height, gap, height, and min-width.
-3. Sub-components nested inside automatically inherit the updated bridge variables.
-
-### 3. Responsive Layout Sizes
-SCSS generates responsive variants (e.g., `sm:psz-xs`, `md:psz-lg`) inside standard CSS media queries (`sm: 640px`, `md: 768px`, `lg: 1024px`, `xl: 1280px`). This allows the layout sizes to cascade responsively on the client side natively.
-
----
-
-## 👩‍💻 Developer Guide
-
-### 1. How the Cascade Works
-When you render `<Badge color="success" />`:
-
-1.  **HTML**: Output is `<div data-color="success" data-color-system="feedback">`.
-2.  **Intent Layer (`intent.scss`)**: The `[data-color="success"]` selector fires.
-    *   It sets `--p-intent-base` = `Green-500`.
-    *   It sets `--p-intent-light` = `Green-100`.
-3.  **color system (`feedback.scss`)**: The `[data-color-system="feedback"]` selector fires.
-    *   It reads the intent variables and sets the generic state tokens, e.g.:
-        - `--p-bg-color: var(--p-intent-light)` (Green-100)
-        - `--p-text-color: var(--p-intent-text)`
-4.  **State Styles Layer (`state-styles.scss`)**: The `[data-variant="solid"]` rule (or the variant applied) takes those tokens and assigns `background`, `color`, `border` to the element. It also handles hover, active, and disabled pseudo‑classes by reading the corresponding `-hover`, `-active`, `-disabled` tokens.
-5.  **Component Layer (`badge.scss`)**: No colour/style code. The component just sets layouts, sizes, etc. All visual states are handled by the color system and the global state styles.
-
-### 2. How to Add a New Color (e.g., "Purple")
-1.  **Define Palette**: Add `--p-purple-500`, `--p-purple-100` etc. in `style.scss`.
-2.  **Register Intent**: In `intent.scss`, add:
-    ```scss
-    *[data-color="purple"] {
-      @include apply-intent-variables(
-        var(--p-purple-500), // base
-        …,
-        var(--p-purple-100), // light
-        …
-      );
-    }
-    ```
-3.  **Use**: pass `color="purple"` to *any* component. It will automatically work as a Purple Button, Purple Input focus, or Purple Badge tint.
-
-### 3. Debugging Issues
-*   **"My component is black/white/invisible!"**
-    *   Check `data-color-system`. If missing, the component won’t pick up any color system, and the generic state tokens might still be at their defaults (likely transparent or inherited).
-    *   Check `data-color`. If missing, it may default to Neutral or Transparent.
-*   **"My Disabled state looks wrong."**
-    *   Look at which color system is active. Are you using `action` for an Input? You should be using `field`. Each system defines its own disabled tokens.
-
-### 4. Overriding Locally
-If you need a one-off override, you don't need to break the system. Just override the generic state tokens locally:
 ```tsx
-<div style={{ "--p-bg-color": "red" }} className="p-badge ...">
-```
-Or via class:
-```css
-.my-custom-badge {
-  --p-bg-color: pink;   /* Overrides the system's resolved bg */
-}
-```
-Because `state-styles.scss` uses these CSS variables, any change to them will immediately affect all states (including hover, focus, etc.) consistently.
-
----
-
-## 🧩 Component Customizations via Variant (`data-system-variant`)
-
-To prevent CSS duplication when components share the same base size or color system (e.g., `field` or `toggle`), Petra-UI uses the `data-system-variant` attribute.
-
-This attribute identifies the specific variant of the component within its parent styling system.
-
-### 1. Sizing Overrides
-In a size system (like `size-systems/field.scss`), dimensions can be targeted for a specific variant:
-```scss
-[data-size-system="field"] {
-  &[data-system-variant="otp"] {
-    // Force inputs to render as perfect squares
-    width: var(--psz-src-size) !important;
-    min-width: var(--psz-src-size) !important;
-  }
-}
+import "@petra-base/tokens/styles/style.scss";
 ```
 
-### 2. Styling & State Consolidations
-Instead of creating separate SCSS files for components that share wrapper layouts and basic structures (such as `Checkbox`, `Radio`, and `Switch`), their common styles are defined in a single unified stylesheet (e.g., [components/toggle.scss](file:///mnt/0D910DCF0D910DCF/work/petra/petra-tokens/components/toggle.scss)).
+### ۲. ساختار DOM و HTML
 
-Component-specific customizations are scoped under `data-system-variant`:
-```scss
-.p-toggle-wrapper {
-  // Shared flex direction, disabled opacity, and focus visible outlines
-  
-  &[data-system-variant="checkbox"] {
-    // Checkbox-specific border radius and tick animations
-  }
-
-  &[data-system-variant="radio"] {
-    // Radio-specific circle shapes and inner dot transitions
-  }
-}
+```html
+<!-- نمونه دکمه (Button) -->
+<button
+  data-color-scheme="action"
+  data-size-scheme="basic"
+  data-size="base"
+  data-color="primary"
+  data-variant="solid rounded"
+  data-state="base"
+>
+  Click Me
+</button>
 ```
 
-This reduces CSS volume, improves rendering performance, and ensures visual consistency across related control elements.
+### ۳. توليد اتوماتیک توکن‌ها (Development & Build)
 
----
+برای به‌روزرسانی توکن‌ها پس از تغییر `petra-tokens.json`:
 
-## 🧱 Core File Reference
+```bash
+# تولید فایل‌های SCSS از JSON
+npm run generate
 
-| File | Purpose |
-| :--- | :--- |
-| `tokens/base.scss` | Global shape/disabled helpers. |
-| `tokens/intent.scss` | Maps colors (Primary, Danger) to semantic slots. |
-| `tokens/state-tokens.scss` | Default values for the generic state tokens. |
-| `tokens/state-styles.scss` | Applies generic tokens to `data-variant` elements. |
-| `tokens/color-systems/*.scss` | Defines token values per color system context and directly styles sub‑parts. |
-| `tokens/psz-sizes.scss` | Generates size classes (`psz-{size}`) and responsive variants via bridge variables. |
-| `tokens/size-systems/*.scss` | Responsive dimension overrides for specific component groups. |
+# بیلد نهایی پکیج
+npm run build
+
+# اعتبارسنجی عدم تغییر ناخواسته فایل‌های تولیدی با JSON
+npm run test:snapshot
+```

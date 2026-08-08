@@ -1,8 +1,12 @@
-// assets/css/tokens/base.scss
+// petra-tokens/base.scss — v2.0
+// ============================================================
+// Global base styles for the new data-* attribute system
+// ============================================================
+
 :root,
 *[data-theme="light"] {
   --p-text-default: var(--p-neutral-800);
-  --p-text-muted: var(--p-neutral-500);
+  --p-text-muted:   var(--p-neutral-500);
 }
 
 :root {
@@ -17,27 +21,21 @@
   --p-direction-sign: 1;
 }
 
-*[data-disabled="true"] {
-  color: var(--p-text-color-disabled);
-  border-color: var(--p-border-color-disabled);
-
-  &:not([data-disabled-transparent="true"]) {
-    background-color: var(--p-bg-color-disabled);
-  }
+// ── States ────────────────────────────────────────────────
+// Fully controlled — CSS selector for data-state="disabled" & "loading"
+[data-state="disabled"] {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
-*[data-rounded="true"] {
-  border-radius: var(--p-radius-full);
+[data-state="loading"] {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.7;
 }
 
-*[data-sharp="true"] {
-  border-radius: 0;
-}
-
-*[data-rounded="false"][data-sharp="false"] {
-  border-radius: var(--psz-radius, var(--p-radius));
-}
-
+// ── Focus ──────────────────────────────────────────────────
 *:focus-visible {
   outline: 2px solid var(--p-border-color-focus, currentColor);
   outline-offset: 2px;

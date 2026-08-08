@@ -1,9 +1,0 @@
-// petra-tokens/size-systems/field.scss
-[data-size-system="field"] {
-  --p-field-border-width: 1px;
-
-  &[data-system-variant="otp"] {
-    width: var(--psz-src-size) !important;
-    min-width: var(--psz-src-size) !important;
-  }
-}
