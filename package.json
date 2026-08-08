@@ -1,6 +1,6 @@
 {
   "name": "@petra-base/tokens",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "type": "module",
   "exports": {
     "./*": "./dist/*"
