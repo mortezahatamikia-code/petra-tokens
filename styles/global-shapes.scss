@@ -1,0 +1,12 @@
+// petra-tokens/styles/global-shapes.scss — v2.0
+// ============================================================
+// Global shape overrides (rounded / sharp) for all components
+// ============================================================
+
+[data-variant~="rounded"] {
+  --p-radius: var(--p-radius-full) !important;
+}
+
+[data-variant~="sharp"] {
+  --p-radius: 0rem !important;
+}

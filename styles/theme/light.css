@@ -7,7 +7,7 @@
     --p-neutral: oklch(0.5 0.02 260);
     /* Gray */
 
-    --p-danger-seed: oklch(0.6 0.18 20);
+    --p-error-seed: oklch(0.6 0.18 20);
     --p-success-seed: oklch(0.7 0.19 140);
     --p-warning-seed: oklch(0.79 0.19 80);
     --p-info-seed: oklch(0.6 0.19 250);
@@ -53,10 +53,10 @@
     --p-neutral-1000: #000000;
     /* Exact pure black */
 
-    /* Algorithmic Legacy Danger Scale */
-    --p-danger-500: var(--p-danger-seed);
-    --p-danger-light: color-mix(in oklch, var(--p-danger-seed) 15%, white);
-    --p-danger-dark: color-mix(in oklch, var(--p-danger-seed) 70%, black);
+    /* Algorithmic Legacy Error Scale */
+    --p-error-500: var(--p-error-seed);
+    --p-error-light: color-mix(in oklch, var(--p-error-seed) 15%, white);
+    --p-error-dark: color-mix(in oklch, var(--p-error-seed) 70%, black);
 
     /* Algorithmic Legacy Success Scale */
     --p-success-500: var(--p-success-seed);
@@ -94,10 +94,10 @@
     --p-color-success-active: var(--p-success-dark);
     --p-color-success-light: var(--p-success-light);
 
-    --p-color-danger: var(--p-danger-500);
-    --p-color-danger-hover: color-mix(in oklch, var(--p-danger-seed) 85%, black);
-    --p-color-danger-active: var(--p-danger-dark);
-    --p-color-danger-light: var(--p-danger-light);
+    --p-color-error: var(--p-error-500);
+    --p-color-error-hover: color-mix(in oklch, var(--p-error-seed) 85%, black);
+    --p-color-error-active: var(--p-error-dark);
+    --p-color-error-light: var(--p-error-light);
 
     --p-color-warning: var(--p-warning-500);
     --p-color-warning-hover: color-mix(in oklch, var(--p-warning-seed) 85%, black);

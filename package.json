@@ -1,6 +1,6 @@
 {
   "name": "@petra-base/tokens",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "type": "module",
   "exports": {
     "./*": "./dist/*"
@@ -10,6 +10,7 @@
     "README.md"
   ],
   "scripts": {
+    "clean:json": "node scripts/clean-tokens-json.mjs",
     "generate": "node scripts/generate-tokens.mjs",
     "generate:watch": "node --watch scripts/generate-tokens.mjs",
     "prebuild": "npm run generate",

@@ -1,0 +1,36 @@
+// AUTO-GENERATED — color-scheme="badge"
+
+[data-color-scheme="badge"][data-color="primary"] {
+  --p-bg: var(--p-colors-primary-default);
+  --p-on: var(--p-colors-primary-on);
+}
+
+[data-color-scheme="badge"][data-color="secondary"] {
+  --p-bg: var(--p-colors-secondary-default);
+  --p-on: var(--p-colors-secondary-on);
+}
+
+[data-color-scheme="badge"][data-color="success"] {
+  --p-bg: var(--p-colors-success-default);
+  --p-on: var(--p-colors-success-on);
+}
+
+[data-color-scheme="badge"][data-color="danger"] {
+  --p-bg: var(--p-colors-error-default);
+  --p-on: var(--p-colors-error-on);
+}
+
+[data-color-scheme="badge"][data-color="info"] {
+  --p-bg: var(--p-colors-info-default);
+  --p-on: var(--p-colors-info-on);
+}
+
+[data-color-scheme="badge"][data-color="warning"] {
+  --p-bg: var(--p-colors-warning-default);
+  --p-on: var(--p-colors-warning-on);
+}
+
+[data-color-scheme="badge"][data-color="neutral"] {
+  --p-bg: var(--p-colors-neutral-default);
+  --p-on: var(--p-colors-neutral-on);
+}

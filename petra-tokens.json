@@ -1,0 +1,1339 @@
+[
+  {
+    "collection": "Primitive Tokens",
+    "mode": "Mode 1",
+    "variables": {
+      "size": {
+        "0": 0,
+        "1": 4,
+        "2": 8,
+        "3": 12,
+        "4": 16,
+        "5": 20,
+        "6": 24,
+        "7": 28,
+        "8": 32,
+        "9": 36,
+        "10": 40,
+        "11": 44,
+        "12": 48,
+        "13": 52,
+        "14": 56,
+        "15": 60,
+        "16": 64,
+        "17": 68,
+        "18": 72,
+        "19": 76,
+        "20": 80,
+        "21": 84,
+        "22": 88,
+        "23": 92,
+        "24": 96,
+        "25": 100,
+        "26": 104,
+        "27": 108,
+        "28": 112,
+        "29": 116,
+        "30": 120,
+        "31": 124,
+        "32": 128,
+        "9999": 9999,
+        "0-25": 1,
+        "0-5": 2,
+        "0-75": 3,
+        "1-25": 5,
+        "1-5": 6,
+        "2-5": 10,
+        "3-5": 14,
+        "4-5": 18,
+        "5-5": 22,
+        "6-5": 26
+      },
+      "colors": {
+        "blue": {
+          "50": "#f4f7ff",
+          "100": "#e6efff",
+          "200": "#d0e0ff",
+          "300": "#acc8ff",
+          "400": "#82b1ff",
+          "500": "#4985ff",
+          "600": "#1b62ff",
+          "700": "#0047f2",
+          "800": "#0036d8",
+          "900": "#0007d6",
+          "950": "#020088"
+        },
+        "yellow": {
+          "50": "#fff9e6",
+          "100": "#ffecb0",
+          "200": "#ffe28a",
+          "300": "#ffd554",
+          "400": "#ffcd33",
+          "500": "#ffc100",
+          "600": "#e8b000",
+          "700": "#b58900",
+          "800": "#8c6a00",
+          "900": "#6b5100",
+          "950": "#493700"
+        },
+        "green": {
+          "50": "#f0fdea",
+          "100": "#dffad2",
+          "200": "#c5efae",
+          "300": "#b9e79f",
+          "400": "#8ed767",
+          "500": "#81c35d",
+          "600": "#6da34d",
+          "700": "#547a38",
+          "800": "#405c29",
+          "900": "#32481f",
+          "950": "#1a280e"
+        },
+        "red": {
+          "50": "#fef5f4",
+          "100": "#feeae8",
+          "200": "#fcd7d4",
+          "300": "#fbbbb6",
+          "400": "#f9918c",
+          "500": "#f76a67",
+          "600": "#f02d3a",
+          "700": "#c1222a",
+          "800": "#9c1a1f",
+          "900": "#811317",
+          "950": "#4e080a"
+        },
+        "gray": {
+          "50": "#fafafa",
+          "100": "#f5f5f5",
+          "200": "#e8e8e8",
+          "300": "#d8d8d8",
+          "400": "#aeaeae",
+          "500": "#767676",
+          "600": "#5a5a5a",
+          "700": "#444444",
+          "800": "#292929",
+          "900": "#191919",
+          "950": "#121212"
+        },
+        "orange": {
+          "50": "#fff5f0",
+          "100": "#ffeadf",
+          "200": "#ffd7c2",
+          "300": "#ffbd97",
+          "400": "#ff995c",
+          "500": "#fe7900",
+          "600": "#d86400",
+          "700": "#ad4c00",
+          "800": "#8c3a00",
+          "900": "#752e00",
+          "950": "#461900"
+        },
+        "black": {
+          "default": "#0a171d"
+        },
+        "white": {
+          "default": "#ffffff"
+        },
+        "transparent": {
+          "transparent": "rgba(255, 255, 255, 0.00)"
+        }
+      },
+      "weight": {
+        "100": 100,
+        "200": 200,
+        "300": 300,
+        "400": 400,
+        "500": 500,
+        "600": 600,
+        "700": 700,
+        "800": 800,
+        "900": 900
+      }
+    }
+  },
+  {
+    "collection": "Semantic Tokens",
+    "mode": "Mode 1",
+    "variables": {
+      "colors": {
+        "primary": {
+          "muted": "$.Primitive Tokens.Mode 1.colors.blue.50",
+          "faint": "$.Primitive Tokens.Mode 1.colors.blue.300",
+          "default": "$.Primitive Tokens.Mode 1.colors.blue.500",
+          "deep": "$.Primitive Tokens.Mode 1.colors.blue.600",
+          "intense": "$.Primitive Tokens.Mode 1.colors.blue.700",
+          "emphasized": "$.Primitive Tokens.Mode 1.colors.blue.800",
+          "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+        },
+        "secondary": {
+          "muted": "$.Primitive Tokens.Mode 1.colors.orange.50",
+          "faint": "$.Primitive Tokens.Mode 1.colors.orange.300",
+          "default": "$.Primitive Tokens.Mode 1.colors.orange.500",
+          "deep": "$.Primitive Tokens.Mode 1.colors.orange.600",
+          "intense": "$.Primitive Tokens.Mode 1.colors.orange.700",
+          "emphasized": "$.Primitive Tokens.Mode 1.colors.orange.800",
+          "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+        },
+        "success": {
+          "subtle": "$.Primitive Tokens.Mode 1.colors.green.50",
+          "faint": "$.Primitive Tokens.Mode 1.colors.green.300",
+          "default": "$.Primitive Tokens.Mode 1.colors.green.500",
+          "deep": "$.Primitive Tokens.Mode 1.colors.green.600",
+          "intense": "$.Primitive Tokens.Mode 1.colors.green.700",
+          "emphasized": "$.Primitive Tokens.Mode 1.colors.green.800",
+          "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+        },
+        "danger": {
+          "subtle": "$.Primitive Tokens.Mode 1.colors.red.50",
+          "faint": "$.Primitive Tokens.Mode 1.colors.red.300",
+          "default": "$.Primitive Tokens.Mode 1.colors.red.500",
+          "deep": "$.Primitive Tokens.Mode 1.colors.red.600",
+          "intense": "$.Primitive Tokens.Mode 1.colors.red.700",
+          "emphasized": "$.Primitive Tokens.Mode 1.colors.red.800",
+          "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+        },
+        "info": {
+          "subtle": "$.Primitive Tokens.Mode 1.colors.blue.50",
+          "faint": "$.Primitive Tokens.Mode 1.colors.blue.300",
+          "default": "$.Primitive Tokens.Mode 1.colors.blue.500",
+          "deep": "$.Primitive Tokens.Mode 1.colors.blue.600",
+          "intense": "$.Primitive Tokens.Mode 1.colors.blue.700",
+          "emphasized": "$.Primitive Tokens.Mode 1.colors.blue.800",
+          "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+        },
+        "warning": {
+          "subtle": "$.Primitive Tokens.Mode 1.colors.yellow.50",
+          "faint": "$.Primitive Tokens.Mode 1.colors.yellow.300",
+          "default": "$.Primitive Tokens.Mode 1.colors.yellow.500",
+          "deep": "$.Primitive Tokens.Mode 1.colors.yellow.600",
+          "intense": "$.Primitive Tokens.Mode 1.colors.yellow.700",
+          "emphasized": "$.Primitive Tokens.Mode 1.colors.yellow.800",
+          "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+        },
+        "neutral": {
+          "subtle": "$.Primitive Tokens.Mode 1.colors.gray.50",
+          "muted": "$.Primitive Tokens.Mode 1.colors.gray.100",
+          "soft": "$.Primitive Tokens.Mode 1.colors.gray.200",
+          "faint": "$.Primitive Tokens.Mode 1.colors.gray.300",
+          "base": "$.Primitive Tokens.Mode 1.colors.gray.400",
+          "default": "$.Primitive Tokens.Mode 1.colors.gray.500",
+          "deep": "$.Primitive Tokens.Mode 1.colors.gray.600",
+          "intense": "$.Primitive Tokens.Mode 1.colors.gray.700",
+          "emphasized": "$.Primitive Tokens.Mode 1.colors.gray.800",
+          "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+        },
+        "disabled": {
+          "subtle": "$.Primitive Tokens.Mode 1.colors.gray.100",
+          "muted": "$.Primitive Tokens.Mode 1.colors.gray.300",
+          "default": "$.Primitive Tokens.Mode 1.colors.gray.400",
+          "deep": "$.Primitive Tokens.Mode 1.colors.gray.500",
+          "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+        },
+        "surface": {
+          "default": "$.Primitive Tokens.Mode 1.colors.white.default",
+          "on": "$.Primitive Tokens.Mode 1.colors.gray.700",
+          "variant": "$.Primitive Tokens.Mode 1.colors.gray.50",
+          "on-variant": "$.Primitive Tokens.Mode 1.colors.gray.600"
+        },
+        "transparent": {
+          "default": "$.Primitive Tokens.Mode 1.colors.transparent.transparent"
+        }
+      },
+      "text": {
+        "2xs": "$.Primitive Tokens.Mode 1.size.2",
+        "xs": "$.Primitive Tokens.Mode 1.size.3",
+        "sm": "$.Primitive Tokens.Mode 1.size.3-5",
+        "base": "$.Primitive Tokens.Mode 1.size.4",
+        "lg": "$.Primitive Tokens.Mode 1.size.4-5",
+        "xl": "$.Primitive Tokens.Mode 1.size.5",
+        "2xl": "$.Primitive Tokens.Mode 1.size.6",
+        "3xl": "$.Primitive Tokens.Mode 1.size.8",
+        "4xl": "$.Primitive Tokens.Mode 1.size.9",
+        "5xl": "$.Primitive Tokens.Mode 1.size.12",
+        "6xl": "$.Primitive Tokens.Mode 1.size.15",
+        "7xl": "$.Primitive Tokens.Mode 1.size.18",
+        "8xl": "$.Primitive Tokens.Mode 1.size.24",
+        "9xl": "$.Primitive Tokens.Mode 1.size.32"
+      },
+      "weight": {
+        "thin": "$.Primitive Tokens.Mode 1.weight.100",
+        "extra-light": "$.Primitive Tokens.Mode 1.weight.200",
+        "light": "$.Primitive Tokens.Mode 1.weight.300",
+        "regular": "$.Primitive Tokens.Mode 1.weight.400",
+        "medium": "$.Primitive Tokens.Mode 1.weight.500",
+        "semi-bold": "$.Primitive Tokens.Mode 1.weight.600",
+        "bold": "$.Primitive Tokens.Mode 1.weight.700",
+        "extra-bold": "$.Primitive Tokens.Mode 1.weight.800",
+        "black": "$.Primitive Tokens.Mode 1.weight.900"
+      },
+      "leading": {
+        "0px": "$.Primitive Tokens.Mode 1.size.0",
+        "12px": "$.Primitive Tokens.Mode 1.size.3",
+        "14px": "$.Primitive Tokens.Mode 1.size.3-5",
+        "16px": "$.Primitive Tokens.Mode 1.size.4",
+        "18px": "$.Primitive Tokens.Mode 1.size.4-5",
+        "20px": "$.Primitive Tokens.Mode 1.size.5",
+        "22px": "$.Primitive Tokens.Mode 1.size.5-5",
+        "24px": "$.Primitive Tokens.Mode 1.size.6",
+        "26px": "$.Primitive Tokens.Mode 1.size.6-5",
+        "28px": "$.Primitive Tokens.Mode 1.size.7",
+        "32px": "$.Primitive Tokens.Mode 1.size.8",
+        "36px": "$.Primitive Tokens.Mode 1.size.9",
+        "40px": "$.Primitive Tokens.Mode 1.size.10",
+        "48px": "$.Primitive Tokens.Mode 1.size.12",
+        "60px": "$.Primitive Tokens.Mode 1.size.15",
+        "72px": "$.Primitive Tokens.Mode 1.size.18",
+        "96px": "$.Primitive Tokens.Mode 1.size.24",
+        "128px": "$.Primitive Tokens.Mode 1.size.32"
+      },
+      "radius": {
+        "0px": "$.Primitive Tokens.Mode 1.size.0",
+        "2px": "$.Primitive Tokens.Mode 1.size.0-5",
+        "4px": "$.Primitive Tokens.Mode 1.size.1",
+        "8px": "$.Primitive Tokens.Mode 1.size.2",
+        "12px": "$.Primitive Tokens.Mode 1.size.3",
+        "16px": "$.Primitive Tokens.Mode 1.size.4",
+        "full": "$.Primitive Tokens.Mode 1.size.9999"
+      },
+      "border": {
+        "0px": "$.Primitive Tokens.Mode 1.size.0",
+        "1px": "$.Primitive Tokens.Mode 1.size.0-25",
+        "2px": "$.Primitive Tokens.Mode 1.size.0-5",
+        "3px": "$.Primitive Tokens.Mode 1.size.0-75",
+        "4px": "$.Primitive Tokens.Mode 1.size.1",
+        "5px": "$.Primitive Tokens.Mode 1.size.1-25",
+        "6px": "$.Primitive Tokens.Mode 1.size.1-5",
+        "8px": "$.Primitive Tokens.Mode 1.size.2",
+        "10px": "$.Primitive Tokens.Mode 1.size.2-5",
+        "12px": "$.Primitive Tokens.Mode 1.size.3"
+      }
+    }
+  },
+  {
+    "collection": "Component Tokens",
+    "mode": "Mode 1",
+    "variables": {
+      "colors": {
+        "action": {
+          "disabled": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.disabled.default",
+            "text": "$.Semantic Tokens.Mode 1.colors.disabled.on"
+          },
+          "primary": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.primary.default",
+            "hover": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.primary.deep",
+              "text": "$.Semantic Tokens.Mode 1.colors.primary.on"
+            },
+            "text": "$.Semantic Tokens.Mode 1.colors.primary.on"
+          },
+          "secondary": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.secondary.default",
+            "hover": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.secondary.deep",
+              "text": "$.Semantic Tokens.Mode 1.colors.secondary.on"
+            },
+            "text": "$.Semantic Tokens.Mode 1.colors.secondary.on"
+          },
+          "success": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.success.default",
+            "hover": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.success.deep",
+              "text": "$.Semantic Tokens.Mode 1.colors.success.on"
+            },
+            "text": "$.Semantic Tokens.Mode 1.colors.success.on"
+          },
+          "danger": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.danger.default",
+            "hover": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.danger.deep",
+              "text": "$.Semantic Tokens.Mode 1.colors.danger.on"
+            },
+            "text": "$.Semantic Tokens.Mode 1.colors.danger.on"
+          },
+          "info": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.info.default",
+            "hover": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.info.deep",
+              "text": "$.Semantic Tokens.Mode 1.colors.info.on"
+            },
+            "text": "$.Semantic Tokens.Mode 1.colors.info.on"
+          },
+          "warning": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.warning.default",
+            "hover": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.warning.deep",
+              "text": "$.Semantic Tokens.Mode 1.colors.warning.on"
+            },
+            "text": "$.Semantic Tokens.Mode 1.colors.warning.on"
+          },
+          "neutral": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+            "hover": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.neutral.deep",
+              "text": "$.Semantic Tokens.Mode 1.colors.neutral.on"
+            },
+            "text": "$.Semantic Tokens.Mode 1.colors.neutral.on"
+          }
+        },
+        "field": {
+          "bg": "$.Semantic Tokens.Mode 1.colors.surface.variant",
+          "label-text": "$.Semantic Tokens.Mode 1.colors.surface.on",
+          "option-text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+          "helper-text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+          "placeholder-text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+          "active": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.surface.default",
+            "placeholder-text": "$.Semantic Tokens.Mode 1.colors.surface.on"
+          },
+          "filled": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.surface.variant",
+            "placeholder-text": "$.Semantic Tokens.Mode 1.colors.surface.on"
+          },
+          "error": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.danger.subtle",
+            "helper-text": "$.Semantic Tokens.Mode 1.colors.danger.default",
+            "placeholder-text": "$.Semantic Tokens.Mode 1.colors.danger.default"
+          },
+          "success": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.success.subtle",
+            "helper-text": "$.Semantic Tokens.Mode 1.colors.success.default",
+            "placeholder-text": "$.Semantic Tokens.Mode 1.colors.success.default"
+          },
+          "disabled": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.disabled.subtle",
+            "label-text": "$.Semantic Tokens.Mode 1.colors.disabled.deep",
+            "option-text": "$.Semantic Tokens.Mode 1.colors.disabled.default",
+            "helper-text": "$.Semantic Tokens.Mode 1.colors.disabled.default",
+            "placeholder-text": "$.Semantic Tokens.Mode 1.colors.disabled.default"
+          }
+        },
+        "chip": {
+          "bg": "$.Semantic Tokens.Mode 1.colors.surface.default",
+          "text": "$.Semantic Tokens.Mode 1.colors.surface.on-variant",
+          "icon": "$.Semantic Tokens.Mode 1.colors.neutral.base",
+          "disabled": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.surface.default",
+            "text": "$.Semantic Tokens.Mode 1.colors.disabled.default",
+            "icon": "$.Semantic Tokens.Mode 1.colors.neutral.faint"
+          }
+        },
+        "badge": {
+          "primary": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.primary.default",
+            "on": "$.Semantic Tokens.Mode 1.colors.primary.on"
+          },
+          "secondary": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.secondary.default",
+            "on": "$.Semantic Tokens.Mode 1.colors.secondary.on"
+          },
+          "success": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.success.default",
+            "on": "$.Semantic Tokens.Mode 1.colors.success.on"
+          },
+          "danger": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.danger.default",
+            "on": "$.Semantic Tokens.Mode 1.colors.danger.on"
+          },
+          "info": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.info.default",
+            "on": "$.Semantic Tokens.Mode 1.colors.info.on"
+          },
+          "warning": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.warning.default",
+            "on": "$.Semantic Tokens.Mode 1.colors.warning.on"
+          },
+          "neutral": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+            "on": "$.Semantic Tokens.Mode 1.colors.neutral.on"
+          }
+        },
+        "toggle": {
+          "default": {
+            "text": "$.Semantic Tokens.Mode 1.colors.surface.on",
+            "icon": "$.Semantic Tokens.Mode 1.colors.surface.on",
+            "disabled": {
+              "text": "$.Semantic Tokens.Mode 1.colors.disabled.default",
+              "icon": "$.Semantic Tokens.Mode 1.colors.disabled.default"
+            }
+          },
+          "selected": {
+            "disabled": {
+              "text": "$.Semantic Tokens.Mode 1.colors.disabled.default",
+              "icon": "$.Semantic Tokens.Mode 1.colors.disabled.default"
+            },
+            "text": "$.Semantic Tokens.Mode 1.colors.surface.on",
+            "icon": "$.Semantic Tokens.Mode 1.colors.primary.default"
+          }
+        },
+        "content": {
+          "text": "$.Semantic Tokens.Mode 1.colors.surface.on",
+          "sub-text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+          "bg": "$.Semantic Tokens.Mode 1.colors.surface.default",
+          "image": "$.Semantic Tokens.Mode 1.colors.info.default",
+          "icon": "$.Semantic Tokens.Mode 1.colors.neutral.base"
+        },
+        "divider": {
+          "text": "$.Semantic Tokens.Mode 1.colors.surface.on",
+          "border": "$.Semantic Tokens.Mode 1.colors.surface.on",
+          "icon": "$.Semantic Tokens.Mode 1.colors.surface.on"
+        },
+        "range": {
+          "text": "$.Semantic Tokens.Mode 1.colors.surface.on",
+          "container": "$.Semantic Tokens.Mode 1.colors.neutral.muted",
+          "sub-text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+          "stepper": "$.Semantic Tokens.Mode 1.colors.surface.default",
+          "thumb-border": "$.Semantic Tokens.Mode 1.colors.surface.default",
+          "primary": {
+            "fill": "$.Semantic Tokens.Mode 1.colors.primary.default"
+          },
+          "secondary": {
+            "fill": "$.Semantic Tokens.Mode 1.colors.secondary.default"
+          },
+          "success": {
+            "fill": "$.Semantic Tokens.Mode 1.colors.success.default"
+          },
+          "danger": {
+            "fill": "$.Semantic Tokens.Mode 1.colors.danger.default"
+          },
+          "info": {
+            "fill": "$.Semantic Tokens.Mode 1.colors.info.default"
+          },
+          "warning": {
+            "fill": "$.Semantic Tokens.Mode 1.colors.warning.default"
+          },
+          "neutral": {
+            "fill": "$.Semantic Tokens.Mode 1.colors.neutral.default"
+          },
+          "disable": {
+            "text": "$.Semantic Tokens.Mode 1.colors.disabled.deep",
+            "container": "$.Semantic Tokens.Mode 1.colors.disabled.subtle",
+            "fill": "$.Semantic Tokens.Mode 1.colors.disabled.muted",
+            "sub-text": "$.Semantic Tokens.Mode 1.colors.disabled.muted"
+          }
+        },
+        "toast": {
+          "text": "$.Semantic Tokens.Mode 1.colors.surface.on",
+          "sub-text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+          "icon": "$.Semantic Tokens.Mode 1.colors.neutral.base",
+          "surface": {
+            "border": "$.Semantic Tokens.Mode 1.colors.surface.on",
+            "bg": "$.Semantic Tokens.Mode 1.colors.surface.variant"
+          },
+          "primary": {
+            "border": "$.Semantic Tokens.Mode 1.colors.primary.default",
+            "bg": "$.Semantic Tokens.Mode 1.colors.primary.muted"
+          },
+          "secondary": {
+            "border": "$.Semantic Tokens.Mode 1.colors.secondary.default",
+            "bg": "$.Semantic Tokens.Mode 1.colors.secondary.muted"
+          },
+          "success": {
+            "border": "$.Semantic Tokens.Mode 1.colors.success.default",
+            "bg": "$.Semantic Tokens.Mode 1.colors.success.subtle"
+          },
+          "danger": {
+            "border": "$.Semantic Tokens.Mode 1.colors.danger.default",
+            "bg": "$.Semantic Tokens.Mode 1.colors.danger.subtle"
+          },
+          "info": {
+            "border": "$.Semantic Tokens.Mode 1.colors.info.default",
+            "bg": "$.Semantic Tokens.Mode 1.colors.info.subtle"
+          },
+          "warning": {
+            "border": "$.Semantic Tokens.Mode 1.colors.warning.default",
+            "bg": "$.Semantic Tokens.Mode 1.colors.warning.subtle"
+          },
+          "nutral": {
+            "border": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+            "bg": "$.Semantic Tokens.Mode 1.colors.neutral.muted"
+          }
+        }
+      },
+      "size": {
+        "basic": {
+          "common": {
+            "text-weight": "$.Semantic Tokens.Mode 1.weight.regular",
+            "label-text-weight": "$.Semantic Tokens.Mode 1.weight.medium"
+          },
+          "xs": {
+            "text": "$.Semantic Tokens.Mode 1.text.sm",
+            "sub-text": "$.Semantic Tokens.Mode 1.text.xs",
+            "leading": "$.Semantic Tokens.Mode 1.leading.18px",
+            "sub-leading": "$.Semantic Tokens.Mode 1.leading.14px",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.1-5",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.1-5",
+            "gap": "$.Primitive Tokens.Mode 1.size.1",
+            "radius": "$.Semantic Tokens.Mode 1.radius.4px",
+            "icon": "$.Semantic Tokens.Mode 1.text.sm"
+          },
+          "sm": {
+            "text": "$.Semantic Tokens.Mode 1.text.base",
+            "sub-text": "$.Semantic Tokens.Mode 1.text.sm",
+            "leading": "$.Semantic Tokens.Mode 1.leading.22px",
+            "sub-leading": "$.Semantic Tokens.Mode 1.leading.18px",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.1-5",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.1-5",
+            "gap": "$.Primitive Tokens.Mode 1.size.1",
+            "radius": "$.Semantic Tokens.Mode 1.radius.4px",
+            "icon": "$.Semantic Tokens.Mode 1.text.base"
+          },
+          "base": {
+            "text": "$.Semantic Tokens.Mode 1.text.base",
+            "sub-text": "$.Semantic Tokens.Mode 1.text.sm",
+            "leading": "$.Semantic Tokens.Mode 1.leading.22px",
+            "sub-leading": "$.Semantic Tokens.Mode 1.leading.18px",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.2",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.2",
+            "gap": "$.Primitive Tokens.Mode 1.size.1",
+            "radius": "$.Semantic Tokens.Mode 1.radius.4px",
+            "icon": "$.Semantic Tokens.Mode 1.text.base"
+          },
+          "lg": {
+            "text": "$.Semantic Tokens.Mode 1.text.base",
+            "sub-text": "$.Semantic Tokens.Mode 1.text.sm",
+            "leading": "$.Semantic Tokens.Mode 1.leading.26px",
+            "sub-leading": "$.Semantic Tokens.Mode 1.leading.22px",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.2-5",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.2",
+            "gap": "$.Primitive Tokens.Mode 1.size.1-5",
+            "radius": "$.Semantic Tokens.Mode 1.radius.8px",
+            "icon": "$.Semantic Tokens.Mode 1.text.base"
+          },
+          "xl": {
+            "text": "$.Semantic Tokens.Mode 1.text.lg",
+            "sub-text": "$.Semantic Tokens.Mode 1.text.base",
+            "leading": "$.Semantic Tokens.Mode 1.leading.26px",
+            "sub-leading": "$.Semantic Tokens.Mode 1.leading.22px",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.3",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.2-5",
+            "gap": "$.Primitive Tokens.Mode 1.size.1-5",
+            "radius": "$.Semantic Tokens.Mode 1.radius.8px",
+            "icon": "$.Semantic Tokens.Mode 1.text.lg"
+          }
+        },
+        "badge": {
+          "default": {
+            "text-weight": "$.Semantic Tokens.Mode 1.weight.medium",
+            "text": "$.Semantic Tokens.Mode 1.text.xs",
+            "leading": "$.Semantic Tokens.Mode 1.leading.14px",
+            "icon": "$.Semantic Tokens.Mode 1.text.xs",
+            "radius": "$.Semantic Tokens.Mode 1.radius.4px",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.1-5",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.1",
+            "gap": "$.Primitive Tokens.Mode 1.size.1",
+            "border": "$.Semantic Tokens.Mode 1.border.1px"
+          },
+          "count": {
+            "text-weight": "$.Semantic Tokens.Mode 1.weight.regular",
+            "text": "$.Semantic Tokens.Mode 1.text.2xs",
+            "leading": "$.Semantic Tokens.Mode 1.leading.12px",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.1",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.0-5"
+          },
+          "dot": {
+            "size": "$.Primitive Tokens.Mode 1.size.2-5"
+          }
+        },
+        "toggle": {
+          "common": {
+            "text-weight": "$.Semantic Tokens.Mode 1.weight.regular"
+          },
+          "space": {
+            "border": "$.Semantic Tokens.Mode 1.border.1px",
+            "fill": "$.Semantic Tokens.Mode 1.leading.18px"
+          },
+          "sm": {
+            "text": "$.Semantic Tokens.Mode 1.text.xs",
+            "leading": "$.Semantic Tokens.Mode 1.leading.16px",
+            "icon": "$.Semantic Tokens.Mode 1.text.sm",
+            "gap": "$.Primitive Tokens.Mode 1.size.1",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.1-5",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.1"
+          },
+          "base": {
+            "text": "$.Semantic Tokens.Mode 1.text.sm",
+            "leading": "$.Semantic Tokens.Mode 1.leading.20px",
+            "icon": "$.Semantic Tokens.Mode 1.text.base",
+            "gap": "$.Primitive Tokens.Mode 1.size.1-5",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.2",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.1-5"
+          },
+          "lg": {
+            "text": "$.Semantic Tokens.Mode 1.text.base",
+            "leading": "$.Semantic Tokens.Mode 1.leading.20px",
+            "icon": "$.Semantic Tokens.Mode 1.text.lg",
+            "gap": "$.Primitive Tokens.Mode 1.size.1-5",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.2-5",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.2"
+          },
+          "xl": {
+            "text": "$.Semantic Tokens.Mode 1.text.base",
+            "leading": "$.Semantic Tokens.Mode 1.leading.24px",
+            "icon": "$.Semantic Tokens.Mode 1.text.xl",
+            "gap": "$.Primitive Tokens.Mode 1.size.2",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.2-5",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.2"
+          }
+        },
+        "range": {
+          "sm": {
+            "gap": "$.Primitive Tokens.Mode 1.size.2",
+            "range": "$.Semantic Tokens.Mode 1.border.6px",
+            "stepper": "$.Primitive Tokens.Mode 1.size.0-5",
+            "thumb": {
+              "thumb": "$.Primitive Tokens.Mode 1.size.3-5",
+              "border": {
+                "default": "$.Semantic Tokens.Mode 1.border.2px",
+                "hover": "$.Semantic Tokens.Mode 1.border.1px",
+                "pressed": "$.Semantic Tokens.Mode 1.border.4px"
+              }
+            }
+          },
+          "base": {
+            "gap": "$.Primitive Tokens.Mode 1.size.2-5",
+            "range": "$.Semantic Tokens.Mode 1.border.8px",
+            "stepper": "$.Primitive Tokens.Mode 1.size.1",
+            "thumb": {
+              "thumb": "$.Primitive Tokens.Mode 1.size.4",
+              "border": {
+                "default": "$.Semantic Tokens.Mode 1.border.2px",
+                "hover": "$.Semantic Tokens.Mode 1.border.1px",
+                "pressed": "$.Semantic Tokens.Mode 1.border.4px"
+              }
+            }
+          },
+          "lg": {
+            "gap": "$.Primitive Tokens.Mode 1.size.3",
+            "range": "$.Semantic Tokens.Mode 1.border.10px",
+            "stepper": "$.Primitive Tokens.Mode 1.size.1",
+            "thumb": {
+              "thumb": "$.Primitive Tokens.Mode 1.size.5",
+              "border": {
+                "default": "$.Semantic Tokens.Mode 1.border.3px",
+                "hover": "$.Semantic Tokens.Mode 1.border.2px",
+                "pressed": "$.Semantic Tokens.Mode 1.border.5px"
+              }
+            }
+          },
+          "xl": {
+            "gap": "$.Primitive Tokens.Mode 1.size.3",
+            "range": "$.Semantic Tokens.Mode 1.border.12px",
+            "stepper": "$.Primitive Tokens.Mode 1.size.1-5",
+            "thumb": {
+              "thumb": "$.Primitive Tokens.Mode 1.size.6",
+              "border": {
+                "default": "$.Semantic Tokens.Mode 1.border.4px",
+                "hover": "$.Semantic Tokens.Mode 1.border.2px",
+                "pressed": "$.Semantic Tokens.Mode 1.border.6px"
+              }
+            }
+          }
+        },
+        "content": {
+          "text-weight": "$.Semantic Tokens.Mode 1.weight.bold",
+          "text": "$.Semantic Tokens.Mode 1.text.2xl",
+          "leading": "$.Semantic Tokens.Mode 1.leading.32px",
+          "sub-text-weight": "$.Semantic Tokens.Mode 1.weight.regular",
+          "sub-text": "$.Semantic Tokens.Mode 1.text.base",
+          "sub-leading": "$.Semantic Tokens.Mode 1.leading.24px",
+          "icon": "$.Semantic Tokens.Mode 1.text.xl",
+          "padding-x": "$.Primitive Tokens.Mode 1.size.4",
+          "padding-y": "$.Primitive Tokens.Mode 1.size.4",
+          "radius": "$.Semantic Tokens.Mode 1.radius.16px",
+          "img-radius": "$.Primitive Tokens.Mode 1.size.2",
+          "gap": {
+            "default": "$.Primitive Tokens.Mode 1.size.10",
+            "option": "$.Primitive Tokens.Mode 1.size.7",
+            "item": "$.Primitive Tokens.Mode 1.size.3-5",
+            "btn": "$.Primitive Tokens.Mode 1.size.5",
+            "img": "$.Primitive Tokens.Mode 1.size.4",
+            "text": "$.Primitive Tokens.Mode 1.size.3-5",
+            "icon": "$.Primitive Tokens.Mode 1.size.3-5"
+          }
+        }
+      },
+      "style": {
+        "global": {
+          "sharp": "$.Semantic Tokens.Mode 1.radius.0px",
+          "rounded": "$.Semantic Tokens.Mode 1.radius.full",
+          "none-gap": "$.Primitive Tokens.Mode 1.size.0",
+          "border": "$.Semantic Tokens.Mode 1.colors.transparent.default"
+        },
+        "action": {
+          "outline": {
+            "common": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.transparent.default",
+              "border": "$.Semantic Tokens.Mode 1.border.1px",
+              "disable": {
+                "text": "$.Semantic Tokens.Mode 1.colors.disabled.default",
+                "border": "$.Semantic Tokens.Mode 1.colors.disabled.default"
+              }
+            },
+            "primary": {
+              "border": "$.Semantic Tokens.Mode 1.colors.primary.default",
+              "text": "$.Semantic Tokens.Mode 1.colors.primary.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.primary.default",
+                "border": "$.Semantic Tokens.Mode 1.colors.primary.default",
+                "text": "$.Semantic Tokens.Mode 1.colors.primary.on"
+              }
+            },
+            "secondary": {
+              "border": "$.Semantic Tokens.Mode 1.colors.secondary.default",
+              "text": "$.Semantic Tokens.Mode 1.colors.secondary.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.secondary.default",
+                "border": "$.Semantic Tokens.Mode 1.colors.secondary.default",
+                "text": "$.Semantic Tokens.Mode 1.colors.secondary.on"
+              }
+            },
+            "success": {
+              "border": "$.Semantic Tokens.Mode 1.colors.success.default",
+              "text": "$.Semantic Tokens.Mode 1.colors.success.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.success.default",
+                "border": "$.Semantic Tokens.Mode 1.colors.success.default",
+                "text": "$.Semantic Tokens.Mode 1.colors.success.on"
+              }
+            },
+            "danger": {
+              "border": "$.Semantic Tokens.Mode 1.colors.danger.default",
+              "text": "$.Semantic Tokens.Mode 1.colors.danger.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.danger.default",
+                "border": "$.Semantic Tokens.Mode 1.colors.danger.default",
+                "text": "$.Semantic Tokens.Mode 1.colors.danger.on"
+              }
+            },
+            "info": {
+              "border": "$.Semantic Tokens.Mode 1.colors.info.default",
+              "text": "$.Semantic Tokens.Mode 1.colors.info.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.info.default",
+                "border": "$.Semantic Tokens.Mode 1.colors.info.default",
+                "text": "$.Semantic Tokens.Mode 1.colors.info.on"
+              }
+            },
+            "warning": {
+              "border": "$.Semantic Tokens.Mode 1.colors.warning.default",
+              "text": "$.Semantic Tokens.Mode 1.colors.warning.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.warning.default",
+                "border": "$.Semantic Tokens.Mode 1.colors.warning.default",
+                "text": "$.Semantic Tokens.Mode 1.colors.warning.on"
+              }
+            },
+            "neutral": {
+              "border": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+              "text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+                "border": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+                "text": "$.Semantic Tokens.Mode 1.colors.neutral.on"
+              }
+            }
+          },
+          "text": {
+            "common": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.transparent.default",
+              "disabled": {
+                "text": "$.Semantic Tokens.Mode 1.colors.disabled.default"
+              }
+            },
+            "primary": {
+              "text": "$.Semantic Tokens.Mode 1.colors.primary.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.primary.muted",
+                "text": "$.Semantic Tokens.Mode 1.colors.primary.default"
+              }
+            },
+            "secondary": {
+              "text": "$.Semantic Tokens.Mode 1.colors.secondary.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.secondary.muted",
+                "text": "$.Semantic Tokens.Mode 1.colors.secondary.default"
+              }
+            },
+            "success": {
+              "text": "$.Semantic Tokens.Mode 1.colors.success.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.success.subtle",
+                "text": "$.Semantic Tokens.Mode 1.colors.success.default"
+              }
+            },
+            "danger": {
+              "text": "$.Semantic Tokens.Mode 1.colors.danger.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.danger.subtle",
+                "text": "$.Semantic Tokens.Mode 1.colors.danger.default"
+              }
+            },
+            "info": {
+              "text": "$.Semantic Tokens.Mode 1.colors.info.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.info.subtle",
+                "text": "$.Semantic Tokens.Mode 1.colors.info.default"
+              }
+            },
+            "warning": {
+              "text": "$.Semantic Tokens.Mode 1.colors.warning.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.warning.subtle",
+                "text": "$.Semantic Tokens.Mode 1.colors.warning.default"
+              }
+            },
+            "neutral": {
+              "text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+              "hover": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.neutral.muted",
+                "text": "$.Semantic Tokens.Mode 1.colors.neutral.default"
+              }
+            }
+          }
+        },
+        "field": {
+          "outline": {
+            "common": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.surface.default",
+              "border": "$.Semantic Tokens.Mode 1.border.1px",
+              "disabled": {
+                "border": "$.Semantic Tokens.Mode 1.colors.disabled.muted"
+              }
+            },
+            "default": {
+              "border": "$.Semantic Tokens.Mode 1.colors.neutral.faint"
+            },
+            "active": {
+              "border": "$.Semantic Tokens.Mode 1.colors.neutral.base"
+            },
+            "filled": {
+              "border": "$.Semantic Tokens.Mode 1.colors.neutral.faint"
+            },
+            "error": {
+              "border": "$.Semantic Tokens.Mode 1.colors.danger.default"
+            },
+            "success": {
+              "border": "$.Semantic Tokens.Mode 1.colors.success.default"
+            }
+          },
+          "dropdown": {
+            "menu": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.surface.variant",
+              "text": "$.Semantic Tokens.Mode 1.colors.surface.on",
+              "selected": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.primary.muted",
+                "text": "$.Semantic Tokens.Mode 1.colors.primary.default"
+              },
+              "scroll": {
+                "color": "$.Semantic Tokens.Mode 1.colors.neutral.faint"
+              }
+            }
+          }
+        },
+        "badge": {
+          "outline": {
+            "common": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.transparent.default"
+            },
+            "primary": {
+              "text": "$.Semantic Tokens.Mode 1.colors.primary.default",
+              "border": "$.Semantic Tokens.Mode 1.colors.primary.default"
+            },
+            "secondary": {
+              "text": "$.Semantic Tokens.Mode 1.colors.secondary.default",
+              "border": "$.Semantic Tokens.Mode 1.colors.secondary.default"
+            },
+            "success": {
+              "text": "$.Semantic Tokens.Mode 1.colors.success.default",
+              "border": "$.Semantic Tokens.Mode 1.colors.success.default"
+            },
+            "danger": {
+              "text": "$.Semantic Tokens.Mode 1.colors.danger.default",
+              "border": "$.Semantic Tokens.Mode 1.colors.danger.default"
+            },
+            "info": {
+              "text": "$.Semantic Tokens.Mode 1.colors.info.default",
+              "border": "$.Semantic Tokens.Mode 1.colors.info.default"
+            },
+            "warning": {
+              "text": "$.Semantic Tokens.Mode 1.colors.warning.default",
+              "border": "$.Semantic Tokens.Mode 1.colors.warning.default"
+            },
+            "neutral": {
+              "text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+              "border": "$.Semantic Tokens.Mode 1.colors.neutral.default"
+            }
+          }
+        },
+        "chip": {
+          "outline": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.surface.variant",
+            "text": "$.Semantic Tokens.Mode 1.colors.surface.on-variant",
+            "icon": "$.Semantic Tokens.Mode 1.colors.neutral.base",
+            "border": "$.Semantic Tokens.Mode 1.colors.neutral.soft",
+            "hover": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.surface.default",
+              "border": "$.Semantic Tokens.Mode 1.colors.surface.default"
+            },
+            "disable": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.disabled.subtle",
+              "text": "$.Semantic Tokens.Mode 1.colors.disabled.default",
+              "icon": "$.Semantic Tokens.Mode 1.colors.disabled.muted",
+              "border": "$.Semantic Tokens.Mode 1.colors.disabled.muted"
+            }
+          }
+        },
+        "toggle": {
+          "switch": {
+            "padding-x": "$.Primitive Tokens.Mode 1.size.1",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.1",
+            "bg": "$.Semantic Tokens.Mode 1.colors.neutral.soft",
+            "toggle": "$.Primitive Tokens.Mode 1.colors.white.default",
+            "selected": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.primary.default",
+              "toggle": "$.Primitive Tokens.Mode 1.colors.white.default"
+            },
+            "disabled": {
+              "selected": {
+                "bg": "$.Semantic Tokens.Mode 1.colors.primary.faint",
+                "toggle": "$.Semantic Tokens.Mode 1.colors.disabled.subtle"
+              },
+              "bg": "$.Semantic Tokens.Mode 1.colors.disabled.muted",
+              "toggle": "$.Semantic Tokens.Mode 1.colors.disabled.subtle"
+            }
+          }
+        },
+        "content": {
+          "card": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.surface.variant"
+          }
+        },
+        "state": {
+          "outline": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.surface.default",
+            "border": "$.Semantic Tokens.Mode 1.colors.neutral.faint",
+            "border-size": "$.Semantic Tokens.Mode 1.border.1px"
+          }
+        },
+        "otp": {
+          "sm": {
+            "padding-x": "$.Primitive Tokens.Mode 1.size.1-5",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.0-25",
+            "gap": "$.Primitive Tokens.Mode 1.size.1-5",
+            "text": "$.Semantic Tokens.Mode 1.text.sm",
+            "leading": "$.Semantic Tokens.Mode 1.leading.20px",
+            "sub-text": "$.Semantic Tokens.Mode 1.text.xs",
+            "sub-leading": "$.Semantic Tokens.Mode 1.leading.16px"
+          },
+          "base": {
+            "padding-x": "$.Primitive Tokens.Mode 1.size.1-5",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.0-5",
+            "gap": "$.Primitive Tokens.Mode 1.size.2",
+            "sub-text": "$.Semantic Tokens.Mode 1.text.xs",
+            "leading": "$.Semantic Tokens.Mode 1.leading.16px"
+          },
+          "lg": {
+            "padding-x": "$.Primitive Tokens.Mode 1.size.2",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.1",
+            "gap": "$.Primitive Tokens.Mode 1.size.2-5"
+          },
+          "xl": {
+            "padding-x": "$.Primitive Tokens.Mode 1.size.2-5",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.1-25",
+            "gap": "$.Primitive Tokens.Mode 1.size.3"
+          }
+        },
+        "pagination": {
+          "default": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.surface.default",
+            "hover": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.surface.variant"
+            },
+            "text": "$.Semantic Tokens.Mode 1.colors.surface.on"
+          },
+          "selected": {
+            "text": "$.Semantic Tokens.Mode 1.colors.surface.default",
+            "primary": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.primary.default"
+            },
+            "secondary": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.secondary.default"
+            },
+            "success": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.success.default"
+            },
+            "danger": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.danger.default"
+            },
+            "info": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.info.default"
+            },
+            "warning": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.warning.default"
+            },
+            "neutral": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.neutral.default"
+            }
+          },
+          "disabled": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.disabled.subtle",
+            "text": "$.Semantic Tokens.Mode 1.colors.disabled.default"
+          },
+          "outline": {
+            "border": "$.Semantic Tokens.Mode 1.colors.surface.on",
+            "disabled": {
+              "border": "$.Semantic Tokens.Mode 1.colors.disabled.default"
+            }
+          }
+        },
+        "timeline": {
+          "common": {
+            "text": "$.Semantic Tokens.Mode 1.colors.surface.on",
+            "sub-text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+            "line": "$.Semantic Tokens.Mode 1.colors.neutral.faint",
+            "text-gap": "$.Primitive Tokens.Mode 1.size.0",
+            "border": "$.Semantic Tokens.Mode 1.border.2px",
+            "icon": "$.Primitive Tokens.Mode 1.size.3",
+            "indicator": "$.Primitive Tokens.Mode 1.size.5"
+          },
+          "sm": {
+            "title-gap": "$.Primitive Tokens.Mode 1.size.1-5",
+            "gap": "$.Primitive Tokens.Mode 1.size.2-5"
+          },
+          "base": {
+            "title-gap": "$.Primitive Tokens.Mode 1.size.2",
+            "gap": "$.Primitive Tokens.Mode 1.size.3"
+          },
+          "lg": {
+            "title-gap": "$.Primitive Tokens.Mode 1.size.2-5",
+            "gap": "$.Primitive Tokens.Mode 1.size.3-5"
+          },
+          "xl": {
+            "title-gap": "$.Primitive Tokens.Mode 1.size.3",
+            "gap": "$.Primitive Tokens.Mode 1.size.3-5"
+          },
+          "active": {
+            "surface": {
+              "indicator": "$.Semantic Tokens.Mode 1.colors.surface.on"
+            },
+            "icon": "$.Semantic Tokens.Mode 1.colors.surface.default",
+            "primary": {
+              "indicator": "$.Semantic Tokens.Mode 1.colors.primary.default"
+            },
+            "secondary": {
+              "indicator": "$.Semantic Tokens.Mode 1.colors.secondary.default"
+            },
+            "success": {
+              "indicator": "$.Semantic Tokens.Mode 1.colors.success.default"
+            },
+            "danger": {
+              "indicator": "$.Semantic Tokens.Mode 1.colors.danger.default"
+            },
+            "info": {
+              "indicator": "$.Semantic Tokens.Mode 1.colors.info.default"
+            },
+            "warning": {
+              "indicator": "$.Semantic Tokens.Mode 1.colors.warning.default"
+            },
+            "neutral": {
+              "indicator": "$.Semantic Tokens.Mode 1.colors.neutral.default"
+            }
+          },
+          "inactive": {
+            "indicator": "$.Semantic Tokens.Mode 1.colors.neutral.muted",
+            "icon": "$.Semantic Tokens.Mode 1.colors.neutral.faint"
+          }
+        },
+        "divider": {
+          "border": "$.Semantic Tokens.Mode 1.border.1px",
+          "dashed-size": "$.Primitive Tokens.Mode 1.size.0-25",
+          "space": "$.Primitive Tokens.Mode 1.size.1-5",
+          "gap": "$.Primitive Tokens.Mode 1.size.2-5"
+        },
+        "tab": {
+          "disabled": {
+            "text": "$.Semantic Tokens.Mode 1.colors.disabled.default"
+          },
+          "contained": {
+            "bg": "$.Semantic Tokens.Mode 1.colors.surface.variant",
+            "selected": {
+              "text": "$.Semantic Tokens.Mode 1.colors.primary.default"
+            }
+          },
+          "underline": {
+            "border": "$.Semantic Tokens.Mode 1.colors.neutral.soft",
+            "selected": {
+              "border": "$.Semantic Tokens.Mode 1.colors.primary.default"
+            }
+          },
+          "pill": {
+            "selected": {
+              "bg": "$.Semantic Tokens.Mode 1.colors.primary.muted",
+              "text": "$.Semantic Tokens.Mode 1.colors.primary.default"
+            }
+          },
+          "sm": {
+            "border": "$.Semantic Tokens.Mode 1.border.1px",
+            "underline": "$.Semantic Tokens.Mode 1.border.2px",
+            "gap": "$.Primitive Tokens.Mode 1.size.1-5",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.2-5",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.1-5"
+          },
+          "text": "$.Semantic Tokens.Mode 1.colors.surface.on",
+          "bg": "$.Semantic Tokens.Mode 1.colors.surface.default",
+          "border": "$.Semantic Tokens.Mode 1.colors.surface.on-variant",
+          "base": {
+            "border": "$.Semantic Tokens.Mode 1.border.1px",
+            "underline": "$.Semantic Tokens.Mode 1.border.2px",
+            "gap": "$.Primitive Tokens.Mode 1.size.2",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.3-5",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.2"
+          },
+          "lg": {
+            "border": "$.Semantic Tokens.Mode 1.border.1px",
+            "underline": "$.Semantic Tokens.Mode 1.border.2px",
+            "gap": "$.Primitive Tokens.Mode 1.size.2-5",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.4",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.2-5"
+          },
+          "xl": {
+            "border": "$.Semantic Tokens.Mode 1.border.1px",
+            "underline": "$.Semantic Tokens.Mode 1.border.2px",
+            "gap": "$.Primitive Tokens.Mode 1.size.2-5",
+            "padding-x": "$.Primitive Tokens.Mode 1.size.4",
+            "padding-y": "$.Primitive Tokens.Mode 1.size.2-5"
+          }
+        },
+        "progress": {
+          "sm": {
+            "gap": {
+              "text": "$.Primitive Tokens.Mode 1.size.2-5",
+              "number": "$.Primitive Tokens.Mode 1.size.1-5"
+            }
+          },
+          "base": {
+            "gap": {
+              "text": "$.Primitive Tokens.Mode 1.size.3",
+              "number": "$.Primitive Tokens.Mode 1.size.1-5"
+            }
+          },
+          "lg": {
+            "gap": {
+              "text": "$.Primitive Tokens.Mode 1.size.3-5",
+              "number": "$.Primitive Tokens.Mode 1.size.2"
+            }
+          },
+          "xl": {
+            "gap": {
+              "text": "$.Primitive Tokens.Mode 1.size.4",
+              "number": "$.Primitive Tokens.Mode 1.size.2"
+            }
+          }
+        },
+        "circular-progress": {
+          "gap": "$.Primitive Tokens.Mode 1.size.0",
+          "sm": {
+            "size": "$.Primitive Tokens.Mode 1.size.26"
+          },
+          "base": {
+            "size": "$.Primitive Tokens.Mode 1.size.28"
+          },
+          "lg": {
+            "size": "$.Primitive Tokens.Mode 1.size.30"
+          },
+          "xl": {
+            "size": "$.Primitive Tokens.Mode 1.size.32"
+          }
+        },
+        "toast": {
+          "gap": "$.Primitive Tokens.Mode 1.size.8",
+          "text-gap": "$.Primitive Tokens.Mode 1.size.0-5",
+          "padding-x": "$.Primitive Tokens.Mode 1.size.3",
+          "padding-y": "$.Primitive Tokens.Mode 1.size.1-5",
+          "border": "$.Semantic Tokens.Mode 1.border.2px",
+          "notification": {
+            "padding-y": "$.Primitive Tokens.Mode 1.size.1",
+            "border": "$.Semantic Tokens.Mode 1.border.2px",
+            "button": {
+              "border-size": "$.Semantic Tokens.Mode 1.border.1px",
+              "border": "$.Semantic Tokens.Mode 1.colors.neutral.faint"
+            },
+            "surface": {
+              "border": "$.Semantic Tokens.Mode 1.colors.surface.on"
+            },
+            "primary": {
+              "border": "$.Semantic Tokens.Mode 1.colors.info.default"
+            },
+            "secondary": {
+              "border": "$.Semantic Tokens.Mode 1.colors.secondary.default"
+            },
+            "success": {
+              "border": "$.Semantic Tokens.Mode 1.colors.success.default"
+            },
+            "danger": {
+              "border": "$.Semantic Tokens.Mode 1.colors.danger.default"
+            },
+            "info": {
+              "border": "$.Semantic Tokens.Mode 1.colors.info.default"
+            },
+            "warning": {
+              "border": "$.Semantic Tokens.Mode 1.colors.warning.default"
+            },
+            "neutral": {
+              "border": "$.Semantic Tokens.Mode 1.colors.neutral.default"
+            }
+          }
+        },
+        "tree": {
+          "radius": "$.Primitive Tokens.Mode 1.size.1-5",
+          "main": "$.Semantic Tokens.Mode 1.colors.surface.on",
+          "bg": "$.Semantic Tokens.Mode 1.colors.transparent.default",
+          "hover": "$.Semantic Tokens.Mode 1.colors.surface.default",
+          "item": {
+            "position": "$.Primitive Tokens.Mode 1.size.3",
+            "gap": "$.Primitive Tokens.Mode 1.size.0-5",
+            "item": "$.Semantic Tokens.Mode 1.colors.neutral.default"
+          }
+        },
+        "table": {
+          "row": {
+            "padding": "$.Primitive Tokens.Mode 1.size.1-5",
+            "gap": "$.Primitive Tokens.Mode 1.size.6"
+          },
+          "pagination": {
+            "gap": "$.Primitive Tokens.Mode 1.size.7"
+          },
+          "title": "$.Semantic Tokens.Mode 1.colors.surface.on",
+          "sub-text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+          "line": "$.Semantic Tokens.Mode 1.colors.neutral.soft",
+          "transparent-icon": "$.Semantic Tokens.Mode 1.colors.transparent.default",
+          "border": "$.Semantic Tokens.Mode 1.border.1px"
+        },
+        "popup": {
+          "title": "$.Semantic Tokens.Mode 1.colors.surface.on",
+          "sub-text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+          "line": "$.Semantic Tokens.Mode 1.colors.neutral.subtle",
+          "bg": "$.Semantic Tokens.Mode 1.colors.surface.default",
+          "border": "$.Semantic Tokens.Mode 1.border.1px",
+          "padding-x": "$.Primitive Tokens.Mode 1.size.2-5",
+          "radius": "$.Primitive Tokens.Mode 1.size.1-5"
+        },
+        "menu": {
+          "title": "$.Semantic Tokens.Mode 1.colors.surface.on",
+          "item": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+          "hover": "$.Semantic Tokens.Mode 1.colors.surface.variant",
+          "bg": "$.Semantic Tokens.Mode 1.colors.surface.default",
+          "border-color": "$.Semantic Tokens.Mode 1.colors.neutral.soft",
+          "padding-x": "$.Primitive Tokens.Mode 1.size.2",
+          "padding-y": "$.Primitive Tokens.Mode 1.size.0-5",
+          "radius": "$.Semantic Tokens.Mode 1.radius.4px",
+          "icon": "$.Primitive Tokens.Mode 1.size.3",
+          "gap": "$.Primitive Tokens.Mode 1.size.1",
+          "padding": "$.Primitive Tokens.Mode 1.size.1",
+          "border": "$.Semantic Tokens.Mode 1.border.1px"
+        }
+      }
+    }
+  }
+]

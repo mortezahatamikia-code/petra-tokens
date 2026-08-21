@@ -1,0 +1,54 @@
+// AUTO-GENERATED — style-scheme (variant="pagination")
+
+[data-style-scheme="pagination"] {
+  --p-bg: var(--p-colors-surface-default);
+  --p-text: var(--p-colors-surface-on);
+}
+
+[data-style-scheme="pagination"]:not([data-state="disabled"]):hover {
+  --p-bg-hover: var(--p-colors-surface-variant);
+}
+
+[data-style-scheme="pagination"][data-state="selected"] {
+  --p-text: var(--p-colors-surface-default);
+}
+
+[data-style-scheme="pagination"][data-state="selected"][data-color="primary"] {
+  --p-bg: var(--p-colors-primary-default);
+}
+
+[data-style-scheme="pagination"][data-state="selected"][data-color="secondary"] {
+  --p-bg: var(--p-colors-secondary-default);
+}
+
+[data-style-scheme="pagination"][data-state="selected"][data-color="success"] {
+  --p-bg: var(--p-colors-success-default);
+}
+
+[data-style-scheme="pagination"][data-state="selected"][data-color="info"] {
+  --p-bg: var(--p-colors-info-default);
+}
+
+[data-style-scheme="pagination"][data-state="selected"][data-color="warning"] {
+  --p-bg: var(--p-colors-warning-default);
+}
+
+[data-style-scheme="pagination"][data-state="selected"][data-color="neutral"] {
+  --p-bg: var(--p-colors-neutral-default);
+}
+
+[data-style-scheme="pagination"][data-state="disabled"] {
+  --p-bg-disabled: var(--p-colors-disabled-subtle);
+  --p-bg: var(--p-colors-disabled-subtle);
+  --p-text-disabled: var(--p-colors-disabled-default);
+  --p-text: var(--p-colors-disabled-default);
+}
+
+[data-style-scheme="pagination"][data-variant~="outline"] {
+  --p-border-color: var(--p-colors-surface-on);
+}
+
+[data-style-scheme="pagination"][data-variant~="outline"][data-state="disabled"] {
+  --p-border-color-disabled: var(--p-colors-disabled-default);
+  --p-border-color: var(--p-colors-disabled-default);
+}

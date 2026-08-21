@@ -1,0 +1,29 @@
+// AUTO-GENERATED — size-scheme="range"
+
+[data-size-scheme="range"][data-size="sm"] {
+  --p-gap: var(--p-size-2);
+  --p-range: var(--p-border-6px);
+  --p-stepper: var(--p-size-0-5);
+  --p-thumb: [object Object];
+}
+
+[data-size-scheme="range"][data-size="base"], [data-size-scheme="range"][data-size="md"] {
+  --p-gap: var(--p-size-2-5);
+  --p-range: var(--p-border-8px);
+  --p-stepper: var(--p-size-1);
+  --p-thumb: [object Object];
+}
+
+[data-size-scheme="range"][data-size="lg"] {
+  --p-gap: var(--p-size-3);
+  --p-range: var(--p-border-10px);
+  --p-stepper: var(--p-size-1);
+  --p-thumb: [object Object];
+}
+
+[data-size-scheme="range"][data-size="xl"] {
+  --p-gap: var(--p-size-3);
+  --p-range: var(--p-border-12px);
+  --p-stepper: var(--p-size-1-5);
+  --p-thumb: [object Object];
+}

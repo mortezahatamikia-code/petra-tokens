@@ -1,0 +1,70 @@
+// AUTO-GENERATED — color-scheme="field"
+
+[data-color-scheme="field"] {
+  --p-bg: var(--p-colors-surface-variant);
+  --p-label-color: var(--p-colors-surface-on);
+  --p-option-text: var(--p-colors-neutral-default);
+  --p-helper-color: var(--p-colors-neutral-default);
+  --p-placeholder-color: var(--p-colors-neutral-default);
+  --p-field-label-color: var(--p-text);
+  --p-field-label-helper-color: var(--p-helper-color);
+  --p-field-counter-color: var(--p-helper-color);
+  --p-field-helper-color: var(--p-helper-color);
+}
+
+[data-color-scheme="field"][data-color="active"] {
+  --p-bg: var(--p-colors-surface-default);
+  --p-placeholder-color: var(--p-colors-surface-on);
+}
+
+[data-color-scheme="field"][data-color="filled"] {
+  --p-bg: var(--p-colors-surface-variant);
+  --p-placeholder-color: var(--p-colors-surface-on);
+}
+
+[data-color-scheme="field"][data-color="error"] {
+  --p-bg: var(--p-colors-error-subtle);
+  --p-helper-color: var(--p-colors-error-default);
+  --p-placeholder-color: var(--p-colors-error-default);
+}
+
+[data-color-scheme="field"][data-color="success"] {
+  --p-bg: var(--p-colors-success-subtle);
+  --p-helper-color: var(--p-colors-success-default);
+  --p-placeholder-color: var(--p-colors-success-default);
+}
+
+:is([data-color-scheme="field"], [data-color-scheme="field"] *):is([data-state="disabled"], [data-state="loading"]), :is([data-state="disabled"], [data-state="loading"]) {
+  --p-bg-disabled: var(--p-colors-disabled-subtle);
+  --p-bg: var(--p-colors-disabled-subtle);
+  --p-label-color: var(--p-colors-disabled-deep);
+  --p-option-text: var(--p-colors-disabled-default);
+  --p-helper-color: var(--p-colors-disabled-default);
+  --p-placeholder-color: var(--p-colors-disabled-default);
+}
+
+[data-color-scheme="field"] [data-part="label"] {
+  color: var(--p-field-label-color);
+}
+
+[data-color-scheme="field"] [data-part="label-helper"] {
+  color: var(--p-field-label-helper-color);
+}
+
+[data-color-scheme="field"] [data-part="counter"] {
+  color: var(--p-field-counter-color);
+}
+
+[data-color-scheme="field"] [data-part="helper"] {
+  color: var(--p-field-helper-color);
+}
+
+[data-color-scheme="field"] [data-part="container"] {
+  border-color: var(--p-border-color, var(--p-colors-transparent-default));
+  background-color: var(--p-bg);
+  box-shadow: none;
+}
+
+[data-color-scheme="field"] [data-part="container"]:not([data-variant~="outline"], [data-variant~="ghost"], [data-state="disabled"], [data-state="loading"]):is(:hover, :active, [data-state="active"], :focus-within) {
+  box-shadow: var(--p-shadow, var(--p-shadow-default, none));
+}

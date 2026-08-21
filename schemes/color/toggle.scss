@@ -1,0 +1,82 @@
+// AUTO-GENERATED — color-scheme="toggle"
+
+[data-color-scheme="toggle"][data-color="default"] {
+  --p-text: var(--p-colors-surface-on);
+  --p-icon: var(--p-colors-surface-on);
+}
+
+[data-color-scheme="toggle"][data-color="default"]:is([data-state="disabled"], [data-state="loading"]) {
+  --p-text-disabled: var(--p-colors-disabled-default);
+  --p-text: var(--p-colors-disabled-default);
+  --p-icon: var(--p-colors-disabled-default);
+}
+
+[data-color-scheme="toggle"][data-color="selected"]:is([data-state="disabled"], [data-state="loading"]) {
+  --p-text-disabled: var(--p-colors-disabled-default);
+  --p-text: var(--p-colors-disabled-default);
+  --p-icon: var(--p-colors-disabled-default);
+}
+
+[data-color-scheme="toggle"][data-color="selected"] {
+  --p-text: var(--p-colors-surface-on);
+  --p-icon: var(--p-colors-primary-default);
+}
+
+[data-color-scheme="toggle"] {
+  --p-border-color-hover: var(--p-colors-primary-default);
+  --p-ring-color-focus: var(--p-colors-primary-muted);
+  --p-checkbox-bg: var(--p-bg);
+  --p-checkbox-border-color: var(--p-border-color);
+  --p-checkbox-label-color: var(--p-text);
+  --p-checkbox-tic-color: var(--p-toggle-indicator-color);
+  --p-checkbox-mixed-line-color: var(--p-toggle-indicator-color);
+  --p-radio-bg: var(--p-bg);
+  --p-radio-border-color: var(--p-border-color);
+  --p-radio-label-color: var(--p-text);
+  --p-radio-dot-color: var(--p-toggle-indicator-color);
+  --p-switch-track-bg: var(--p-bg);
+  --p-switch-bg-inner-bg: var(--p-bg);
+  --p-switch-indicator-bg: var(--p-toggle-indicator-color);
+}
+
+[data-color-scheme="toggle"] [data-part="checkbox-box"] {
+  background-color: var(--p-checkbox-bg);
+  border-color: var(--p-checkbox-border-color);
+}
+
+[data-color-scheme="toggle"] [data-part="radio-box"] {
+  background-color: var(--p-radio-bg);
+  border-color: var(--p-radio-border-color);
+}
+
+[data-color-scheme="toggle"] [data-part="checkbox-label"] {
+  color: var(--p-checkbox-label-color);
+}
+
+[data-color-scheme="toggle"] [data-part="radio-label"] {
+  color: var(--p-radio-label-color);
+}
+
+[data-color-scheme="toggle"] [data-part="checkbox-tic"] {
+  stroke: var(--p-checkbox-tic-color);
+}
+
+[data-color-scheme="toggle"] [data-part="checkbox-mixed-line"] {
+  background-color: var(--p-checkbox-mixed-line-color);
+}
+
+[data-color-scheme="toggle"] [data-part="radio-dot"] {
+  background-color: var(--p-radio-dot-color);
+}
+
+[data-color-scheme="toggle"] [data-part="switch-track"] {
+  background-color: var(--p-switch-track-bg);
+}
+
+[data-color-scheme="toggle"] [data-part="switch-bg-inner"] {
+  background-color: var(--p-switch-bg-inner-bg);
+}
+
+[data-color-scheme="toggle"] [data-part="switch-indicator"] {
+  background-color: var(--p-switch-indicator-bg);
+}

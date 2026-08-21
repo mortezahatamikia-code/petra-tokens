@@ -3,15 +3,22 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--p-transition-duration, 0.3s) var(--p-transition-easing, ease);
   text-align: center;
   outline: none;
-  min-height: max-content;
+  width: max-content;
+  height: auto;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--p-box-shadow, var(--p-shadow, var(--p-shadow-default, none)));
 
   &:focus {
     outline: none;
+  }
+
+  /* Keyboard-only focus ring (a11y) — hidden on mouse click, shown on keyboard */
+  &:focus-visible {
+    outline: var(--p-focus-ring-width, 2px) solid var(--p-focus-ring-color, currentColor);
+    outline-offset: var(--p-focus-ring-offset, 2px);
   }
 }
 
@@ -19,37 +26,23 @@
   flex-shrink: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  font-size: var(--p-icon-size, 1em);
+  color: inherit;
 
-  /* Component specific variables for parts */
-  --p-btn-icon-start-display: flex;
-  --p-btn-icon-start-width: 100%;
-  --p-btn-icon-start-justify: flex-start;
-
-  --p-btn-icon-end-display: flex;
-  --p-btn-icon-end-width: 100%;
-  --p-btn-icon-end-justify: flex-end;
+  .p-icon-svg,
+  svg {
+    font-size: var(--p-icon-size, 1em);
+    width: var(--p-icon-size, 1em);
+    height: var(--p-icon-size, 1em);
+    color: inherit;
+  }
 
   &[data-part="icon-start"] {
-    display: var(--p-btn-icon-start-display);
-    width: var(--p-btn-icon-start-width);
-    justify-content: var(--p-btn-icon-start-justify);
+    justify-content: flex-start;
   }
 
   &[data-part="icon-end"] {
-    display: var(--p-btn-icon-end-display);
-    width: var(--p-btn-icon-end-width);
-    justify-content: var(--p-btn-icon-end-justify);
+    justify-content: flex-end;
   }
-}
-
-.p-btn-max-content {
-  width: max-content !important;
-  min-width: max-content !important;
-  height: max-content !important;
-}
-
-.p-btn-block {
-  display: flex;
-  width: 100% !important;
-  justify-content: space-between;
 }

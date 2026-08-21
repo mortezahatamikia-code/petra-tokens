@@ -1,0 +1,23 @@
+// AUTO-GENERATED — style-scheme (variant="chip")
+
+[data-style-scheme="chip"][data-variant~="outline"] {
+  --p-bg: var(--p-colors-surface-variant);
+  --p-text: var(--p-colors-surface-on-variant);
+  --p-icon-color: var(--p-colors-neutral-base);
+  --p-border-color: var(--p-colors-neutral-soft);
+}
+
+[data-style-scheme="chip"][data-variant~="outline"]:not([data-state="disabled"]):hover {
+  --p-bg-hover: var(--p-colors-surface-default);
+  --p-border-color-hover: var(--p-colors-surface-default);
+}
+
+[data-style-scheme="chip"][data-variant~="outline"][data-state="disabled"] {
+  --p-bg-disabled: var(--p-colors-disabled-subtle);
+  --p-bg: var(--p-colors-disabled-subtle);
+  --p-text-disabled: var(--p-colors-disabled-default);
+  --p-text: var(--p-colors-disabled-default);
+  --p-icon-color: var(--p-colors-disabled-muted);
+  --p-border-color-disabled: var(--p-colors-disabled-muted);
+  --p-border-color: var(--p-colors-disabled-muted);
+}

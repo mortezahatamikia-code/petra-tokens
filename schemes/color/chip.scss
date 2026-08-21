@@ -1,0 +1,15 @@
+// AUTO-GENERATED — color-scheme="chip"
+
+[data-color-scheme="chip"] {
+  --p-bg: var(--p-colors-surface-default);
+  --p-text: var(--p-colors-surface-on-variant);
+  --p-icon: var(--p-colors-neutral-base);
+}
+
+:is([data-color-scheme="chip"], [data-color-scheme="chip"] *):is([data-state="disabled"], [data-state="loading"]), :is([data-state="disabled"], [data-state="loading"]) {
+  --p-bg-disabled: var(--p-colors-surface-default);
+  --p-bg: var(--p-colors-surface-default);
+  --p-text-disabled: var(--p-colors-disabled-default);
+  --p-text: var(--p-colors-disabled-default);
+  --p-icon: var(--p-colors-neutral-faint);
+}

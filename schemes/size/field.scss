@@ -1,0 +1,10 @@
+// AUTO-GENERATED — size-scheme="field"
+
+[data-size-scheme="field"] {
+  --p-field-border-width: 1px;
+}
+
+[data-size-scheme="field"][data-scheme-variant="otp"] {
+  width: var(--p-size, auto) !important;
+  min-width: var(--p-size, auto) !important;
+}

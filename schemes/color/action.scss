@@ -1,0 +1,78 @@
+// AUTO-GENERATED — color-scheme="action"
+
+:is([data-color-scheme="action"], [data-color-scheme="action"] *):is([data-state="disabled"], [data-state="loading"]), :is([data-state="disabled"], [data-state="loading"]) {
+  --p-bg-disabled: var(--p-colors-disabled-default);
+  --p-bg: var(--p-colors-disabled-default);
+  --p-text-disabled: var(--p-colors-disabled-on);
+  --p-text: var(--p-colors-disabled-on);
+}
+
+[data-color-scheme="action"][data-color="primary"] {
+  --p-bg: var(--p-colors-primary-default);
+  --p-text: var(--p-colors-primary-on);
+}
+
+[data-color-scheme="action"][data-color="primary"]:not([data-state="disabled"], [data-state="loading"]):is(:hover, [aria-pressed="true"], [data-state="active"], [data-active="true"]) {
+  --p-bg-hover: var(--p-colors-primary-deep);
+  --p-text-hover: var(--p-colors-primary-on);
+}
+
+[data-color-scheme="action"][data-color="secondary"] {
+  --p-bg: var(--p-colors-secondary-default);
+  --p-text: var(--p-colors-secondary-on);
+}
+
+[data-color-scheme="action"][data-color="secondary"]:not([data-state="disabled"], [data-state="loading"]):is(:hover, [aria-pressed="true"], [data-state="active"], [data-active="true"]) {
+  --p-bg-hover: var(--p-colors-secondary-deep);
+  --p-text-hover: var(--p-colors-secondary-on);
+}
+
+[data-color-scheme="action"][data-color="success"] {
+  --p-bg: var(--p-colors-success-default);
+  --p-text: var(--p-colors-success-on);
+}
+
+[data-color-scheme="action"][data-color="success"]:not([data-state="disabled"], [data-state="loading"]):is(:hover, [aria-pressed="true"], [data-state="active"], [data-active="true"]) {
+  --p-bg-hover: var(--p-colors-success-deep);
+  --p-text-hover: var(--p-colors-success-on);
+}
+
+[data-color-scheme="action"][data-color="danger"] {
+  --p-bg: var(--p-colors-error-default);
+  --p-text: var(--p-colors-error-on);
+}
+
+[data-color-scheme="action"][data-color="danger"]:not([data-state="disabled"], [data-state="loading"]):is(:hover, [aria-pressed="true"], [data-state="active"], [data-active="true"]) {
+  --p-bg-hover: var(--p-colors-error-deep);
+  --p-text-hover: var(--p-colors-error-on);
+}
+
+[data-color-scheme="action"][data-color="info"] {
+  --p-bg: var(--p-colors-info-default);
+  --p-text: var(--p-colors-info-on);
+}
+
+[data-color-scheme="action"][data-color="info"]:not([data-state="disabled"], [data-state="loading"]):is(:hover, [aria-pressed="true"], [data-state="active"], [data-active="true"]) {
+  --p-bg-hover: var(--p-colors-info-deep);
+  --p-text-hover: var(--p-colors-info-on);
+}
+
+[data-color-scheme="action"][data-color="warning"] {
+  --p-bg: var(--p-colors-warning-default);
+  --p-text: var(--p-colors-warning-on);
+}
+
+[data-color-scheme="action"][data-color="warning"]:not([data-state="disabled"], [data-state="loading"]):is(:hover, [aria-pressed="true"], [data-state="active"], [data-active="true"]) {
+  --p-bg-hover: var(--p-colors-warning-deep);
+  --p-text-hover: var(--p-colors-warning-on);
+}
+
+[data-color-scheme="action"][data-color="neutral"] {
+  --p-bg: var(--p-colors-neutral-default);
+  --p-text: var(--p-colors-neutral-on);
+}
+
+[data-color-scheme="action"][data-color="neutral"]:not([data-state="disabled"], [data-state="loading"]):is(:hover, [aria-pressed="true"], [data-state="active"], [data-active="true"]) {
+  --p-bg-hover: var(--p-colors-neutral-deep);
+  --p-text-hover: var(--p-colors-neutral-on);
+}

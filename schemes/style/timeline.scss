@@ -1,0 +1,68 @@
+// AUTO-GENERATED — style-scheme (variant="timeline")
+
+[data-style-scheme="timeline"] {
+  --p-text: var(--p-colors-surface-on);
+  --p-sub-text-size: var(--p-colors-neutral-default);
+  --p-line: var(--p-colors-neutral-faint);
+  --p-text-gap: var(--p-size-0);
+  --p-border-size: var(--p-border-2px);
+  --p-icon-color: var(--p-size-3);
+  --p-indicator: var(--p-size-5);
+}
+
+[data-style-scheme="timeline"][data-size="sm"] {
+  --p-title-gap: var(--p-size-1-5);
+  --p-gap: var(--p-size-2-5);
+}
+
+[data-style-scheme="timeline"][data-size="base"] {
+  --p-title-gap: var(--p-size-2);
+  --p-gap: var(--p-size-3);
+}
+
+[data-style-scheme="timeline"][data-size="lg"] {
+  --p-title-gap: var(--p-size-2-5);
+  --p-gap: var(--p-size-3-5);
+}
+
+[data-style-scheme="timeline"][data-size="xl"] {
+  --p-title-gap: var(--p-size-3);
+  --p-gap: var(--p-size-3-5);
+}
+
+[data-style-scheme="timeline"][data-state="active"][data-color="surface"] {
+  --p-indicator: var(--p-colors-surface-on);
+}
+
+[data-style-scheme="timeline"][data-state="active"] {
+  --p-icon-color: var(--p-colors-surface-default);
+}
+
+[data-style-scheme="timeline"][data-state="active"][data-color="primary"] {
+  --p-indicator: var(--p-colors-primary-default);
+}
+
+[data-style-scheme="timeline"][data-state="active"][data-color="secondary"] {
+  --p-indicator: var(--p-colors-secondary-default);
+}
+
+[data-style-scheme="timeline"][data-state="active"][data-color="success"] {
+  --p-indicator: var(--p-colors-success-default);
+}
+
+[data-style-scheme="timeline"][data-state="active"][data-color="info"] {
+  --p-indicator: var(--p-colors-info-default);
+}
+
+[data-style-scheme="timeline"][data-state="active"][data-color="warning"] {
+  --p-indicator: var(--p-colors-warning-default);
+}
+
+[data-style-scheme="timeline"][data-state="active"][data-color="neutral"] {
+  --p-indicator: var(--p-colors-neutral-default);
+}
+
+[data-style-scheme="timeline"][data-state="inactive"] {
+  --p-indicator: var(--p-colors-neutral-muted);
+  --p-icon-color: var(--p-colors-neutral-faint);
+}

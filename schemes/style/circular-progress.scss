@@ -1,0 +1,21 @@
+// AUTO-GENERATED — style-scheme (variant="circular-progress")
+
+[data-style-scheme="circular-progress"] {
+  --p-gap: var(--p-size-0);
+}
+
+[data-style-scheme="circular-progress"][data-size="sm"] {
+  --p-size: var(--p-size-26);
+}
+
+[data-style-scheme="circular-progress"][data-size="base"] {
+  --p-size: var(--p-size-28);
+}
+
+[data-style-scheme="circular-progress"][data-size="lg"] {
+  --p-size: var(--p-size-30);
+}
+
+[data-style-scheme="circular-progress"][data-size="xl"] {
+  --p-size: var(--p-size-32);
+}

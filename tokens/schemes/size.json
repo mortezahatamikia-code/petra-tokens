@@ -1,0 +1,203 @@
+{
+  "basic": {
+    "common": {
+      "text-weight": "$.Semantic Tokens.Mode 1.weight.regular",
+      "label-text-weight": "$.Semantic Tokens.Mode 1.weight.medium"
+    },
+    "xs": {
+      "text": "$.Semantic Tokens.Mode 1.text.sm",
+      "sub-text": "$.Semantic Tokens.Mode 1.text.xs",
+      "leading": "$.Semantic Tokens.Mode 1.leading.18px",
+      "sub-leading": "$.Semantic Tokens.Mode 1.leading.14px",
+      "padding-x": "$.Primitive Tokens.Mode 1.size.1-5",
+      "padding-y": "$.Primitive Tokens.Mode 1.size.1-5",
+      "gap": "$.Primitive Tokens.Mode 1.size.1",
+      "radius": "$.Semantic Tokens.Mode 1.radius.4px",
+      "icon": "$.Semantic Tokens.Mode 1.text.sm"
+    },
+    "sm": {
+      "text": "$.Semantic Tokens.Mode 1.text.base",
+      "sub-text": "$.Semantic Tokens.Mode 1.text.sm",
+      "leading": "$.Semantic Tokens.Mode 1.leading.22px",
+      "sub-leading": "$.Semantic Tokens.Mode 1.leading.18px",
+      "padding-x": "$.Primitive Tokens.Mode 1.size.1-5",
+      "padding-y": "$.Primitive Tokens.Mode 1.size.1-5",
+      "gap": "$.Primitive Tokens.Mode 1.size.1",
+      "radius": "$.Semantic Tokens.Mode 1.radius.4px",
+      "icon": "$.Semantic Tokens.Mode 1.text.base"
+    },
+    "base": {
+      "text": "$.Semantic Tokens.Mode 1.text.base",
+      "sub-text": "$.Semantic Tokens.Mode 1.text.sm",
+      "leading": "$.Semantic Tokens.Mode 1.leading.22px",
+      "sub-leading": "$.Semantic Tokens.Mode 1.leading.18px",
+      "padding-x": "$.Primitive Tokens.Mode 1.size.2",
+      "padding-y": "$.Primitive Tokens.Mode 1.size.2",
+      "gap": "$.Primitive Tokens.Mode 1.size.1",
+      "radius": "$.Semantic Tokens.Mode 1.radius.4px",
+      "icon": "$.Semantic Tokens.Mode 1.text.base"
+    },
+    "lg": {
+      "text": "$.Semantic Tokens.Mode 1.text.base",
+      "sub-text": "$.Semantic Tokens.Mode 1.text.sm",
+      "leading": "$.Semantic Tokens.Mode 1.leading.26px",
+      "sub-leading": "$.Semantic Tokens.Mode 1.leading.22px",
+      "padding-x": "$.Primitive Tokens.Mode 1.size.2-5",
+      "padding-y": "$.Primitive Tokens.Mode 1.size.2",
+      "gap": "$.Primitive Tokens.Mode 1.size.1-5",
+      "radius": "$.Semantic Tokens.Mode 1.radius.8px",
+      "icon": "$.Semantic Tokens.Mode 1.text.base"
+    },
+    "xl": {
+      "text": "$.Semantic Tokens.Mode 1.text.lg",
+      "sub-text": "$.Semantic Tokens.Mode 1.text.base",
+      "leading": "$.Semantic Tokens.Mode 1.leading.26px",
+      "sub-leading": "$.Semantic Tokens.Mode 1.leading.22px",
+      "padding-x": "$.Primitive Tokens.Mode 1.size.3",
+      "padding-y": "$.Primitive Tokens.Mode 1.size.2-5",
+      "gap": "$.Primitive Tokens.Mode 1.size.1-5",
+      "radius": "$.Semantic Tokens.Mode 1.radius.8px",
+      "icon": "$.Semantic Tokens.Mode 1.text.lg"
+    }
+  },
+  "badge": {
+    "default": {
+      "text-weight": "$.Semantic Tokens.Mode 1.weight.medium",
+      "text": "$.Semantic Tokens.Mode 1.text.xs",
+      "leading": "$.Semantic Tokens.Mode 1.leading.14px",
+      "icon": "$.Semantic Tokens.Mode 1.text.xs",
+      "radius": "$.Semantic Tokens.Mode 1.radius.4px",
+      "padding-x": "$.Primitive Tokens.Mode 1.size.1-5",
+      "padding-y": "$.Primitive Tokens.Mode 1.size.1",
+      "gap": "$.Primitive Tokens.Mode 1.size.1",
+      "border": "$.Semantic Tokens.Mode 1.border.1px"
+    },
+    "count": {
+      "text-weight": "$.Semantic Tokens.Mode 1.weight.regular",
+      "text": "$.Semantic Tokens.Mode 1.text.2xs",
+      "leading": "$.Semantic Tokens.Mode 1.leading.12px",
+      "padding-x": "$.Primitive Tokens.Mode 1.size.1",
+      "padding-y": "$.Primitive Tokens.Mode 1.size.0-5"
+    },
+    "dot": {
+      "size": "$.Primitive Tokens.Mode 1.size.2-5"
+    }
+  },
+  "toggle": {
+    "common": {
+      "text-weight": "$.Semantic Tokens.Mode 1.weight.regular"
+    },
+    "space": {
+      "border": "$.Semantic Tokens.Mode 1.border.1px",
+      "fill": "$.Semantic Tokens.Mode 1.leading.18px"
+    },
+    "sm": {
+      "text": "$.Semantic Tokens.Mode 1.text.xs",
+      "leading": "$.Semantic Tokens.Mode 1.leading.16px",
+      "icon": "$.Semantic Tokens.Mode 1.text.sm",
+      "gap": "$.Primitive Tokens.Mode 1.size.1",
+      "padding-x": "$.Primitive Tokens.Mode 1.size.1-5",
+      "padding-y": "$.Primitive Tokens.Mode 1.size.1"
+    },
+    "base": {
+      "text": "$.Semantic Tokens.Mode 1.text.sm",
+      "leading": "$.Semantic Tokens.Mode 1.leading.20px",
+      "icon": "$.Semantic Tokens.Mode 1.text.base",
+      "gap": "$.Primitive Tokens.Mode 1.size.1-5",
+      "padding-x": "$.Primitive Tokens.Mode 1.size.2",
+      "padding-y": "$.Primitive Tokens.Mode 1.size.1-5"
+    },
+    "lg": {
+      "text": "$.Semantic Tokens.Mode 1.text.base",
+      "leading": "$.Semantic Tokens.Mode 1.leading.20px",
+      "icon": "$.Semantic Tokens.Mode 1.text.lg",
+      "gap": "$.Primitive Tokens.Mode 1.size.1-5",
+      "padding-x": "$.Primitive Tokens.Mode 1.size.2-5",
+      "padding-y": "$.Primitive Tokens.Mode 1.size.2"
+    },
+    "xl": {
+      "text": "$.Semantic Tokens.Mode 1.text.base",
+      "leading": "$.Semantic Tokens.Mode 1.leading.24px",
+      "icon": "$.Semantic Tokens.Mode 1.text.xl",
+      "gap": "$.Primitive Tokens.Mode 1.size.2",
+      "padding-x": "$.Primitive Tokens.Mode 1.size.2-5",
+      "padding-y": "$.Primitive Tokens.Mode 1.size.2"
+    }
+  },
+  "range": {
+    "sm": {
+      "gap": "$.Primitive Tokens.Mode 1.size.2",
+      "range": "$.Semantic Tokens.Mode 1.border.6px",
+      "stepper": "$.Primitive Tokens.Mode 1.size.0-5",
+      "thumb": {
+        "thumb": "$.Primitive Tokens.Mode 1.size.3-5",
+        "border": {
+          "default": "$.Semantic Tokens.Mode 1.border.2px",
+          "hover": "$.Semantic Tokens.Mode 1.border.1px",
+          "pressed": "$.Semantic Tokens.Mode 1.border.4px"
+        }
+      }
+    },
+    "base": {
+      "gap": "$.Primitive Tokens.Mode 1.size.2-5",
+      "range": "$.Semantic Tokens.Mode 1.border.8px",
+      "stepper": "$.Primitive Tokens.Mode 1.size.1",
+      "thumb": {
+        "thumb": "$.Primitive Tokens.Mode 1.size.4",
+        "border": {
+          "default": "$.Semantic Tokens.Mode 1.border.2px",
+          "hover": "$.Semantic Tokens.Mode 1.border.1px",
+          "pressed": "$.Semantic Tokens.Mode 1.border.4px"
+        }
+      }
+    },
+    "lg": {
+      "gap": "$.Primitive Tokens.Mode 1.size.3",
+      "range": "$.Semantic Tokens.Mode 1.border.10px",
+      "stepper": "$.Primitive Tokens.Mode 1.size.1",
+      "thumb": {
+        "thumb": "$.Primitive Tokens.Mode 1.size.5",
+        "border": {
+          "default": "$.Semantic Tokens.Mode 1.border.3px",
+          "hover": "$.Semantic Tokens.Mode 1.border.2px",
+          "pressed": "$.Semantic Tokens.Mode 1.border.5px"
+        }
+      }
+    },
+    "xl": {
+      "gap": "$.Primitive Tokens.Mode 1.size.3",
+      "range": "$.Semantic Tokens.Mode 1.border.12px",
+      "stepper": "$.Primitive Tokens.Mode 1.size.1-5",
+      "thumb": {
+        "thumb": "$.Primitive Tokens.Mode 1.size.6",
+        "border": {
+          "default": "$.Semantic Tokens.Mode 1.border.4px",
+          "hover": "$.Semantic Tokens.Mode 1.border.2px",
+          "pressed": "$.Semantic Tokens.Mode 1.border.6px"
+        }
+      }
+    }
+  },
+  "content": {
+    "text-weight": "$.Semantic Tokens.Mode 1.weight.bold",
+    "text": "$.Semantic Tokens.Mode 1.text.2xl",
+    "leading": "$.Semantic Tokens.Mode 1.leading.32px",
+    "sub-text-weight": "$.Semantic Tokens.Mode 1.weight.regular",
+    "sub-text": "$.Semantic Tokens.Mode 1.text.base",
+    "sub-leading": "$.Semantic Tokens.Mode 1.leading.24px",
+    "icon": "$.Semantic Tokens.Mode 1.text.xl",
+    "padding-x": "$.Primitive Tokens.Mode 1.size.4",
+    "padding-y": "$.Primitive Tokens.Mode 1.size.4",
+    "radius": "$.Semantic Tokens.Mode 1.radius.16px",
+    "img-radius": "$.Primitive Tokens.Mode 1.size.2",
+    "gap": {
+      "default": "$.Primitive Tokens.Mode 1.size.10",
+      "option": "$.Primitive Tokens.Mode 1.size.7",
+      "item": "$.Primitive Tokens.Mode 1.size.3-5",
+      "btn": "$.Primitive Tokens.Mode 1.size.5",
+      "img": "$.Primitive Tokens.Mode 1.size.4",
+      "text": "$.Primitive Tokens.Mode 1.size.3-5",
+      "icon": "$.Primitive Tokens.Mode 1.size.3-5"
+    }
+  }
+}

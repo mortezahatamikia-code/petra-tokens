@@ -1,0 +1,82 @@
+// AUTO-GENERATED — size-scheme="toggle"
+
+[data-size-scheme="toggle"] {
+  --p-text-weight: var(--p-weight-regular);
+  --psz-sub: calc((var(--p-size, 2.5rem) / 2) - 0.25rem);
+  --p-toggle-gap: 0.5rem;
+  --p-checkbox-width: var(--psz-sub);
+  --p-checkbox-height: var(--psz-sub);
+  --p-radio-width: var(--psz-sub);
+  --p-radio-height: var(--psz-sub);
+  --p-switch-track-width: var(--p-size, 2.5rem);
+  --p-switch-track-height: calc(var(--psz-sub) + var(--p-padding-y, 0.625rem));
+  --p-switch-indicator-width: var(--psz-sub);
+  --p-switch-indicator-height: var(--psz-sub);
+  --p-switch-indicator-transform: translateX(0);
+  --p-switch-indicator-transform-checked: translateX(calc(var(--p-direction-sign, 1) * (100% - var(--psz-sub))));
+}
+
+[data-size-scheme="toggle"][data-size="space"], [data-size-scheme="toggle"] [data-size="space"] {
+  --p-border-color: var(--p-border-1px);
+  --p-fill: var(--p-leading-18px);
+}
+
+[data-size-scheme="toggle"][data-size="sm"], [data-size-scheme="toggle"] [data-size="sm"] {
+  --p-font-size: var(--p-text-xs);
+  --p-leading: var(--p-leading-16px);
+  --p-icon-size: var(--p-text-sm);
+  --p-gap: var(--p-size-1);
+  --p-padding-x: var(--p-size-1-5);
+  --p-padding-y: var(--p-size-1);
+}
+
+[data-size-scheme="toggle"][data-size="base"], [data-size-scheme="toggle"] [data-size="base"] {
+  --p-font-size: var(--p-text-sm);
+  --p-leading: var(--p-leading-20px);
+  --p-icon-size: var(--p-text-base);
+  --p-gap: var(--p-size-1-5);
+  --p-padding-x: var(--p-size-2);
+  --p-padding-y: var(--p-size-1-5);
+}
+
+[data-size-scheme="toggle"][data-size="lg"], [data-size-scheme="toggle"] [data-size="lg"] {
+  --p-font-size: var(--p-text-base);
+  --p-leading: var(--p-leading-20px);
+  --p-icon-size: var(--p-text-lg);
+  --p-gap: var(--p-size-1-5);
+  --p-padding-x: var(--p-size-2-5);
+  --p-padding-y: var(--p-size-2);
+}
+
+[data-size-scheme="toggle"][data-size="xl"], [data-size-scheme="toggle"] [data-size="xl"] {
+  --p-font-size: var(--p-text-base);
+  --p-leading: var(--p-leading-24px);
+  --p-icon-size: var(--p-text-xl);
+  --p-gap: var(--p-size-2);
+  --p-padding-x: var(--p-size-2-5);
+  --p-padding-y: var(--p-size-2);
+}
+
+[data-size-scheme="toggle"] [data-part="switch-indicator-wrapper"] {
+  transform: var(--p-switch-indicator-transform);
+}
+
+[data-size-scheme="toggle"] [data-part="checkbox-box"], [data-size-scheme="toggle"] [data-part="radio-box"] {
+  width: var(--p-checkbox-width);
+  height: var(--p-checkbox-height);
+  min-width: 0;
+}
+
+[data-size-scheme="toggle"] [data-part="switch-track"] {
+  min-width: var(--p-switch-track-width);
+  min-height: var(--p-switch-track-height);
+}
+
+[data-size-scheme="toggle"] [data-part="switch-indicator"] {
+  width: var(--p-switch-indicator-width);
+  height: var(--p-switch-indicator-height);
+}
+
+:is([data-size-scheme="toggle"][data-state="checked"], [data-size-scheme="toggle"] [data-state="checked"]) [data-part="switch-indicator-wrapper"] {
+  transform: var(--p-switch-indicator-transform-checked);
+}

@@ -1,0 +1,154 @@
+{
+  "colors": {
+    "primary": {
+      "muted": "$.Primitive Tokens.Mode 1.colors.blue.50",
+      "faint": "$.Primitive Tokens.Mode 1.colors.blue.300",
+      "default": "$.Primitive Tokens.Mode 1.colors.blue.500",
+      "deep": "$.Primitive Tokens.Mode 1.colors.blue.600",
+      "intense": "$.Primitive Tokens.Mode 1.colors.blue.700",
+      "emphasized": "$.Primitive Tokens.Mode 1.colors.blue.800",
+      "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+    },
+    "secondary": {
+      "muted": "$.Primitive Tokens.Mode 1.colors.orange.50",
+      "faint": "$.Primitive Tokens.Mode 1.colors.orange.300",
+      "default": "$.Primitive Tokens.Mode 1.colors.orange.500",
+      "deep": "$.Primitive Tokens.Mode 1.colors.orange.600",
+      "intense": "$.Primitive Tokens.Mode 1.colors.orange.700",
+      "emphasized": "$.Primitive Tokens.Mode 1.colors.orange.800",
+      "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+    },
+    "success": {
+      "subtle": "$.Primitive Tokens.Mode 1.colors.green.50",
+      "faint": "$.Primitive Tokens.Mode 1.colors.green.300",
+      "default": "$.Primitive Tokens.Mode 1.colors.green.500",
+      "deep": "$.Primitive Tokens.Mode 1.colors.green.600",
+      "intense": "$.Primitive Tokens.Mode 1.colors.green.700",
+      "emphasized": "$.Primitive Tokens.Mode 1.colors.green.800",
+      "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+    },
+    "danger": {
+      "subtle": "$.Primitive Tokens.Mode 1.colors.red.50",
+      "faint": "$.Primitive Tokens.Mode 1.colors.red.300",
+      "default": "$.Primitive Tokens.Mode 1.colors.red.500",
+      "deep": "$.Primitive Tokens.Mode 1.colors.red.600",
+      "intense": "$.Primitive Tokens.Mode 1.colors.red.700",
+      "emphasized": "$.Primitive Tokens.Mode 1.colors.red.800",
+      "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+    },
+    "info": {
+      "subtle": "$.Primitive Tokens.Mode 1.colors.blue.50",
+      "faint": "$.Primitive Tokens.Mode 1.colors.blue.300",
+      "default": "$.Primitive Tokens.Mode 1.colors.blue.500",
+      "deep": "$.Primitive Tokens.Mode 1.colors.blue.600",
+      "intense": "$.Primitive Tokens.Mode 1.colors.blue.700",
+      "emphasized": "$.Primitive Tokens.Mode 1.colors.blue.800",
+      "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+    },
+    "warning": {
+      "subtle": "$.Primitive Tokens.Mode 1.colors.yellow.50",
+      "faint": "$.Primitive Tokens.Mode 1.colors.yellow.300",
+      "default": "$.Primitive Tokens.Mode 1.colors.yellow.500",
+      "deep": "$.Primitive Tokens.Mode 1.colors.yellow.600",
+      "intense": "$.Primitive Tokens.Mode 1.colors.yellow.700",
+      "emphasized": "$.Primitive Tokens.Mode 1.colors.yellow.800",
+      "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+    },
+    "neutral": {
+      "subtle": "$.Primitive Tokens.Mode 1.colors.gray.50",
+      "muted": "$.Primitive Tokens.Mode 1.colors.gray.100",
+      "soft": "$.Primitive Tokens.Mode 1.colors.gray.200",
+      "faint": "$.Primitive Tokens.Mode 1.colors.gray.300",
+      "base": "$.Primitive Tokens.Mode 1.colors.gray.400",
+      "default": "$.Primitive Tokens.Mode 1.colors.gray.500",
+      "deep": "$.Primitive Tokens.Mode 1.colors.gray.600",
+      "intense": "$.Primitive Tokens.Mode 1.colors.gray.700",
+      "emphasized": "$.Primitive Tokens.Mode 1.colors.gray.800",
+      "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+    },
+    "disabled": {
+      "subtle": "$.Primitive Tokens.Mode 1.colors.gray.100",
+      "muted": "$.Primitive Tokens.Mode 1.colors.gray.300",
+      "default": "$.Primitive Tokens.Mode 1.colors.gray.400",
+      "deep": "$.Primitive Tokens.Mode 1.colors.gray.500",
+      "on": "$.Primitive Tokens.Mode 1.colors.white.default"
+    },
+    "surface": {
+      "default": "$.Primitive Tokens.Mode 1.colors.white.default",
+      "on": "$.Primitive Tokens.Mode 1.colors.gray.700",
+      "variant": "$.Primitive Tokens.Mode 1.colors.gray.50",
+      "on-variant": "$.Primitive Tokens.Mode 1.colors.gray.600"
+    },
+    "transparent": {
+      "default": "$.Primitive Tokens.Mode 1.colors.transparent.transparent"
+    }
+  },
+  "text": {
+    "2xs": "$.Primitive Tokens.Mode 1.size.2",
+    "xs": "$.Primitive Tokens.Mode 1.size.3",
+    "sm": "$.Primitive Tokens.Mode 1.size.3-5",
+    "base": "$.Primitive Tokens.Mode 1.size.4",
+    "lg": "$.Primitive Tokens.Mode 1.size.4-5",
+    "xl": "$.Primitive Tokens.Mode 1.size.5",
+    "2xl": "$.Primitive Tokens.Mode 1.size.6",
+    "3xl": "$.Primitive Tokens.Mode 1.size.8",
+    "4xl": "$.Primitive Tokens.Mode 1.size.9",
+    "5xl": "$.Primitive Tokens.Mode 1.size.12",
+    "6xl": "$.Primitive Tokens.Mode 1.size.15",
+    "7xl": "$.Primitive Tokens.Mode 1.size.18",
+    "8xl": "$.Primitive Tokens.Mode 1.size.24",
+    "9xl": "$.Primitive Tokens.Mode 1.size.32"
+  },
+  "weight": {
+    "thin": "$.Primitive Tokens.Mode 1.weight.100",
+    "extra-light": "$.Primitive Tokens.Mode 1.weight.200",
+    "light": "$.Primitive Tokens.Mode 1.weight.300",
+    "regular": "$.Primitive Tokens.Mode 1.weight.400",
+    "medium": "$.Primitive Tokens.Mode 1.weight.500",
+    "semi-bold": "$.Primitive Tokens.Mode 1.weight.600",
+    "bold": "$.Primitive Tokens.Mode 1.weight.700",
+    "extra-bold": "$.Primitive Tokens.Mode 1.weight.800",
+    "black": "$.Primitive Tokens.Mode 1.weight.900"
+  },
+  "leading": {
+    "0px": "$.Primitive Tokens.Mode 1.size.0",
+    "12px": "$.Primitive Tokens.Mode 1.size.3",
+    "14px": "$.Primitive Tokens.Mode 1.size.3-5",
+    "16px": "$.Primitive Tokens.Mode 1.size.4",
+    "18px": "$.Primitive Tokens.Mode 1.size.4-5",
+    "20px": "$.Primitive Tokens.Mode 1.size.5",
+    "22px": "$.Primitive Tokens.Mode 1.size.5-5",
+    "24px": "$.Primitive Tokens.Mode 1.size.6",
+    "26px": "$.Primitive Tokens.Mode 1.size.6-5",
+    "28px": "$.Primitive Tokens.Mode 1.size.7",
+    "32px": "$.Primitive Tokens.Mode 1.size.8",
+    "36px": "$.Primitive Tokens.Mode 1.size.9",
+    "40px": "$.Primitive Tokens.Mode 1.size.10",
+    "48px": "$.Primitive Tokens.Mode 1.size.12",
+    "60px": "$.Primitive Tokens.Mode 1.size.15",
+    "72px": "$.Primitive Tokens.Mode 1.size.18",
+    "96px": "$.Primitive Tokens.Mode 1.size.24",
+    "128px": "$.Primitive Tokens.Mode 1.size.32"
+  },
+  "radius": {
+    "0px": "$.Primitive Tokens.Mode 1.size.0",
+    "2px": "$.Primitive Tokens.Mode 1.size.0-5",
+    "4px": "$.Primitive Tokens.Mode 1.size.1",
+    "8px": "$.Primitive Tokens.Mode 1.size.2",
+    "12px": "$.Primitive Tokens.Mode 1.size.3",
+    "16px": "$.Primitive Tokens.Mode 1.size.4",
+    "full": "$.Primitive Tokens.Mode 1.size.9999"
+  },
+  "border": {
+    "0px": "$.Primitive Tokens.Mode 1.size.0",
+    "1px": "$.Primitive Tokens.Mode 1.size.0-25",
+    "2px": "$.Primitive Tokens.Mode 1.size.0-5",
+    "3px": "$.Primitive Tokens.Mode 1.size.0-75",
+    "4px": "$.Primitive Tokens.Mode 1.size.1",
+    "5px": "$.Primitive Tokens.Mode 1.size.1-25",
+    "6px": "$.Primitive Tokens.Mode 1.size.1-5",
+    "8px": "$.Primitive Tokens.Mode 1.size.2",
+    "10px": "$.Primitive Tokens.Mode 1.size.2-5",
+    "12px": "$.Primitive Tokens.Mode 1.size.3"
+  }
+}

@@ -1,27 +1,15 @@
 // petra-tokens/styles/style.scss — v2.0
-@use "../primitive" as *;
-@use "../semantic" as *;
+@use "../primitive/index.scss" as *;
+@use "../semantic/index.scss" as *;
 
-// Size Schemes
-@use "../schemes/size/basic" as *;
-@use "../schemes/size/field" as *;
-@use "../schemes/size/toggle" as *;
+// All Schemes
+@use "../schemes/size/index.scss" as *;
+@use "../schemes/color/index.scss" as *;
+@use "../schemes/style/index.scss" as *;
 
-// Color Schemes
-@use "../schemes/color/action" as *;
-@use "../schemes/color/field" as *;
-@use "../schemes/color/toggle" as *;
-@use "../schemes/color/content" as *;
-@use "../schemes/color/divider" as *;
-@use "../schemes/color/range" as *;
-
-// Style Schemes (Highest Priority — Overrides)
-@use "../schemes/style/global" as *;
-@use "../schemes/style/action" as *;
-@use "../schemes/style/field" as *;
-
-@use "utilities" as *;
-@use "sp-utilities" as *;
+@use "utilities.scss" as *;
+@use "sp-utilities.scss" as *;
+@use "global-shapes.scss" as *;
 
 @import "./theme/light.css";
 

@@ -1,0 +1,21 @@
+// AUTO-GENERATED — style-scheme (variant="progress")
+
+[data-style-scheme="progress"][data-size="sm"] {
+  --p-gap-text: var(--p-size-2-5);
+  --p-gap-number: var(--p-size-1-5);
+}
+
+[data-style-scheme="progress"][data-size="base"] {
+  --p-gap-text: var(--p-size-3);
+  --p-gap-number: var(--p-size-1-5);
+}
+
+[data-style-scheme="progress"][data-size="lg"] {
+  --p-gap-text: var(--p-size-3-5);
+  --p-gap-number: var(--p-size-2);
+}
+
+[data-style-scheme="progress"][data-size="xl"] {
+  --p-gap-text: var(--p-size-4);
+  --p-gap-number: var(--p-size-2);
+}

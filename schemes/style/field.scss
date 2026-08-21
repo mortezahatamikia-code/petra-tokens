@@ -1,0 +1,42 @@
+// AUTO-GENERATED — style-scheme (variant="field")
+
+:is([data-style-scheme="field"][data-variant~="outline"], [data-style-scheme="field"] [data-variant~="outline"]) {
+  --p-bg: var(--p-colors-surface-default);
+  --p-border-size: var(--p-border-1px);
+  --p-border-color: var(--p-colors-neutral-faint);
+}
+
+:is([data-style-scheme="field"][data-variant~="outline"], [data-style-scheme="field"] [data-variant~="outline"])[data-state="disabled"] {
+  --p-border-color-disabled: var(--p-colors-disabled-muted);
+  --p-border-color: var(--p-colors-disabled-muted);
+}
+
+:is([data-style-scheme="field"][data-variant~="outline"], [data-style-scheme="field"] [data-variant~="outline"])[data-state="active"] {
+  --p-border-color: var(--p-colors-neutral-base);
+}
+
+:is([data-style-scheme="field"][data-variant~="outline"], [data-style-scheme="field"] [data-variant~="outline"])[data-state="filled"] {
+  --p-border-color: var(--p-colors-neutral-faint);
+}
+
+:is([data-style-scheme="field"][data-variant~="outline"], [data-style-scheme="field"] [data-variant~="outline"])[data-state="error"] {
+  --p-border-color: var(--p-colors-error-default);
+}
+
+:is([data-style-scheme="field"][data-variant~="outline"], [data-style-scheme="field"] [data-variant~="outline"])[data-state="success"] {
+  --p-border-color: var(--p-colors-success-default);
+}
+
+[data-style-scheme="field"] [data-part="menu"] {
+  --p-bg: var(--p-colors-surface-variant);
+  --p-text: var(--p-colors-surface-on);
+}
+
+[data-style-scheme="field"] [data-part="menu"][data-state="selected"], [data-style-scheme="field"] [data-part="menu"][aria-selected="true"] {
+  --p-bg: var(--p-colors-primary-muted);
+  --p-text: var(--p-colors-primary-default);
+}
+
+[data-style-scheme="field"] [data-part="scroll"] {
+  --p-color: var(--p-colors-neutral-faint);
+}

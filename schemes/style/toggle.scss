@@ -1,0 +1,25 @@
+// AUTO-GENERATED — style-scheme (variant="toggle")
+
+[data-style-scheme="toggle"] {
+  --p-padding-x: var(--p-size-1);
+  --p-padding-y: var(--p-size-1);
+  --p-bg: var(--p-colors-neutral-soft);
+  --p-toggle-indicator-color: var(--p-color-white-default);
+}
+
+[data-style-scheme="toggle"]:is([data-state="selected"], [aria-checked="true"]) {
+  --p-bg: var(--p-colors-primary-default);
+  --p-toggle-indicator-color: var(--p-color-white-default);
+}
+
+[data-style-scheme="toggle"][data-state="disabled"]:is([aria-checked="true"], [data-checked="true"]) {
+  --p-bg-disabled: var(--p-colors-primary-faint);
+  --p-bg: var(--p-colors-primary-faint);
+  --p-toggle-indicator-color: var(--p-colors-disabled-subtle);
+}
+
+[data-style-scheme="toggle"][data-state="disabled"] {
+  --p-bg-disabled: var(--p-colors-disabled-muted);
+  --p-bg: var(--p-colors-disabled-muted);
+  --p-toggle-indicator-color: var(--p-colors-disabled-subtle);
+}

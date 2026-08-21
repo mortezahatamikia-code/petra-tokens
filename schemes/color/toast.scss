@@ -1,0 +1,47 @@
+// AUTO-GENERATED — color-scheme="toast"
+
+[data-color-scheme="toast"] {
+  --p-text: var(--p-colors-surface-on);
+  --p-sub-text-size: var(--p-colors-neutral-default);
+  --p-icon: var(--p-colors-neutral-base);
+}
+
+[data-color-scheme="toast"][data-color="surface"] {
+  --p-border-color: var(--p-colors-surface-on);
+  --p-bg: var(--p-colors-surface-variant);
+}
+
+[data-color-scheme="toast"][data-color="primary"] {
+  --p-border-color: var(--p-colors-primary-default);
+  --p-bg: var(--p-colors-primary-muted);
+}
+
+[data-color-scheme="toast"][data-color="secondary"] {
+  --p-border-color: var(--p-colors-secondary-default);
+  --p-bg: var(--p-colors-secondary-muted);
+}
+
+[data-color-scheme="toast"][data-color="success"] {
+  --p-border-color: var(--p-colors-success-default);
+  --p-bg: var(--p-colors-success-subtle);
+}
+
+[data-color-scheme="toast"][data-color="danger"] {
+  --p-border-color: var(--p-colors-error-default);
+  --p-bg: var(--p-colors-error-subtle);
+}
+
+[data-color-scheme="toast"][data-color="info"] {
+  --p-border-color: var(--p-colors-info-default);
+  --p-bg: var(--p-colors-info-subtle);
+}
+
+[data-color-scheme="toast"][data-color="warning"] {
+  --p-border-color: var(--p-colors-warning-default);
+  --p-bg: var(--p-colors-warning-subtle);
+}
+
+[data-color-scheme="toast"][data-color="nutral"] {
+  --p-border-color: var(--p-colors-neutral-default);
+  --p-bg: var(--p-colors-neutral-muted);
+}

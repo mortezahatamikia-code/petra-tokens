@@ -1,89 +1,195 @@
 // petra-tokens/state-styles.scss — v2.0
 // ============================================================
-// Variant styles — fully data-state controlled (گزینه A)
-// CSS selectors use [data-state="hover"] / [data-state="active"] / [data-variant~="..."]
+// Variant styles — disabled & loading via data-state, hover/active via CSS pseudo-classes & aria-pressed
 // ============================================================
 
-// ── Shared layout for components with color schemes ─────────
+:root {
+  --p-duration-fast: 0.15s;
+  --p-duration-layout: 0.3s;
+  --p-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --p-ease-layout: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --p-duration-fast: 0.01ms;
+    --p-duration-layout: 0.01ms;
+  }
+}
+
 [data-color-scheme] {
   display: inline-flex;
   align-items: center;
   padding: var(--p-padding-y) var(--p-padding-x);
   gap: var(--p-gap);
-  font-size: var(--p-text);
+  font-size: var(--p-font-size);
+  font-weight: var(--p-font-weight);
+  line-height: var(--p-leading);
   border-radius: var(--p-radius);
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  min-height: var(--p-min-height);
+  min-width: var(--p-min-width);
+  border-width: var(--p-border-size, 1px);
+  border-style: solid;
+  border-color: var(--p-border-color, var(--p-colors-transparent-default));
+  box-shadow: var(--p-box-shadow, none);
+  transition: color var(--p-duration-fast) var(--p-ease-in-out),
+    background-color var(--p-duration-fast) var(--p-ease-in-out),
+    border-color var(--p-duration-fast) var(--p-ease-in-out),
+    box-shadow var(--p-duration-fast) var(--p-ease-in-out),
+    transform var(--p-duration-fast) var(--p-ease-in-out),
+    min-height var(--p-duration-layout) var(--p-ease-layout),
+    min-width var(--p-duration-layout) var(--p-ease-layout),
+    padding-top var(--p-duration-layout) var(--p-ease-layout),
+    padding-right var(--p-duration-layout) var(--p-ease-layout),
+    padding-bottom var(--p-duration-layout) var(--p-ease-layout),
+    padding-left var(--p-duration-layout) var(--p-ease-layout),
+    gap var(--p-duration-layout) var(--p-ease-layout),
+    font-size var(--p-duration-layout) var(--p-ease-layout),
+    line-height var(--p-duration-layout) var(--p-ease-layout),
+    border-radius var(--p-duration-layout) var(--p-ease-layout);
 }
 
-// ── solid ──────────────────────────────────────────────────
-[data-variant~="solid"] {
-  background-color: var(--p-bg, var(--p-bg-color));
-  color: var(--p-text, var(--p-text-color));
-  border: 1px solid var(--p-border-color, transparent);
-}
-[data-variant~="solid"][data-state="hover"] {
-  background-color: var(--p-bg-hover, var(--p-bg-color-hover, var(--p-bg, var(--p-bg-color))));
-  color: var(--p-text-hover, var(--p-text-color-hover, var(--p-text, var(--p-text-color))));
-  border-color: var(--p-border-color-hover, var(--p-border-color, transparent));
-}
-[data-variant~="solid"][data-state="active"] {
-  background-color: var(--p-bg-active, var(--p-bg-color-active, var(--p-bg, var(--p-bg-color))));
-  color: var(--p-text-active, var(--p-text-color-active, var(--p-text, var(--p-text-color))));
-  border-color: var(--p-border-color-active, var(--p-border-color, transparent));
-}
-[data-variant~="solid"][data-state="disabled"] {
-  background-color: var(--p-bg-disabled, var(--p-bg-color-disabled, var(--p-bg, var(--p-bg-color))));
-  color: var(--p-text-disabled, var(--p-text-color-disabled, var(--p-text, var(--p-text-color))));
-  border-color: var(--p-border-color-disabled, transparent);
-}
 
-// ── outline ────────────────────────────────────────────────
-[data-variant~="outline"] {
-  background-color: transparent;
-  color: var(--p-text, var(--p-text-color));
-  border: 1px solid var(--p-border-color, currentColor);
-}
-[data-variant~="outline"][data-state="hover"] {
-  background-color: var(--p-bg-hover, transparent);
-  color: var(--p-text-hover, var(--p-text, var(--p-text-color)));
-  border-color: var(--p-border-color-hover, var(--p-border-color, currentColor));
-}
-[data-variant~="outline"][data-state="active"] {
-  background-color: var(--p-bg-active, transparent);
-  color: var(--p-text-active, var(--p-text, var(--p-text-color)));
-  border-color: var(--p-border-color-active, var(--p-border-color, currentColor));
-}
-[data-variant~="outline"][data-state="disabled"] {
-  background-color: transparent;
-  border-color: var(--p-border-color-disabled, var(--p-border-color, currentColor));
-  color: var(--p-text-disabled, var(--p-text-color-disabled, var(--p-text, var(--p-text-color))));
-}
+  // ── solid ──────────────────────────────────────────────────
+  [data-variant~="solid"] {
+    background-color: var(--p-bg);
+    color: var(--p-text);
+    border: var(--p-border-size, 1px) solid var(--p-border-color, var(--p-colors-transparent-default));
+  }
 
-// ── text ───────────────────────────────────────────────────
-[data-variant~="text"] {
-  background-color: transparent;
-  color: var(--p-text, var(--p-text-color));
-  border: 1px solid transparent;
-}
-[data-variant~="text"][data-state="hover"] {
-  background-color: var(--p-bg-hover, transparent);
-  color: var(--p-text-hover, var(--p-text, var(--p-text-color)));
-}
-[data-variant~="text"][data-state="active"] {
-  color: var(--p-text-active, var(--p-text, var(--p-text-color)));
-}
-[data-variant~="text"][data-state="disabled"] {
-  background-color: transparent;
-  color: var(--p-text-disabled, var(--p-text-color-disabled, var(--p-text, var(--p-text-color))));
-}
+  // Solid Hover and Active state background color
+  [data-variant~="solid"]:hover:not([data-state="disabled"]):not([data-state="loading"]),
+  [data-variant~="solid"][aria-pressed="true"]:not([data-state="disabled"]):not([data-state="loading"]),
+  [data-variant~="solid"][data-state="active"]:not([data-state="disabled"]):not([data-state="loading"]),
+  [data-variant~="solid"][data-active="true"]:not([data-state="disabled"]):not([data-state="loading"]) {
+    background-color: var(--p-bg-hover, var(--p-bg));
+    color: var(--p-text-hover, var(--p-text));
+    border-color: var(--p-border-color-hover, var(--p-border-color, var(--p-colors-transparent-default)));
+  }
 
-// ── ghost ──────────────────────────────────────────────────
-[data-variant~="ghost"] {
+  // Solid Hover on Active (active + hover)
+  [data-variant~="solid"][aria-pressed="true"]:hover:not([data-state="disabled"]):not([data-state="loading"]),
+  [data-variant~="solid"][data-state="active"]:hover:not([data-state="disabled"]):not([data-state="loading"]),
+  [data-variant~="solid"][data-active="true"]:hover:not([data-state="disabled"]):not([data-state="loading"]) {
+    background-color: var(--p-bg-active, var(--p-bg-hover, var(--p-bg)));
+    color: var(--p-text-active, var(--p-text-hover, var(--p-text)));
+    border-color: var(--p-border-color-active, var(--p-border-color-hover, var(--p-border-color, var(--p-colors-transparent-default))));
+    filter: brightness(0.92) contrast(1.05);
+  }
+
+  [data-variant~="solid"][data-state="disabled"],
+  [data-variant~="solid"][data-state="loading"] {
+    background-color: var(--p-bg-disabled, var(--p-bg));
+    color: var(--p-text-disabled, var(--p-text));
+    border-color: var(--p-border-color-disabled, var(--p-colors-transparent-default));
+  }
+
+  // ── flat ───────────────────────────────────────────────────
+  // Flat = solid without shadow. Shadow suppressed by the action style scheme.
+  [data-variant~="flat"] {
+    background-color: var(--p-bg);
+    color: var(--p-text);
+    border: var(--p-border-size, 1px) solid var(--p-border-color, var(--p-colors-transparent-default));
+  }
+
+  [data-variant~="flat"]:is(:hover, [aria-pressed="true"], [data-state="active"], [data-active="true"]):not([data-state="disabled"], [data-state="loading"]) {
+    background-color: var(--p-bg-hover, var(--p-bg));
+    color: var(--p-text-hover, var(--p-text));
+    border-color: var(--p-border-color-hover, var(--p-border-color, var(--p-colors-transparent-default)));
+  }
+
+  [data-variant~="flat"][data-state="disabled"],
+  [data-variant~="flat"][data-state="loading"] {
+    background-color: var(--p-bg-disabled, var(--p-bg));
+    color: var(--p-text-disabled, var(--p-text));
+    border-color: var(--p-border-color-disabled, var(--p-colors-transparent-default));
+  }
+
+  // ── outline ────────────────────────────────────────────────
+  [data-variant~="outline"] {
+    background-color: transparent;
+    color: var(--p-text);
+    border: var(--p-border-size, 1px) solid var(--p-border-color, currentColor);
+    box-shadow: none;
+  }
+
+  [data-variant~="outline"]:hover:not([data-state="disabled"]):not([data-state="loading"]) {
+    background-color: var(--p-bg-hover, transparent);
+    color: var(--p-text-hover, var(--p-text));
+    border-color: var(--p-border-color-hover, var(--p-border-color, currentColor));
+    box-shadow: none;
+  }
+
+  [data-variant~="outline"][aria-pressed="true"]:not([data-state="disabled"]):not([data-state="loading"]),
+  [data-variant~="outline"][data-state="active"]:not([data-state="disabled"]):not([data-state="loading"]),
+  [data-variant~="outline"][data-active="true"]:not([data-state="disabled"]):not([data-state="loading"]) {
+    background-color: var(--p-bg-hover, transparent);
+    color: var(--p-text-hover, var(--p-text));
+    border-color: var(--p-border-color-hover, var(--p-border-color, currentColor));
+    box-shadow: none;
+  }
+
+  [data-variant~="outline"][aria-pressed="true"]:hover:not([data-state="disabled"]):not([data-state="loading"]),
+  [data-variant~="outline"][data-state="active"]:hover:not([data-state="disabled"]):not([data-state="loading"]),
+  [data-variant~="outline"][data-active="true"]:hover:not([data-state="disabled"]):not([data-state="loading"]) {
+    background-color: var(--p-bg-active, var(--p-bg-hover, transparent));
+    color: var(--p-text-active, var(--p-text-hover, var(--p-text)));
+    border-color: var(--p-border-color-active, var(--p-border-color-hover, var(--p-border-color, currentColor)));
+    filter: brightness(0.92) contrast(1.05);
+    box-shadow: none;
+  }
+
+  [data-variant~="outline"][data-state="disabled"],
+  [data-variant~="outline"][data-state="loading"] {
+    background-color: transparent;
+    border-color: var(--p-border-color-disabled, var(--p-border-color, currentColor));
+    color: var(--p-text-disabled, var(--p-text));
+    box-shadow: none;
+  }
+
+  // ── text ───────────────────────────────────────────────────
+  [data-variant~="text"] {
+    background-color: transparent;
+    color: var(--p-text);
+    border: var(--p-border-size, 1px) solid var(--p-border-color, var(--p-colors-transparent-default));
+    box-shadow: none;
+  }
+
+  [data-variant~="text"]:hover:not([data-state="disabled"]):not([data-state="loading"]) {
+    background-color: var(--p-bg-hover, transparent);
+    color: var(--p-text-hover, var(--p-text));
+    transform: translateY(1px);
+  }
+
+  [data-variant~="text"][data-state="disabled"],
+  [data-variant~="text"][data-state="loading"] {
+    background-color: var(--p-bg-disabled, transparent);
+    color: var(--p-text-disabled, var(--p-text));
+    border-color: var(--p-border-color-disabled, var(--p-colors-transparent-default));
+  }
+
+  // ── ghost ──────────────────────────────────────────────────
+  [data-variant~="ghost"] {
+    background-color: transparent;
+    color: var(--p-text);
+    border: var(--p-border-size, 1px) solid var(--p-border-color, var(--p-colors-transparent-default));
+  }
+
+  [data-variant~="ghost"]:hover:not([data-state="disabled"]):not([data-state="loading"]) {
+    background-color: var(--p-bg-hover, var(--p-colors-neutral-muted));
+    color: var(--p-text-hover, var(--p-text));
+  }
+
+  [data-variant~="ghost"]:active:not([data-state="disabled"]):not([data-state="loading"]),
+  [data-variant~="ghost"][aria-pressed="true"]:not([data-state="disabled"]):not([data-state="loading"]) {
+    background-color: var(--p-bg-active, var(--p-colors-neutral-faint));
+    color: var(--p-text-active, var(--p-text));
+    transform: translateY(1px);
+  }
+
+[data-variant~="ghost"][data-state="disabled"],
+[data-variant~="ghost"][data-state="loading"] {
   background-color: transparent;
-  color: var(--p-text, var(--p-text-color));
-  border: 1px solid transparent;
-}
-[data-variant~="ghost"][data-state="hover"] {
-  background-color: var(--p-bg-hover, var(--p-neutral-100));
-  color: var(--p-text-hover, var(--p-text, var(--p-text-color)));
+  color: var(--p-text-disabled, var(--p-text));
+  border-color: var(--p-border-color-disabled, var(--p-colors-transparent-default));
 }

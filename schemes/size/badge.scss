@@ -1,0 +1,25 @@
+// AUTO-GENERATED — size-scheme="badge"
+
+[data-size-scheme="badge"] {
+  --p-text-weight: var(--p-weight-medium);
+  --p-font-size: var(--p-text-xs);
+  --p-leading: var(--p-leading-14px);
+  --p-icon-size: var(--p-text-xs);
+  --p-radius: var(--p-radius-4px);
+  --p-padding-x: var(--p-size-1-5);
+  --p-padding-y: var(--p-size-1);
+  --p-gap: var(--p-size-1);
+  --p-border-color: var(--p-border-1px);
+}
+
+[data-size-scheme="badge"][data-variant~="count"] {
+  --p-text-weight: var(--p-weight-regular);
+  --p-font-size: var(--p-text-2xs);
+  --p-leading: var(--p-leading-12px);
+  --p-padding-x: var(--p-size-1);
+  --p-padding-y: var(--p-size-0-5);
+}
+
+[data-size-scheme="badge"][data-variant~="dot"] {
+  --p-size: var(--p-size-2-5);
+}

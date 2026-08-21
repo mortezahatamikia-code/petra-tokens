@@ -1,0 +1,14 @@
+// AUTO-GENERATED — style-scheme (variant="tree")
+
+[data-style-scheme="tree"] {
+  --p-radius: var(--p-size-1-5);
+  --p-main: var(--p-colors-surface-on);
+  --p-bg: var(--p-colors-transparent-default);
+  --p-hover: var(--p-colors-surface-default);
+}
+
+[data-style-scheme="tree"] [data-part="item"] {
+  --p-position: var(--p-size-3);
+  --p-gap: var(--p-size-0-5);
+  --p-item: var(--p-colors-neutral-default);
+}
