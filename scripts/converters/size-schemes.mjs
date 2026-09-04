@@ -79,6 +79,7 @@ export function generateSizeSchemes(componentVars, refToCssVar) {
   }
 
   // Toggle Size Scheme (extract all sizes: sm, base, lg, xl and common)
+  const BREAKPOINTS = { sm: '40rem', md: '48rem', lg: '64rem', xl: '80rem', '2xl': '96rem' };
   for (const [sizeName, sizeProps] of Object.entries(sizeObj.toggle || {})) {
     if (sizeName === 'common') {
       for (const [prop, propVal] of Object.entries(sizeProps || {})) {
@@ -88,7 +89,7 @@ export function generateSizeSchemes(componentVars, refToCssVar) {
         }
       }
     } else {
-      const sel = `[data-size-scheme="toggle"][data-size="${sizeName}"], [data-size-scheme="toggle"] [data-size="${sizeName}"]`;
+      const sel = `:is([data-size-scheme="toggle"][data-size~="${sizeName}"], [data-size-scheme="toggle"] [data-size~="${sizeName}"])`;
       for (const [prop, propVal] of Object.entries(sizeProps || {})) {
         const rawVal = getTokenValue(propVal);
         if (!prop.startsWith('$') && rawVal !== undefined) {

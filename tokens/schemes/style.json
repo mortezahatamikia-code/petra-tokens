@@ -229,24 +229,22 @@
       }
     }
   },
-  "toggle": {
-    "switch": {
-      "padding-x": "$.Primitive Tokens.Mode 1.size.1",
-      "padding-y": "$.Primitive Tokens.Mode 1.size.1",
-      "bg": "$.Semantic Tokens.Mode 1.colors.neutral.soft",
-      "toggle": "$.Primitive Tokens.Mode 1.colors.white.default",
+  "switch": {
+    "padding-x": "$.Primitive Tokens.Mode 1.size.1",
+    "padding-y": "$.Primitive Tokens.Mode 1.size.1",
+    "bg": "$.Semantic Tokens.Mode 1.colors.neutral.soft",
+    "toggle": "$.Primitive Tokens.Mode 1.colors.white.default",
+    "selected": {
+      "bg": "$.Semantic Tokens.Mode 1.colors.primary.default",
+      "toggle": "$.Primitive Tokens.Mode 1.colors.white.default"
+    },
+    "disabled": {
       "selected": {
-        "bg": "$.Semantic Tokens.Mode 1.colors.primary.default",
-        "toggle": "$.Primitive Tokens.Mode 1.colors.white.default"
-      },
-      "disabled": {
-        "selected": {
-          "bg": "$.Semantic Tokens.Mode 1.colors.primary.faint",
-          "toggle": "$.Semantic Tokens.Mode 1.colors.disabled.subtle"
-        },
-        "bg": "$.Semantic Tokens.Mode 1.colors.disabled.muted",
+        "bg": "$.Semantic Tokens.Mode 1.colors.primary.faint",
         "toggle": "$.Semantic Tokens.Mode 1.colors.disabled.subtle"
-      }
+      },
+      "bg": "$.Semantic Tokens.Mode 1.colors.disabled.muted",
+      "toggle": "$.Semantic Tokens.Mode 1.colors.disabled.subtle"
     }
   },
   "content": {
@@ -264,7 +262,7 @@
   "otp": {
     "sm": {
       "padding-x": "$.Primitive Tokens.Mode 1.size.1-5",
-      "padding-y": "$.Primitive Tokens.Mode 1.size.0-25",
+      "padding-y": "$.Primitive Tokens.Mode 1.size.0-5",
       "gap": "$.Primitive Tokens.Mode 1.size.1-5",
       "text": "$.Semantic Tokens.Mode 1.text.sm",
       "leading": "$.Semantic Tokens.Mode 1.leading.20px",
@@ -500,12 +498,12 @@
     "notification": {
       "padding-y": "$.Primitive Tokens.Mode 1.size.1",
       "border": "$.Semantic Tokens.Mode 1.border.2px",
+      "surface": {
+        "border": "$.Semantic Tokens.Mode 1.colors.surface.on"
+      },
       "button": {
         "border-size": "$.Semantic Tokens.Mode 1.border.1px",
         "border": "$.Semantic Tokens.Mode 1.colors.neutral.faint"
-      },
-      "surface": {
-        "border": "$.Semantic Tokens.Mode 1.colors.surface.on"
       },
       "primary": {
         "border": "$.Semantic Tokens.Mode 1.colors.info.default"
@@ -577,5 +575,67 @@
     "gap": "$.Primitive Tokens.Mode 1.size.1",
     "padding": "$.Primitive Tokens.Mode 1.size.1",
     "border": "$.Semantic Tokens.Mode 1.border.1px"
+  },
+  "split button": {
+    "xs": {
+      "size": "$.Primitive Tokens.Mode 1.size.1"
+    },
+    "sm": {
+      "position": "$.Primitive Tokens.Mode 1.size.2"
+    },
+    "base": {
+      "position": "$.Primitive Tokens.Mode 1.size.2-5"
+    },
+    "lg": {
+      "position": "$.Primitive Tokens.Mode 1.size.3"
+    },
+    "xl": {
+      "position": "$.Primitive Tokens.Mode 1.size.4"
+    }
+  },
+  "avatar": {
+    "sm": {
+      "position": "$.Primitive Tokens.Mode 1.size.2",
+      "rounded": {
+        "position": "$.Primitive Tokens.Mode 1.size.0"
+      },
+      "size": "$.Primitive Tokens.Mode 1.size.6"
+    },
+    "base": {
+      "position": "$.Primitive Tokens.Mode 1.size.2-5",
+      "rounded": {
+        "position": "$.Primitive Tokens.Mode 1.size.0"
+      },
+      "size": "$.Primitive Tokens.Mode 1.size.7"
+    },
+    "lg": {
+      "position": "$.Primitive Tokens.Mode 1.size.0-5",
+      "rounded": {
+        "position": "$.Primitive Tokens.Mode 1.size.0"
+      },
+      "size": "$.Primitive Tokens.Mode 1.size.8"
+    },
+    "xl": {
+      "position": "$.Primitive Tokens.Mode 1.size.0-5",
+      "rounded": {
+        "position": "$.Primitive Tokens.Mode 1.size.0-5"
+      },
+      "size": "$.Primitive Tokens.Mode 1.size.10"
+    }
+  },
+  "kbd": {
+    "icon": "$.Primitive Tokens.Mode 1.size.2-5",
+    "gap": "$.Primitive Tokens.Mode 1.size.0-5",
+    "item": {
+      "gap": "$.Primitive Tokens.Mode 1.size.1-5"
+    }
+  },
+  "breadcrumb": {
+    "text": "$.Semantic Tokens.Mode 1.colors.neutral.default",
+    "hover": {
+      "hover": "$.Semantic Tokens.Mode 1.colors.surface.on",
+      "bg": "$.Semantic Tokens.Mode 1.colors.surface.variant"
+    },
+    "gap": "$.Primitive Tokens.Mode 1.size.2"
   }
 }

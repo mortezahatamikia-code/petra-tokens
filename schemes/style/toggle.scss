@@ -7,18 +7,18 @@
   --p-toggle-indicator-color: var(--p-color-white-default);
 }
 
-[data-style-scheme="toggle"]:is([data-state="selected"], [aria-checked="true"]) {
+[data-style-scheme="toggle"]:is([data-state="checked"], [data-state="selected"], [aria-checked="true"]) {
   --p-bg: var(--p-colors-primary-default);
   --p-toggle-indicator-color: var(--p-color-white-default);
 }
 
-[data-style-scheme="toggle"][data-state="disabled"]:is([aria-checked="true"], [data-checked="true"]) {
+[data-style-scheme="toggle"]:is([data-disabled="true"], [data-state="disabled"]):is([data-state="checked"], [data-state="selected"], [aria-checked="true"], [data-checked="true"]) {
   --p-bg-disabled: var(--p-colors-primary-faint);
   --p-bg: var(--p-colors-primary-faint);
   --p-toggle-indicator-color: var(--p-colors-disabled-subtle);
 }
 
-[data-style-scheme="toggle"][data-state="disabled"] {
+[data-style-scheme="toggle"]:is([data-disabled="true"], [data-state="disabled"]) {
   --p-bg-disabled: var(--p-colors-disabled-muted);
   --p-bg: var(--p-colors-disabled-muted);
   --p-toggle-indicator-color: var(--p-colors-disabled-subtle);

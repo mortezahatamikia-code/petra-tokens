@@ -11,7 +11,7 @@
 @use "sp-utilities.scss" as *;
 @use "global-shapes.scss" as *;
 
-@import "./theme/light.css";
+@use "./theme/default.scss" as *;
 
 .border-p-style {
   border-style: var(--p-outline-border-style);

@@ -23,30 +23,50 @@
 }
 
 [data-color-scheme="toggle"] {
-  --p-border-color-hover: var(--p-colors-primary-default);
-  --p-ring-color-focus: var(--p-colors-primary-muted);
-  --p-checkbox-bg: var(--p-bg);
-  --p-checkbox-border-color: var(--p-border-color);
-  --p-checkbox-label-color: var(--p-text);
-  --p-checkbox-tic-color: var(--p-toggle-indicator-color);
-  --p-checkbox-mixed-line-color: var(--p-toggle-indicator-color);
-  --p-radio-bg: var(--p-bg);
-  --p-radio-border-color: var(--p-border-color);
-  --p-radio-label-color: var(--p-text);
-  --p-radio-dot-color: var(--p-toggle-indicator-color);
-  --p-switch-track-bg: var(--p-bg);
-  --p-switch-bg-inner-bg: var(--p-bg);
-  --p-switch-indicator-bg: var(--p-toggle-indicator-color);
+  --p-border-color-hover: var(--p-primary-500, #3b82f6);
+  --p-ring-color-focus: var(--p-primary-200, #bfdbfe);
+  --p-checkbox-bg: var(--p-bg, #fff);
+  --p-checkbox-border-color: var(--p-colors-border-default, var(--p-neutral-300, #d1d5db));
+  --p-checkbox-border-color-hover: var(--p-primary-500, #3b82f6);
+  --p-checkbox-label-color: var(--p-text, var(--p-neutral-900, #111827));
+  --p-checkbox-tic-color: var(--p-toggle-indicator-color, #fff);
+  --p-checkbox-mixed-line-color: var(--p-toggle-indicator-color, #fff);
+  --p-checkbox-checked-bg: var(--p-primary-500, #3b82f6);
+  --p-checkbox-checked-border: var(--p-primary-500, #3b82f6);
+  --p-radio-bg: var(--p-bg, #fff);
+  --p-radio-border-color: var(--p-colors-border-default, var(--p-neutral-300, #d1d5db));
+  --p-radio-label-color: var(--p-text, var(--p-neutral-900, #111827));
+  --p-radio-dot-color: var(--p-primary-500, #3b82f6);
+  --p-radio-checked-border: var(--p-primary-500, #3b82f6);
+  --p-switch-track-bg: var(--p-bg, #e5e7eb);
+  --p-switch-bg-inner-bg: var(--p-bg, #e5e7eb);
+  --p-switch-indicator-bg: var(--p-toggle-indicator-color, #fff);
 }
 
 [data-color-scheme="toggle"] [data-part="checkbox-box"] {
-  background-color: var(--p-checkbox-bg);
-  border-color: var(--p-checkbox-border-color);
+  background-color: var(--p-checkbox-bg, #fff);
+  border-color: var(--p-checkbox-border-color, #d1d5db);
 }
 
 [data-color-scheme="toggle"] [data-part="radio-box"] {
-  background-color: var(--p-radio-bg);
-  border-color: var(--p-radio-border-color);
+  background-color: var(--p-radio-bg, #fff);
+  border-color: var(--p-radio-border-color, #d1d5db);
+}
+
+:is([data-color-scheme="toggle"][data-state="checked"], [data-color-scheme="toggle"][aria-checked="true"]) [data-part="radio-box"]:is([data-variant="default"], :not([data-variant="hollow"]):not([data-variant="space"])), [data-color-scheme="toggle"] [data-part="radio-box"][data-state="checked"]:is([data-variant="default"], :not([data-variant="hollow"]):not([data-variant="space"])) {
+  background-color: var(--p-radio-dot-color, var(--p-primary-500, #3b82f6));
+  border-color: var(--p-radio-checked-border, var(--p-primary-500, #3b82f6));
+}
+
+:is([data-color-scheme="toggle"][data-state="checked"], [data-color-scheme="toggle"][aria-checked="true"]) [data-part="radio-box"][data-variant="space"], [data-color-scheme="toggle"] [data-part="radio-box"][data-state="checked"][data-variant="space"] {
+  background-color: var(--p-radio-bg, #fff);
+  border-color: var(--p-radio-checked-border, var(--p-primary-500, #3b82f6));
+}
+
+:is([data-color-scheme="toggle"][data-state="checked"], [data-color-scheme="toggle"][aria-checked="true"]) [data-part="radio-box"][data-variant="hollow"], [data-color-scheme="toggle"] [data-part="radio-box"][data-state="checked"][data-variant="hollow"] {
+  background-color: transparent;
+  border-width: 2px;
+  border-color: var(--p-radio-checked-border, var(--p-primary-500, #3b82f6));
 }
 
 [data-color-scheme="toggle"] [data-part="checkbox-label"] {
@@ -66,7 +86,12 @@
 }
 
 [data-color-scheme="toggle"] [data-part="radio-dot"] {
-  background-color: var(--p-radio-dot-color);
+  background-color: var(--p-radio-dot-color, var(--p-primary-500, #3b82f6));
+}
+
+:is([data-color-scheme="toggle"][data-state="checked"], [data-color-scheme="toggle"][aria-checked="true"]) [data-part="radio-dot"] {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }
 
 [data-color-scheme="toggle"] [data-part="switch-track"] {

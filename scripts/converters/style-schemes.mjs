@@ -338,19 +338,19 @@ function handleToggleGroup(toggleObj, add) {
       if (rawVal !== undefined) {
         add(scheme, baseSel, key, rawVal);
       } else if (key === 'selected') {
-        const sel = `${baseSel}:is([data-state="selected"], [aria-checked="true"])`;
+        const sel = `${baseSel}:is([data-state="checked"], [data-state="selected"], [aria-checked="true"])`;
         for (const [p, v] of Object.entries(val)) {
           const rawV = getTokenValue(v);
           if (rawV !== undefined) add(scheme, sel, p, rawV);
         }
       } else if (key === 'disabled' || key === 'disable') {
-        const disSel = `${baseSel}[data-state="disabled"]`;
+        const disSel = `${baseSel}:is([data-disabled="true"], [data-state="disabled"])`;
         for (const [p, v] of Object.entries(val)) {
           const rawV = getTokenValue(v);
           if (rawV !== undefined) {
             add(scheme, disSel, p, rawV, 'disabled');
           } else if (p === 'selected') {
-            const disSelSel = `${disSel}:is([aria-checked="true"], [data-checked="true"])`;
+            const disSelSel = `${disSel}:is([data-state="checked"], [data-state="selected"], [aria-checked="true"], [data-checked="true"])`;
             for (const [sp, sv] of Object.entries(v)) {
               const rawSv = getTokenValue(sv);
               if (rawSv !== undefined) add(scheme, disSelSel, sp, rawSv, 'disabled');

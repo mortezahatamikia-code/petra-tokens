@@ -16,15 +16,12 @@ import { generateSizeSchemes } from './converters/size-schemes.mjs';
 import { generateStyleSchemes } from './converters/style-schemes.mjs';
 import { generateBasicSizeScheme } from './converters/basic-size.mjs';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const TOKENS_ROOT = path.resolve(__dirname, '..');
 const JSON_PATH = path.join(TOKENS_ROOT, 'petra-tokens.json');
 const MODULAR_TOKENS_DIR = path.join(TOKENS_ROOT, 'tokens');
 const MODULAR_SCHEMES_DIR = path.join(MODULAR_TOKENS_DIR, 'schemes');
-
-const PRIMITIVE_DIR = path.join(TOKENS_ROOT, 'primitive');
-const SEMANTIC_DIR = path.join(TOKENS_ROOT, 'semantic');
-const SCHEMES_DIR = path.join(TOKENS_ROOT, 'schemes');
 
 // ── Token Helper Functions ─────────────────────────────────
 
@@ -99,7 +96,7 @@ function refToCssVar(ref) {
 
 // ── Layer 1: Primitive Tokens → primitive/index.scss ──────
 
-function generatePrimitive(vars) {
+function generatePrimitive(vars, customBreakpoints = {}) {
   const lines = [
     '// AUTO-GENERATED — do not edit manually.',
     '// Source: tokens/primitive.json',
@@ -124,6 +121,14 @@ function generatePrimitive(vars) {
     const val = getTokenValue(token);
     const name = slugify('weight', key);
     lines.push(`  --p-${name}: ${val};`);
+  }
+
+  const DEFAULT_BREAKPOINTS = { sm: '40rem', md: '48rem', lg: '64rem', xl: '80rem', '2xl': '96rem' };
+  const mergedBreakpoints = { ...DEFAULT_BREAKPOINTS, ...customBreakpoints };
+  lines.push('');
+  lines.push('  // Responsive Breakpoints');
+  for (const [bp, val] of Object.entries(mergedBreakpoints)) {
+    lines.push(`  --p-breakpoint-${bp}: ${val};`);
   }
 
   lines.push('}');
@@ -166,7 +171,18 @@ function generateSemantic(vars) {
   return lines.join('\n');
 }
 
-async function main() {
+// ── Build Function ─────────────────────────────────────────
+
+export async function buildTokens(options = {}) {
+  const {
+    outDir = TOKENS_ROOT,
+    config = {},
+    customBreakpoints = config.breakpoints || {},
+    silent = false,
+  } = options;
+
+  const log = (...args) => { if (!silent) console.log(...args); };
+
   let primitiveVars = {};
   let semanticVars = {};
   let componentColors = {};
@@ -178,7 +194,7 @@ async function main() {
   const hasModular = fs.existsSync(primitiveJsonPath);
 
   if (hasModular) {
-    console.log(`📖 Reading modular tokens from ${MODULAR_TOKENS_DIR}...`);
+    log(`📖 Reading modular tokens from ${MODULAR_TOKENS_DIR}...`);
     primitiveVars = JSON.parse(fs.readFileSync(primitiveJsonPath, 'utf8'));
     semanticVars = JSON.parse(fs.readFileSync(path.join(MODULAR_TOKENS_DIR, 'semantic.json'), 'utf8'));
     componentColors = JSON.parse(fs.readFileSync(path.join(MODULAR_SCHEMES_DIR, 'colors.json'), 'utf8'));
@@ -191,7 +207,7 @@ async function main() {
       { collection: 'Component Tokens', mode: 'Mode 1', variables: { colors: componentColors, size: componentSize, style: componentStyle } },
     ];
   } else {
-    console.log(`📖 Reading ${JSON_PATH}...`);
+    log(`📖 Reading ${JSON_PATH}...`);
     const raw = JSON.parse(fs.readFileSync(JSON_PATH, 'utf-8'));
     const cols = {};
     for (const c of raw) cols[c.collection] = c;
@@ -205,59 +221,88 @@ async function main() {
     collectionsForMap = raw;
   }
 
+  // Merge any config overrides if provided
+  if (config.theme?.colors) {
+    for (const [colorName, shades] of Object.entries(config.theme.colors)) {
+      if (typeof shades === 'object' && shades !== null) {
+        primitiveVars.colors = primitiveVars.colors || {};
+        primitiveVars.colors[colorName] = { ...(primitiveVars.colors[colorName] || {}), ...shades };
+      }
+    }
+  }
+
   const flatMap = buildFlatMap(collectionsForMap);
-  console.log(`  ✓ ${flatMap.size} token references indexed`);
+  log(`  ✓ ${flatMap.size} token references indexed`);
 
-  fs.mkdirSync(PRIMITIVE_DIR, { recursive: true });
-  fs.mkdirSync(SEMANTIC_DIR, { recursive: true });
-  fs.mkdirSync(path.join(SCHEMES_DIR, 'color'), { recursive: true });
-  fs.mkdirSync(path.join(SCHEMES_DIR, 'size'), { recursive: true });
-  fs.mkdirSync(path.join(SCHEMES_DIR, 'style'), { recursive: true });
+  const primitiveDir = path.join(outDir, 'primitive');
+  const semanticDir = path.join(outDir, 'semantic');
+  const schemesDir = path.join(outDir, 'schemes');
 
-  console.log('⚙️  Generating 1. primitive/index.scss...');
-  fs.writeFileSync(path.join(PRIMITIVE_DIR, 'index.scss'), generatePrimitive(primitiveVars));
-  if (fs.existsSync(path.join(PRIMITIVE_DIR, '_primitive.scss'))) {
-    fs.unlinkSync(path.join(PRIMITIVE_DIR, '_primitive.scss'));
+  fs.mkdirSync(primitiveDir, { recursive: true });
+  fs.mkdirSync(semanticDir, { recursive: true });
+  fs.mkdirSync(path.join(schemesDir, 'color'), { recursive: true });
+  fs.mkdirSync(path.join(schemesDir, 'size'), { recursive: true });
+  fs.mkdirSync(path.join(schemesDir, 'style'), { recursive: true });
+
+  log('⚙️  Generating 1. primitive/index.scss...');
+  fs.writeFileSync(path.join(primitiveDir, 'index.scss'), generatePrimitive(primitiveVars, customBreakpoints));
+  if (fs.existsSync(path.join(primitiveDir, '_primitive.scss'))) {
+    fs.unlinkSync(path.join(primitiveDir, '_primitive.scss'));
   }
 
-  console.log('⚙️  Generating 2. semantic/index.scss...');
-  fs.writeFileSync(path.join(SEMANTIC_DIR, 'index.scss'), generateSemantic(semanticVars));
-  if (fs.existsSync(path.join(SEMANTIC_DIR, '_semantic.scss'))) {
-    fs.unlinkSync(path.join(SEMANTIC_DIR, '_semantic.scss'));
+  log('⚙️  Generating 2. semantic/index.scss...');
+  fs.writeFileSync(path.join(semanticDir, 'index.scss'), generateSemantic(semanticVars));
+  if (fs.existsSync(path.join(semanticDir, '_semantic.scss'))) {
+    fs.unlinkSync(path.join(semanticDir, '_semantic.scss'));
   }
 
-  console.log('⚙️  Generating 3. schemes/color/*.scss...');
+  log('⚙️  Generating 3. schemes/color/*.scss...');
   for (const [schemeName, blocksMap] of generateColorSchemes(componentColors, refToCssVar)) {
     const lines = [`// AUTO-GENERATED — color-scheme="${schemeName}"`, ''];
     for (const [sel, props] of blocksMap) {
       if (!props.length) continue;
       lines.push(`${sel} {`, ...props, '}', '');
     }
-    fs.writeFileSync(path.join(SCHEMES_DIR, 'color', `${schemeName}.scss`), lines.join('\n'));
+    fs.writeFileSync(path.join(schemesDir, 'color', `${schemeName}.scss`), lines.join('\n'));
   }
 
-  console.log('⚙️  Generating 3. schemes/size/*.scss...');
+  log('⚙️  Generating 3. schemes/size/*.scss...');
   for (const [schemeName, blocksMap] of generateSizeSchemes(componentSize, refToCssVar)) {
     const lines = [`// AUTO-GENERATED — size-scheme="${schemeName}"`, ''];
     for (const [sel, props] of blocksMap) {
       if (!props.length) continue;
       lines.push(`${sel} {`, ...props, '}', '');
     }
-    fs.writeFileSync(path.join(SCHEMES_DIR, 'size', `${schemeName}.scss`), lines.join('\n'));
+    fs.writeFileSync(path.join(schemesDir, 'size', `${schemeName}.scss`), lines.join('\n'));
   }
-  fs.writeFileSync(path.join(SCHEMES_DIR, 'size', 'basic.scss'), generateBasicSizeScheme(componentSize, refToCssVar));
+  fs.writeFileSync(
+    path.join(schemesDir, 'size', 'basic.scss'),
+    generateBasicSizeScheme(componentSize, refToCssVar, customBreakpoints)
+  );
 
-  console.log('⚙️  Generating 3. schemes/style/*.scss...');
+  log('⚙️  Generating 3. schemes/style/*.scss...');
   for (const [schemeName, blocksMap] of generateStyleSchemes(componentStyle, refToCssVar)) {
     const lines = [`// AUTO-GENERATED — style-scheme (variant="${schemeName}")`, ''];
     for (const [sel, props] of blocksMap) {
       if (!props.length) continue;
       lines.push(`${sel} {`, ...props, '}', '');
     }
-    fs.writeFileSync(path.join(SCHEMES_DIR, 'style', `${schemeName}.scss`), lines.join('\n'));
+    fs.writeFileSync(path.join(schemesDir, 'style', `${schemeName}.scss`), lines.join('\n'));
   }
 
-  console.log('✅ Done generating (primitive/index.scss, semantic/index.scss, schemes/*)!');
+  log('✅ Done generating (primitive/index.scss, semantic/index.scss, schemes/*)!');
 }
 
-main().catch(e => { console.error(e); process.exit(1); });
+// ── CLI Main Execution ─────────────────────────────────────
+
+const isCli = process.argv[1] && (
+  process.argv[1] === __filename ||
+  process.argv[1].endsWith('generate-tokens.mjs')
+);
+
+if (isCli) {
+  buildTokens().catch(e => {
+    console.error(e);
+    process.exit(1);
+  });
+}

@@ -1,0 +1,212 @@
+/* petra-tokens/styles/theme/default.css */
+@layer petra-theme {
+  :root,
+  *[data-theme="default"],
+  *[data-theme="light"] {
+    --p-primary: oklch(0.6 0.15 240);
+    --p-secondary: oklch(0.55 0.2 350);
+    /* Pink */
+    --p-neutral: oklch(0.5 0.02 260);
+    /* Gray */
+
+    --p-error-seed: oklch(0.6 0.18 20);
+    --p-success-seed: oklch(0.7 0.19 140);
+    --p-warning-seed: oklch(0.79 0.19 80);
+    --p-info-seed: oklch(0.6 0.19 250);
+
+    /* Algorithmic Legacy Primary Scale (50-900) */
+    --p-primary-50: color-mix(in oklch, var(--p-primary) 10%, white);
+    --p-primary-100: color-mix(in oklch, var(--p-primary) 20%, white);
+    --p-primary-200: color-mix(in oklch, var(--p-primary) 40%, white);
+    --p-primary-300: color-mix(in oklch, var(--p-primary) 60%, white);
+    --p-primary-400: color-mix(in oklch, var(--p-primary) 80%, white);
+    --p-primary-500: var(--p-primary);
+    --p-primary-600: color-mix(in oklch, var(--p-primary) 85%, black);
+    --p-primary-700: color-mix(in oklch, var(--p-primary) 70%, black);
+    --p-primary-800: color-mix(in oklch, var(--p-primary) 55%, black);
+    --p-primary-900: color-mix(in oklch, var(--p-primary) 40%, black);
+
+    /* Algorithmic Legacy Secondary Scale (50-900) */
+    --p-secondary-50: color-mix(in oklch, var(--p-secondary) 10%, white);
+    --p-secondary-100: color-mix(in oklch, var(--p-secondary) 20%, white);
+    --p-secondary-200: color-mix(in oklch, var(--p-secondary) 40%, white);
+    --p-secondary-300: color-mix(in oklch, var(--p-secondary) 60%, white);
+    --p-secondary-400: color-mix(in oklch, var(--p-secondary) 80%, white);
+    --p-secondary-500: var(--p-secondary);
+    --p-secondary-600: color-mix(in oklch, var(--p-secondary) 85%, black);
+    --p-secondary-700: color-mix(in oklch, var(--p-secondary) 70%, black);
+    --p-secondary-800: color-mix(in oklch, var(--p-secondary) 55%, black);
+    --p-secondary-900: color-mix(in oklch, var(--p-secondary) 40%, black);
+
+    /* Algorithmic Legacy Neutral Scale (0-1000) */
+    --p-neutral-0: #ffffff;
+    /* Exact pure white */
+    --p-neutral-50: color-mix(in oklch, var(--p-neutral) 5%, white);
+    --p-neutral-100: color-mix(in oklch, var(--p-neutral) 10%, white);
+    --p-neutral-200: color-mix(in oklch, var(--p-neutral) 25%, white);
+    --p-neutral-300: color-mix(in oklch, var(--p-neutral) 45%, white);
+    --p-neutral-400: color-mix(in oklch, var(--p-neutral) 65%, white);
+    --p-neutral-500: var(--p-neutral);
+    --p-neutral-600: color-mix(in oklch, var(--p-neutral) 85%, black);
+    --p-neutral-700: color-mix(in oklch, var(--p-neutral) 70%, black);
+    --p-neutral-800: color-mix(in oklch, var(--p-neutral) 55%, black);
+    --p-neutral-900: color-mix(in oklch, var(--p-neutral) 40%, black);
+    --p-neutral-950: color-mix(in oklch, var(--p-neutral) 25%, black);
+    --p-neutral-1000: #000000;
+    /* Exact pure black */
+
+    /* Algorithmic Legacy Error Scale */
+    --p-error-500: var(--p-error-seed);
+    --p-error-light: color-mix(in oklch, var(--p-error-seed) 15%, white);
+    --p-error-dark: color-mix(in oklch, var(--p-error-seed) 70%, black);
+
+    /* Algorithmic Legacy Success Scale */
+    --p-success-500: var(--p-success-seed);
+    --p-success-light: color-mix(in oklch, var(--p-success-seed) 15%, white);
+    --p-success-dark: color-mix(in oklch, var(--p-success-seed) 70%, black);
+
+    /* Algorithmic Legacy Warning Scale */
+    --p-warning-500: var(--p-warning-seed);
+    --p-warning-light: color-mix(in oklch, var(--p-warning-seed) 15%, white);
+    --p-warning-dark: color-mix(in oklch, var(--p-warning-seed) 70%, black);
+
+    /* Algorithmic Legacy Info Scale */
+    --p-info-500: var(--p-info-seed);
+    --p-info-light: color-mix(in oklch, var(--p-info-seed) 15%, white);
+    --p-info-dark: color-mix(in oklch, var(--p-info-seed) 70%, black);
+
+    /* Algorithmic PSC Core API Compat */
+    --p-color-primary: var(--p-primary-500);
+    --p-color-primary-hover: var(--p-primary-600);
+    --p-color-primary-active: var(--p-primary-700);
+    --p-color-primary-light: var(--p-primary-100);
+
+    --p-color-secondary: var(--p-secondary-500);
+    --p-color-secondary-hover: var(--p-secondary-600);
+    --p-color-secondary-active: var(--p-secondary-700);
+    --p-color-secondary-light: var(--p-secondary-100);
+
+    --p-color-neutral: var(--p-neutral-500);
+    --p-color-neutral-hover: var(--p-neutral-600);
+    --p-color-neutral-active: var(--p-neutral-700);
+    --p-color-neutral-light: var(--p-neutral-100);
+
+    --p-color-success: var(--p-success-500);
+    --p-color-success-hover: color-mix(in oklch, var(--p-success-seed) 85%, black);
+    --p-color-success-active: var(--p-success-dark);
+    --p-color-success-light: var(--p-success-light);
+
+    --p-color-error: var(--p-error-500);
+    --p-color-error-hover: color-mix(in oklch, var(--p-error-seed) 85%, black);
+    --p-color-error-active: var(--p-error-dark);
+    --p-color-error-light: var(--p-error-light);
+
+    --p-color-warning: var(--p-warning-500);
+    --p-color-warning-hover: color-mix(in oklch, var(--p-warning-seed) 85%, black);
+    --p-color-warning-active: var(--p-warning-dark);
+    --p-color-warning-light: var(--p-warning-light);
+
+    --p-color-info: var(--p-info-500);
+    --p-color-info-hover: color-mix(in oklch, var(--p-info-seed) 85%, black);
+    --p-color-info-active: var(--p-info-dark);
+    --p-color-info-light: var(--p-info-light);
+
+
+    /* Layout & Sizing variables from original light.css */
+    --p-base-size-xs: 2rem;
+    --p-base-size-sm: 2.25rem;
+    --p-base-size-md: 2.5rem;
+    --p-base-size-lg: 2.75rem;
+    --p-base-size-xl: 3rem;
+
+    --p-size-xs: var(--p-base-size-xs);
+    --p-size-sm: var(--p-base-size-sm);
+    --p-size-md: var(--p-base-size-md);
+    --p-size-lg: var(--p-base-size-lg);
+    --p-size-xl: var(--p-base-size-xl);
+
+    --p-text-size-xs: 0.875rem;
+    --p-text-size-sm: 0.875rem;
+    --p-text-size-md: 1rem;
+    --p-text-size-lg: 1rem;
+    --p-text-size-xl: 1.125rem;
+
+    --p-sub-text-size-xs: 0.75rem;
+    --p-sub-text-size-sm: 0.75rem;
+    --p-sub-text-size-md: 0.875rem;
+    --p-sub-text-size-lg: 0.875rem;
+    --p-sub-text-size-xl: 1rem;
+
+    --p-text-leading-xs: 1.25rem;
+    --p-text-leading-sm: 1.5rem;
+    --p-text-leading-md: 1.5rem;
+    --p-text-leading-lg: 1.5rem;
+    --p-text-leading-xl: 1.75rem;
+
+    --p-sub-text-leading-xs: 1rem;
+    --p-sub-text-leading-sm: 1rem;
+    --p-sub-text-leading-md: 1.25rem;
+    --p-sub-text-leading-lg: 1.25rem;
+    --p-sub-text-leading-xl: 1.5rem;
+
+    --p-font-extra-thin: 100;
+    --p-font-thin: 200;
+    --p-font-light: 300;
+    --p-font-normal: 400;
+    --p-font-medium: 500;
+    --p-font-semi-bold: 600;
+    --p-font-bold: 700;
+    --p-font-extra-bold: 800;
+    --p-font-black: 900;
+
+    --p-screen-sm: 640px;
+    --p-screen-md: 768px;
+    --p-screen-lg: 1024px;
+    --p-screen-xl: 1280px;
+
+    --p-padding-x-xs: 0.375rem;
+    --p-padding-y-xs: 0.25rem;
+    --p-padding-x-sm: 0.375rem;
+    --p-padding-y-sm: 0.25rem;
+    --p-padding-x-md: 0.5rem;
+    --p-padding-y-md: 0.375rem;
+    --p-padding-x-lg: 0.625rem;
+    --p-padding-y-lg: 0.5rem;
+    --p-padding-x-xl: 0.625rem;
+    --p-padding-y-xl: 0.5rem;
+
+    --p-gap-xs: 0.25rem;
+    --p-gap-sm: 0.25rem;
+    --p-gap-md: 0.25rem;
+    --p-gap-lg: 0.375rem;
+    --p-gap-xl: 0.375rem;
+
+    --p-radius: 0.25rem;
+    --p-radius-xs: var(--p-radius);
+    --p-radius-sm: var(--p-radius);
+    --p-radius-md: var(--p-radius);
+    --p-radius-lg: var(--p-radius);
+    --p-radius-xl: var(--p-radius);
+    --p-radius-full: 9999px;
+
+    --p-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+
+    --p-outline-border-width: 1px;
+    --p-outline-border-style: solid;
+    --p-theme-transition-duration: 0.6s;
+    --p-theme-transition-mix-blend-mode: normal;
+    --p-theme-transition-timing-function: ease-in-out;
+    --p-theme-transition-fill-mode: forwards;
+
+    --p-transition-duration: 0.3s;
+    --p-transition-easing: ease;
+
+    /* Z-Index Scale */
+    --p-z-index-dropdown: 1000;
+    --p-z-index-sticky: 1020;
+    --p-z-index-overlay: 1040;
+    --p-z-index-modal: 1060;
+    --p-z-index-popover: 1080;
+    --p-z-index-tooltip: 1100;
+  }
+}

@@ -28,10 +28,11 @@ function getTokenValue(val) {
   return undefined;
 }
 
-export function generateBasicSizeScheme(componentVars, refToCssVar) {
+export function generateBasicSizeScheme(componentVars, refToCssVar, customBreakpoints = {}) {
   const basicObj = componentVars?.size?.basic || componentVars?.basic || (componentVars?.common ? componentVars : {});
   // Tailwind CSS v4 standard responsive breakpoints (40rem = 640px, 48rem = 768px, 64rem = 1024px, 80rem = 1280px, 96rem = 1536px)
-  const BREAKPOINTS = { sm: '40rem', md: '48rem', lg: '64rem', xl: '80rem', '2xl': '96rem' };
+  const DEFAULT_BREAKPOINTS = { sm: '40rem', md: '48rem', lg: '64rem', xl: '80rem', '2xl': '96rem' };
+  const BREAKPOINTS = { ...DEFAULT_BREAKPOINTS, ...customBreakpoints };
   const lines = ['// AUTO-GENERATED — size-scheme="basic" (Button/Input/Field sizes)', ''];
 
   // 1. Common size properties (font weights)

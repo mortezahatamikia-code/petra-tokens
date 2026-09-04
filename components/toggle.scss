@@ -1,5 +1,27 @@
 // toggle.scss
 
+@mixin switch-size($track-height, $track-width, $wrapper-min) {
+  min-width: $wrapper-min;
+
+  .p-switch {
+    height: $track-height;
+    width: $track-width;
+    min-width: $track-width;
+    max-width: $track-width;
+    padding: var(--p-size-1);
+  }
+
+  .p-switch-indicator-wrapper {
+    width: calc(#{$track-height} - var(--p-size-1) * 2);
+    height: calc(#{$track-height} - var(--p-size-1) * 2);
+  }
+
+  &[data-state="checked"] .p-switch-indicator-wrapper {
+    transform: translateX(calc(var(--p-direction-sign, 1) * (#{$track-width} - #{$track-height})));
+  }
+}
+
+// ─── Shared wrapper base ─────────────────────────────────────────────────────
 .p-toggle-wrapper {
   position: relative;
   display: inline-flex;
@@ -40,16 +62,30 @@
 // Checkbox Component Styling
 // ----------------------------------------------------
 .p-checkbox-wrapper {
-  // Focus visible styles
-  &:focus-visible {
+  outline: none;
+
+  &:focus,
+  &:focus:not(:focus-visible),
+  &:active {
+    outline: none;
+
     .p-toggle-box {
-      box-shadow: 0 0 0 2px white, 0 0 0 4px var(--p-primary-500);
+      box-shadow: none;
+      outline: none;
     }
   }
 
   .p-toggle-box {
-    border-width: var(--p-toggle-border-width, 1px);
+    border: 1.5px solid var(--p-checkbox-border-color, #d1d5db);
     border-radius: var(--p-radius-sm, 0.25rem);
+    background-color: var(--p-checkbox-bg, var(--p-bg, #fff));
+    flex-shrink: 0;
+    box-sizing: border-box;
+    transition: all var(--p-transition-duration, 0.2s) ease;
+  }
+
+  &:hover:not([data-disabled="true"]) .p-toggle-box {
+    border-color: var(--p-checkbox-border-color-hover, var(--p-primary-500, #3b82f6));
   }
 
   .p-checkbox-inner {
@@ -72,6 +108,7 @@
       fill: none;
       width: 75%;
       height: 75%;
+      stroke: var(--p-checkbox-tic-color, #fff);
       stroke-width: var(--p-toggle-tic-stroke, 2.5);
       stroke-linecap: round;
       stroke-linejoin: round;
@@ -82,27 +119,47 @@
   }
 
   &[data-state="checked"] {
+    .p-toggle-box {
+      background-color: var(--p-checkbox-checked-bg, var(--p-primary-500, #3b82f6));
+      border-color: var(--p-checkbox-checked-border, var(--p-primary-500, #3b82f6));
+    }
+
     .p-checkbox-tic svg {
       stroke-dashoffset: 0;
-    }
-    .p-toggle-box::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      border-radius: 9999px;
-      animation: p-toggle-wave 0.4s ease-out;
+      stroke: var(--p-checkbox-tic-color, #fff);
     }
   }
 
   &[data-state="indeterminate"] {
+    .p-toggle-box {
+      background-color: var(--p-checkbox-checked-bg, var(--p-primary-500, #3b82f6));
+      border-color: var(--p-checkbox-checked-border, var(--p-primary-500, #3b82f6));
+    }
+
     .p-checkbox-mixed-line {
       height: 0.125rem;
       width: 70%;
       border-radius: 9999px;
+      background-color: var(--p-checkbox-mixed-line-color, #fff);
       animation: p-toggle-pop 0.2s ease-out;
+    }
+  }
+
+  &[data-disabled="true"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    .p-toggle-box {
+      background-color: var(--p-checkbox-disabled-bg, var(--p-neutral-100, #f3f4f6));
+      border-color: var(--p-checkbox-disabled-border, var(--p-neutral-200, #e5e7eb));
+    }
+
+    .p-checkbox-tic svg {
+      stroke: var(--p-checkbox-disabled-tic-color, var(--p-neutral-400, #9ca3af));
+    }
+
+    .p-checkbox-mixed-line {
+      background-color: var(--p-checkbox-disabled-tic-color, var(--p-neutral-400, #9ca3af));
     }
   }
 
@@ -115,13 +172,25 @@
 }
 
 @keyframes p-toggle-wave {
-  0% { transform: scale(0); opacity: 1; }
-  100% { transform: scale(2.5); opacity: 0; }
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
 }
 
 @keyframes p-toggle-pop {
-  0% { transform: scale(0); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 // ----------------------------------------------------
@@ -132,55 +201,118 @@
   background: none;
   border: none;
   cursor: pointer;
+  outline: none;
 
-  &:focus-visible .p-toggle-box {
-    box-shadow: 0 0 0 2px white, 0 0 0 4px var(--p-primary-500);
+  &:focus,
+  &:focus:not(:focus-visible),
+  &:active {
+    outline: none;
+
+    .p-toggle-box {
+      box-shadow: none;
+      outline: none;
+    }
   }
 
   .p-toggle-box {
-    border-width: var(--p-toggle-radio-border-width, 1.5px);
+    border: 1.5px solid var(--p-radio-border-color, var(--p-neutral-300, #d1d5db));
     border-radius: 9999px;
-    background-color: var(--p-checkbox-bg, transparent);
-    border-color: var(--p-checkbox-border-color, var(--p-neutral-300));
+    background-color: var(--p-radio-bg, #fff);
+    position: relative;
+    box-sizing: border-box;
     transition: all var(--p-transition-duration, 0.3s) var(--p-transition-easing, ease);
 
-    // Dot / Space Variant
-    &.p-radio-dot,
-    &.p-radio-space,
-    &[data-variant="dot"],
-    &[data-variant="space"] {
-      background-color: transparent;
-
-      .p-radio-dot-inner {
-        border-radius: 9999px;
-        width: 45%;
-        height: 45%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0);
-        opacity: 0;
-        background-color: var(--p-checkbox-bg, var(--p-primary-500));
-        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
-      }
+    // Inner dot (for space variant with exact 1px gap)
+    .p-radio-dot-inner {
+      border-radius: 9999px;
+      width: calc(100% - 4px);
+      height: calc(100% - 4px);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      background-color: var(--p-radio-dot-color, var(--p-primary-500, #3b82f6));
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+      pointer-events: none;
     }
 
-    // Hollow Variant
-    &.p-radio-hollow,
-    &[data-variant="hollow"] {
+    // 1. Default Variant — fully solid filled when checked
+    &:is(.p-radio-default, [data-variant="default"]),
+    &:not([data-variant="hollow"], [data-variant="space"]) {
+      background-color: var(--p-radio-bg, #fff);
+      border-width: 1.5px;
+    }
+
+    // 2. Space Variant — 1px outer border with exact 1px gap and inner dot
+    &:is(.p-radio-space, [data-variant="space"]) {
+      border-width: var(--p-border-1px, 1px);
+      background-color: var(--p-radio-bg, #fff);
+    }
+
+    // 3. Hollow Variant — 2px border (TODO: add design token when available)
+    &:is(.p-radio-hollow, [data-variant="hollow"]) {
       background-color: transparent !important;
-      border-width: 2px;
-      border-color: var(--p-checkbox-border-color, var(--p-primary-500));
+      border-width: 1.5px;
+      border-style: solid;
+      border-color: var(--p-radio-border-color, var(--p-neutral-300, #d1d5db));
     }
   }
 
-  &[data-state="checked"] {
-    .p-toggle-box.p-radio-dot .p-radio-dot-inner,
-    .p-toggle-box.p-radio-space .p-radio-dot-inner,
-    .p-toggle-box[data-variant="dot"] .p-radio-dot-inner,
-    .p-toggle-box[data-variant="space"] .p-radio-dot-inner {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
+  // ── Checked States ──
+  // Both wrapper-level (data-state/aria-checked) and direct toggle-box (data-state)
+  // are merged here to avoid duplicating rules.
+
+  // Default variant checked -> fully solid filled
+  &:is([data-state="checked"], [aria-checked="true"]) .p-toggle-box:is(.p-radio-default, [data-variant="default"]),
+  &:is([data-state="checked"], [aria-checked="true"]) .p-toggle-box:not([data-variant="hollow"], [data-variant="space"]),
+  .p-toggle-box[data-state="checked"]:is(.p-radio-default, [data-variant="default"]),
+  .p-toggle-box[data-state="checked"]:not([data-variant="hollow"], [data-variant="space"]) {
+    background-color: var(--p-radio-dot-color, var(--p-primary-500, #3b82f6)) !important;
+    border-color: var(--p-radio-checked-border, var(--p-primary-500, #3b82f6)) !important;
+  }
+
+  // Space variant checked -> 1px border + inner dot with exact 1px gap
+  &:is([data-state="checked"], [aria-checked="true"]) .p-toggle-box:is(.p-radio-space, [data-variant="space"]),
+  .p-toggle-box[data-state="checked"]:is(.p-radio-space, [data-variant="space"]) {
+    border-width: var(--p-border-1px, 1px) !important;
+    border-color: var(--p-radio-checked-border, var(--p-primary-500, #3b82f6)) !important;
+    background-color: var(--p-radio-bg, #fff) !important;
+
+    .p-radio-dot-inner {
+      transform: translate(-50%, -50%) scale(1) !important;
+      opacity: 1 !important;
+    }
+  }
+
+  // Hollow variant checked -> 2px border, empty center
+  &:is([data-state="checked"], [aria-checked="true"]) .p-toggle-box:is(.p-radio-hollow, [data-variant="hollow"]),
+  .p-toggle-box[data-state="checked"]:is(.p-radio-hollow, [data-variant="hollow"]) {
+    border-width: 2px !important; // Fixed 2px border because design token is not available yet
+    border-color: var(--p-radio-checked-border, var(--p-primary-500, #3b82f6)) !important;
+    background-color: transparent !important;
+  }
+
+  // ── Disabled States ──
+  &[data-disabled="true"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    .p-toggle-box {
+      background-color: var(--p-neutral-100, #f3f4f6);
+      border-color: var(--p-neutral-200, #e5e7eb) !important;
+    }
+
+    .p-radio-dot-inner {
+      background-color: var(--p-neutral-400, #9ca3af) !important;
+    }
+
+    &[data-state="checked"] .p-toggle-box:is(.p-radio-default, [data-variant="default"]),
+    &[data-state="checked"] .p-toggle-box:not([data-variant="hollow"], [data-variant="space"]),
+    .p-toggle-box[data-state="checked"]:is(.p-radio-default, [data-variant="default"]),
+    .p-toggle-box[data-state="checked"]:not([data-variant="hollow"], [data-variant="space"]) {
+      background-color: var(--p-neutral-400, #9ca3af) !important;
+      border-color: var(--p-neutral-400, #9ca3af) !important;
     }
   }
 
@@ -205,10 +337,17 @@
   width: auto;
   max-width: none;
   padding: 0;
+  --p-direction-sign: 1;
+  --p-padding-x: var(--p-size-1);
+  --p-padding-y: var(--p-size-1);
 
-  // Default size (md): wrapper min-width from size/size-md, track from toggle-size-md
-  // Height has no token — grows from content + padding
-  min-width: var(--p-size-10); // 40px (size/size-md)
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    --p-direction-sign: -1;
+  }
+
+  // Default size (md) — also applied below via data-size="md"
+  @include switch-size(var(--p-size-6), 2.75rem, var(--p-size-10));
 
   .p-switch {
     position: relative;
@@ -216,19 +355,36 @@
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
-    height: var(--p-size-6); // 24px (toggle-size-md)
-    min-width: 2.75rem;       // 44px
-    padding: var(--p-padding-y, var(--p-size-1)); // 4px (style/toggle/switch/padding-y)
     border-radius: var(--p-radius-full, 9999px);
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: var(--p-bg, var(--p-colors-neutral-soft));
+    background-color: var(--p-bg);
     transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    flex-shrink: 0;
 
-    &:focus-visible {
-      box-shadow: 0 0 0 2px var(--p-colors-surface-default, #ffffff), 0 0 0 4px var(--p-colors-primary-default, #3b82f6);
+    &:focus,
+    &:focus:not(:focus-visible),
+    &:active {
+      outline: none;
+      box-shadow: none;
     }
+  }
+
+  .p-switch-inner-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .p-switch-indicator-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
 
   // Knob/indicator — default md: track(24px) - padding(4px)*2 = 16px
@@ -236,8 +392,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: calc(var(--p-size-6) - var(--p-size-1) * 2);
-    height: calc(var(--p-size-6) - var(--p-size-1) * 2);
+    flex-shrink: 0;
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateX(0);
     will-change: transform;
@@ -248,84 +403,81 @@
     width: 100%;
     height: 100%;
     border-radius: var(--p-radius-full, 9999px);
-    background-color: var(--p-toggle-indicator-color, #ffffff);
+    background-color: var(--p-toggle-indicator-color);
     box-shadow: var(--p-shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.15));
     transition: background-color 0.25s ease;
   }
 
   // --- Per-size overrides ---
-  // translate = track_min_width - track_height (padding terms cancel out)
+  // translate = track_width - track_height (padding 4px is maintained on all 4 sides)
+  &:is([data-size~="sm"], [data-size="sm"]) {
+    @include switch-size(var(--p-size-5), 2.25rem, var(--p-size-8));
+  }
 
-  &[data-size="sm"] {
-    min-width: var(--p-size-8); // 32px (size/size-sm)
+  &:is([data-size~="md"], [data-size="md"], [data-size~="base"], [data-size="base"]) {
+    @include switch-size(var(--p-size-6), 2.75rem, var(--p-size-10));
+  }
 
-    .p-switch {
-      height: var(--p-size-5);  // 20px (toggle-size-sm)
-      min-width: 2.25rem;        // 36px
+  &:is([data-size~="lg"], [data-size="lg"]) {
+    @include switch-size(var(--p-size-7), 3.25rem, var(--p-size-11));
+  }
+
+  &:is([data-size~="xl"], [data-size="xl"]) {
+    @include switch-size(var(--p-size-8), 3.75rem, var(--p-size-12));
+  }
+
+  // Responsive Breakpoints for data-size
+  @media (min-width: 48rem) {
+    &:is([data-size~="md\\:sm"]) {
+      @include switch-size(var(--p-size-5), 2.25rem, var(--p-size-8));
     }
 
-    .p-switch-indicator-wrapper {
-      width: calc(var(--p-size-5) - var(--p-size-1) * 2);   // 12px
-      height: calc(var(--p-size-5) - var(--p-size-1) * 2);
+    &:is([data-size~="md\\:md"], [data-size~="md\\:base"]) {
+      @include switch-size(var(--p-size-6), 2.75rem, var(--p-size-10));
     }
 
-    &[data-state="checked"] .p-switch-indicator-wrapper {
-      transform: translateX(calc(var(--p-direction-sign, 1) * (2.25rem - var(--p-size-5))));
+    &:is([data-size~="md\\:lg"]) {
+      @include switch-size(var(--p-size-7), 3.25rem, var(--p-size-11));
+    }
+
+    &:is([data-size~="md\\:xl"]) {
+      @include switch-size(var(--p-size-8), 3.75rem, var(--p-size-12));
     }
   }
 
-  &[data-size="md"],
-  &[data-size="base"] {
-    min-width: var(--p-size-10); // 40px (size/size-md)
-
-    .p-switch {
-      height: var(--p-size-6);  // 24px (toggle-size-md)
-      min-width: 2.75rem;        // 44px
+  @media (min-width: 64rem) {
+    &:is([data-size~="lg\\:sm"]) {
+      @include switch-size(var(--p-size-5), 2.25rem, var(--p-size-8));
     }
 
-    .p-switch-indicator-wrapper {
-      width: calc(var(--p-size-6) - var(--p-size-1) * 2);   // 16px
-      height: calc(var(--p-size-6) - var(--p-size-1) * 2);
+    &:is([data-size~="lg\\:md"], [data-size~="lg\\:base"]) {
+      @include switch-size(var(--p-size-6), 2.75rem, var(--p-size-10));
     }
 
-    &[data-state="checked"] .p-switch-indicator-wrapper {
-      transform: translateX(calc(var(--p-direction-sign, 1) * (2.75rem - var(--p-size-6))));
-    }
-  }
-
-  &[data-size="lg"] {
-    min-width: var(--p-size-11); // 44px (size/size-lg)
-
-    .p-switch {
-      height: var(--p-size-7);  // 28px (toggle-size-lg)
-      min-width: 3.25rem;        // 52px
+    &:is([data-size~="lg\\:lg"]) {
+      @include switch-size(var(--p-size-7), 3.25rem, var(--p-size-11));
     }
 
-    .p-switch-indicator-wrapper {
-      width: calc(var(--p-size-7) - var(--p-size-1) * 2);   // 20px
-      height: calc(var(--p-size-7) - var(--p-size-1) * 2);
-    }
-
-    &[data-state="checked"] .p-switch-indicator-wrapper {
-      transform: translateX(calc(var(--p-direction-sign, 1) * (3.25rem - var(--p-size-7))));
+    &:is([data-size~="lg\\:xl"]) {
+      @include switch-size(var(--p-size-8), 3.75rem, var(--p-size-12));
     }
   }
 
-  &[data-size="xl"] {
-    min-width: var(--p-size-12); // 48px (size/size-xl)
-
-    .p-switch {
-      height: var(--p-size-8);  // 32px (toggle-size-xl)
-      min-width: 3.75rem;        // 60px
+  @media (min-width: 80rem) {
+    &:is([data-size~="xl\\:sm"]) {
+      @include switch-size(var(--p-size-5), 2.25rem, var(--p-size-8));
     }
 
-    .p-switch-indicator-wrapper {
-      width: calc(var(--p-size-8) - var(--p-size-1) * 2);   // 24px
-      height: calc(var(--p-size-8) - var(--p-size-1) * 2);
+    &:is([data-size~="xl\\:md"], [data-size~="xl\\:base"]) {
+      @include switch-size(var(--p-size-6), 2.75rem, var(--p-size-10));
     }
 
-    &[data-state="checked"] .p-switch-indicator-wrapper {
-      transform: translateX(calc(var(--p-direction-sign, 1) * (3.75rem - var(--p-size-8))));
+    &:is([data-size~="xl\\:lg"]) {
+      @include switch-size(var(--p-size-7), 3.25rem, var(--p-size-11));
+    }
+
+    &:is([data-size~="xl\\:xl"]) {
+      @include switch-size(var(--p-size-8), 3.75rem, var(--p-size-12));
     }
   }
 
@@ -334,7 +486,7 @@
   // Checked (ON) State — default md translate (overridden per size above)
   &[data-state="checked"] {
     .p-switch {
-      background-color: var(--p-bg, var(--p-colors-primary-default));
+      background-color: var(--p-bg);
     }
 
     .p-switch-indicator-wrapper {
@@ -342,18 +494,29 @@
     }
   }
 
-  // Disabled State
-  &[data-disabled="true"],
-  &[data-state="disabled"] {
+  // Disabled State (OFF)
+  &:is([data-disabled="true"], [data-state="disabled"]) {
     cursor: not-allowed;
 
     .p-switch {
       cursor: not-allowed;
-      background-color: var(--p-bg-disabled, var(--p-bg, var(--p-colors-disabled-muted)));
+      background-color: var(--p-bg);
     }
 
     .p-switch-indicator {
-      background-color: var(--p-toggle-indicator-color, var(--p-colors-disabled-subtle));
+      background-color: var(--p-toggle-indicator-color);
+      box-shadow: none;
+    }
+  }
+
+  // Disabled + Checked (ON) State
+  &:is([data-disabled="true"][data-state="checked"], [data-state="disabled"][data-state="checked"]) {
+    .p-switch {
+      background-color: var(--p-bg);
+    }
+
+    .p-switch-indicator {
+      background-color: var(--p-toggle-indicator-color);
       box-shadow: none;
     }
   }

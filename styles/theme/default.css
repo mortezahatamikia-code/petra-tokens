@@ -1,6 +1,8 @@
-/* petra-tokens/styles/theme/light.css */
+/* petra-tokens/styles/theme/default.css */
 @layer petra-theme {
-  :root {
+  :root,
+  *[data-theme="default"],
+  *[data-theme="light"] {
     --p-primary: oklch(0.6 0.15 240);
     --p-secondary: oklch(0.55 0.2 350);
     /* Pink */
