@@ -54,8 +54,25 @@
     }
   }
 
-  .p-input {
+  .p-input,
+  input.p-input,
+  textarea.p-input {
+    padding: 0;
+    padding-block: 0;
+    padding-inline: 0;
+    margin: 0;
+    margin-block: 0;
+    margin-inline: 0;
+    border: none;
+    border-width: 0;
+    border-style: none;
+    outline: none;
     background-color: transparent;
+    background: transparent;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     color: var(--p-label-color, var(--p-colors-surface-on));
     height: max-content;
     flex-grow: 1;
@@ -63,8 +80,6 @@
     font-size: var(--p-font-size);
     font-weight: var(--p-font-weight);
     line-height: var(--p-leading);
-    border: none;
-    outline: none;
 
     &[type="number"]::-webkit-inner-spin-button,
     &[type="number"]::-webkit-outer-spin-button {

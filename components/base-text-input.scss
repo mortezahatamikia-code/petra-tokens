@@ -1,4 +1,25 @@
 // base-text-input.scss
+.p-input,
+input.p-input,
+textarea.p-input {
+  padding: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  border: none;
+  border-width: 0;
+  border-style: none;
+  outline: none;
+  background-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 .p-input[type="number"] {
   -webkit-appearance: textfield !important;
   -moz-appearance: textfield !important;
@@ -10,4 +31,5 @@
   -webkit-appearance: none !important;
   opacity: 0 !important;
   pointer-events: none !important;
+  margin: 0 !important;
 }
